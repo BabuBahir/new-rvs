@@ -136,7 +136,7 @@ footer i { vertical-align:-8px; }
 }
 
 .sign-up-form-bg button:hover, .sign-up-form-bg button:focus, .sign-up-form-bg button:active {
-    color:#fff; border-color:#5db016; outline:none; box-shadow:none;
+    color:#fff; border-color:#5db016; outline:none; 
 }
 
 .ad-space-bg {
@@ -449,15 +449,15 @@ footer i { vertical-align:-8px; }
   position: relative;
     color: #fff;
     text-decoration: none;
-    background-color: #f3810f;
-    border: 1px solid #f3810f;
+    background-color: #f3810f !important;
+    border: 1px solid #f3810f !important;
     font-weight: 700;
     font-size:17px;
     display: block;
     padding: 9px 4px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 6px !important;
+    -moz-border-radius: 6px !important;
+    border-radius: 6px !important;
     -webkit-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
     -moz-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
     box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
@@ -610,7 +610,6 @@ footer i { vertical-align:-8px; }
 }
 
 .progress-bar div span {
-  color: black;        /*11-january-2017  rohitas*/
   position: absolute;
   font-family: Arial;
   font-size: 25px;
@@ -865,7 +864,52 @@ toggle {  0% {
    margin:25px auto; 
 }
 
+.text-warning {
+    color: #f0ad4e!important;
+}
 
+.text-info {
+    color: #5bc0de!important;
+}
+
+.text-success {
+    color: #5cb85c!important;
+}
+
+.text-danger {
+    color: #d9534f!important;
+}
+
+.tooltip.bottom .tooltip-arrow { border-bottom-color:#ccc }
+
+.tooltip-inner { 
+    background:rgba(255,255,255,1) ; border:1px solid #ccc; color:#333; font-size:12px; text-align:left; padding:8px 6px 10px; 
+    font-family: Lato; font-weight:600; max-width: 350px;
+}
+
+.img-in-tooltip  { width:50px; border:1px solid #ccc; display:block; margin: 3px auto 10px;  }
+
+.tooltip-span1 {
+  width:31%; display:inline-block; word-break:break-all; vertical-align:top; margin-bottom:12px;
+}
+
+.tooltip-span2 {
+   width:67%; display:inline-block; word-break:break-all; margin-bottom:12px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover { background:transparent; }
+
+.navbar-nav>li>.dropdown-menu { top:65px;}
+
+.question-block { display:block; color:#333; text-decoration:none; font:600 16px Lato; cursor:pointer }
+
+.question-block:hover { color:#333; text-decoration:none; cursor:pointer }
+
+.question-block:focus { color:#333; outline:none; text-decoration:none; cursor:pointer }
+
+.panel-group .survey-questn-accordion  { margin-bottom:10px; }
+
+.survey-questn-accordion>.panel-heading { background:#fff; }
 
 /**** media styles starts here ****/
 
@@ -1011,6 +1055,7 @@ toggle {  0% {
  }
 
 }
+
 
 /*added by -rohitas */
 .progress-bar{
