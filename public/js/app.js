@@ -20,14 +20,15 @@ $scope.call_slider= function(msg){
 		
 	//on click get data from json	
 	$http.get('json/data.json').success(function(data) {
-	 $scope.data = data;
+	 $scope.data = data;  
 	 angular.forEach($scope.data,function(value){
 		 if((value.Member == $scope.counter)&&(value.type =='photo')){ 		      
-			 var image = value['Prefix']+'/'+value['img'] ;				 
+			 var image = value['img'] ;				 
 			 fruits.push({image});				 
 			 var type = value['type'];
 			 var url = value['url'];
 			 var solidItem = [image ,type,url];
+			 $scope.Desc = value['Desc'];
 			 reserveFruit.push(solidItem);			 
 		 };
 		if((value.Member == $scope.counter)&&(value.type =='video')){ 	 			
@@ -36,7 +37,7 @@ $scope.call_slider= function(msg){
 		};
 	});	
 	$scope.slides=fruits;  
-        $scope.reserveData = reserveFruit;  
+    $scope.reserveData = reserveFruit;  
 	$scope.videoList =videoList;  	
   });	   
 };
@@ -51,11 +52,10 @@ $scope.img_click= function(msg){
 
 $scope.video_click = function(videomsg){
 	$scope.Video_click_src=$sce.trustAsResourceUrl(videomsg);
-	$scope.Video_still_click = true;
-	console.log(videomsg);
-        $scope.postImgClick =false;
-        $scope.preClick =true;   //hide slider and image clicked divs
-        $scope.postVideoClick =true;
+	$scope.Video_still_click = true;	 
+    $scope.postImgClick =false;
+    $scope.preClick =true;   //hide slider and image clicked divs
+    $scope.postVideoClick =true;
 };
 
 $scope.customFilter=function(item){	     

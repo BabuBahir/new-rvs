@@ -1,6 +1,7 @@
 var cloudinary = require('cloudinary'); 
 var buildingType = require("../models/buildingType.js");
 var fs = require('fs');
+var dataArr = [];
 
 cloudinary.config({
     cloud_name: 'dcu5hz0re',
@@ -12,7 +13,7 @@ var dummyData = "";var imgurlArray=[];
 
 module.exports = {
   index: function (req, res) {     
-      buildingType.find({}, function(err, data){    read_from_file();     
+      buildingType.find({}, function(err, data){   write_to_file(data);     
         res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl});                     
       });        
   } 
@@ -20,17 +21,28 @@ module.exports = {
 
 
 
-function write_to_file(data){
-	data = JSON.stringify(data);	
-	var stream = fs.createWriteStream("my_file.txt");
-	stream.once('open', function(fd) {
-	stream.write(data);	 
-	stream.end();
-	});
-	console.log('writen to file');
+function write_to_file(data){	
+  dataArr= [];   //intializing array to zero 
+  newdata = modify(data);
+  fs.writeFileSync('public/json/data.json',JSON.stringify(newdata));   
 };
 
-function read_from_file(){	 
-var obj = JSON.parse(fs.readFileSync('my_file.json', 'utf8'));
-console.log(obj.buildingImgUrl);
+function modify(data){	 
+  for(a=0;  a<4 ; a++){   //looping 4 building types
+    for(i=0;i<data[a].buildingImgUrl.length;i++){       //for image
+       var singleObj = {Member:data[a]._id,Desc: data[a].description.English ,Prefix:"",type:"photo",img:data[a].buildingImgUrl[i].imgUrl} ;
+        dataArr.push(singleObj);
+    }; 
+
+    for(i=0;i<data[a].buildingVideoUrl.length;i++){
+      var singleObj = {Member:data[a]._id,Prefix:"",type:"video",img:data[a].buildingVideoUrl[i].videoUrl ,url:make_video_url(data[a].buildingVideoUrl[i].videoUrl)}; 
+       dataArr.push(singleObj);
+    };  
+};
+return dataArr;
+};
+
+function make_video_url(str){
+  str= str.replace("jpg","mp4");
+  return str;
 };
