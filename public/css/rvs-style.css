@@ -473,8 +473,8 @@ footer i { vertical-align:-8px; }
 }
 
 .sky-blue-btn  {
-   background-color: #6ba9ff;
-    border: 1px solid #6ba9ff;
+   background-color: #6ba9ff !important;
+    border: 1px solid #6ba9ff !important;
    -webkit-box-shadow: 0px 8px 0px rgba(60,129,230,.9), 0px 9px 20px rgba(0,0,0,.8);
     -moz-box-shadow: 0px 8px 0px rgba(60,129,230,.9), 0px 9px 20px rgba(0,0,0,.8);
     box-shadow: 0px 8px 0px rgba(60,129,230,.9), 0px 9px 20px rgba(0,0,0,.8);
