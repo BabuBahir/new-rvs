@@ -1,5 +1,6 @@
 var cloudinary = require('cloudinary'); 
 var buildingType = require("../models/buildingType.js");
+var fs = require('fs');
 
 cloudinary.config({
     cloud_name: 'dcu5hz0re',
@@ -11,7 +12,7 @@ var dummyData = "";var imgurlArray=[];
 
 module.exports = {
   index: function (req, res) {     
-      buildingType.find({}, function(err, data){  write_to_file(data);     console.log('14');       
+      buildingType.find({}, function(err, data){    read_from_file();     
         res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl});                     
       });        
   } 
@@ -20,12 +21,16 @@ module.exports = {
 
 
 function write_to_file(data){
-	data = JSON.stringify(data);
-	var fs = require('fs');
+	data = JSON.stringify(data);	
 	var stream = fs.createWriteStream("my_file.txt");
 	stream.once('open', function(fd) {
 	stream.write(data);	 
 	stream.end();
 	});
 	console.log('writen to file');
+};
+
+function read_from_file(){	 
+var obj = JSON.parse(fs.readFileSync('my_file.json', 'utf8'));
+console.log(obj.buildingImgUrl);
 };
