@@ -88,10 +88,10 @@ ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 </div>
 
 <div ng-show="vidDiv"  class="container slider">
-    <iframe ng-repeat="video in videoList" height="250" width="590" class="slide slide-animation nonDraggableImage" 
-    ng-swipe-right="nextVideo()" ng-swipe-left="prevVideo()"
+    <video ng-repeat="video in videoList" height="200" width="590" class="slide slide-animation nonDraggableImage" controls poster="{{video.img}}" ng-swipe-right="nextVideo()" ng-swipe-left="prevVideo()"
     ng-hide="!isCurrentvideoIndex($index)" ng-src="{{video.url}}">
-    </iframe>   
+         <source src="{{video.url}}" type="video/mp4">     
+    </video>    
  
 <a class="arrow prev" ng-click="nextVideo()"></a>
 <a class="arrow next" ng-click="prevVideo()"></a> 

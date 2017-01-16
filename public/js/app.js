@@ -33,7 +33,8 @@ $scope.call_slider= function(msg){
 		 };
 		if((value.Member == $scope.counter)&&(value.type =='video')){ 	 			
 			var url = $sce.trustAsResourceUrl(value['url']);
-			videoList.push({url});
+			var img = value['img'];
+			videoList.push({url:url,img:img});			 
 		};
 	});	
 	$scope.slides=fruits;  

@@ -6,7 +6,7 @@
 
  mongoose.Promise = global.Promise;
  mongoose.connect('mongodb://test:test@ds157248.mlab.com:57248/rvs');
-  
+    
  mongoose.connection.once('connected', function() {
      console.log("Connected to MongoLab");   
  });
