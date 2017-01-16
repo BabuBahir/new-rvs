@@ -49,7 +49,7 @@ function make_video_url(str){
 };
 
 function makeImageOfVideoUrl(str){
-  str = str.replace("https","http");
+  str = str.replace("http","https");
   return str;
 };
 
