@@ -44,6 +44,7 @@ return dataArr;
 
 function make_video_url(str){
   str= str.replace("jpg","mp4");
+  str = str.replace("http","https");
   return str;
 };
 
