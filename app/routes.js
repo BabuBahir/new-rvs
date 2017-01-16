@@ -1,6 +1,7 @@
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 var controller = require('./controller');
+var login =  require('./login');
 
 module.exports = function(app) {
 

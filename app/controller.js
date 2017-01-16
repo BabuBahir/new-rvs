@@ -30,12 +30,12 @@ function write_to_file(data){
 function modify(data){	 
   for(a=0;  a<4 ; a++){   //looping 4 building types
     for(i=0;i<data[a].buildingImgUrl.length;i++){       //for image
-       var singleObj = {Member:data[a]._id,Desc: data[a].description.English ,Prefix:"",type:"photo",img:data[a].buildingImgUrl[i].imgUrl} ;
+       var singleObj = {Member:data[a]._id,Desc: data[a].description.English ,Prefix:"",type:"photo",img:makeImageHttps(data[a].buildingImgUrl[i].imgUrl)} ;
         dataArr.push(singleObj);
     }; 
 
     for(i=0;i<data[a].buildingVideoUrl.length;i++){
-      var singleObj = {Member:data[a]._id,Prefix:"",type:"video",img:data[a].buildingVideoUrl[i].videoUrl ,url:make_video_url(data[a].buildingVideoUrl[i].videoUrl)}; 
+      var singleObj = {Member:data[a]._id,Prefix:"",type:"video",img:makeImageOfVideoUrl(data[a].buildingVideoUrl[i].videoUrl),url:make_video_url(data[a].buildingVideoUrl[i].videoUrl)}; 
        dataArr.push(singleObj);
     };  
 };
@@ -44,5 +44,15 @@ return dataArr;
 
 function make_video_url(str){
   str= str.replace("jpg","mp4");
+  return str;
+};
+
+function makeImageOfVideoUrl(str){
+  str = str.replace("https","http");
+  return str;
+};
+
+function makeImageHttps(str){
+  str = str.replace("http","https");
   return str;
 };
