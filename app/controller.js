@@ -12,9 +12,24 @@ cloudinary.config({
 var dummyData = "";var imgurlArray=[];
 
 module.exports = {
-  index: function (req, res) {     
-      buildingType.find({}, function(err, data){   write_to_file(data);     
-        res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl});                     
+  index: function (req, res) {    
+      buildingType.find({}, function(err, data){   write_to_file(data);               
+         var Language =  req.session["languageSelected"];
+
+         var MasonaryObj = [];
+         data.forEach(function(o){if (o._id == 'Masonry') MasonaryObj.push(o);} );
+
+         var RccObj = [] ;
+         data.forEach(function(o){if (o._id == 'Rcc') RccObj.push(o);} );
+
+         var SteelObj = [] ;
+         data.forEach(function(o){if (o._id == 'Steel') SteelObj.push(o);} );
+
+         var CompositeObj = [] ;
+         data.forEach(function(o){if (o._id == 'Rcc') CompositeObj.push(o);} );
+
+
+        res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl , Language : Language , MasonaryObj : MasonaryObj , RccObj : RccObj , SteelObj : SteelObj , CompositeObj : CompositeObj });                     
       });        
   } 
 };

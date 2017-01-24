@@ -37,28 +37,28 @@
                     
                     <a class="thumbnail">
                         <img src="./img/image-1.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
-                        <div class="desc">Masonry
+                        <div class="desc"> <%=MasonaryObj[0].name[Language] %> 
                             <button ng-click="call_slider('Masonry')"  type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-2.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
-                        <div class="desc">RCC
+                        <div class="desc"> <%=RccObj[0].name[Language] %> 
                             <button ng-click="call_slider('Rcc')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-3.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
-                        <div class="desc">Steel
+                        <div class="desc"> <%=SteelObj[0].name[Language] %> 
                             <button ng-click="call_slider('Steel')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-4.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..."/>
-                        <div class="desc">Composite
+                        <div class="desc"> <%=CompositeObj[0].name[Language] %> 
                             <button ng-click="call_slider('Composite')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
@@ -116,12 +116,14 @@ ng-src="{{Img_click_src}}">
 <a class="arrow next" ng-click="prevSlide()"></a> 
 </div>
  
-    
-    
+     
     <!-- description part -->
     <div class="col-sm-12">
         <label class="label-description">Description</label>
-        <p class="detailed-desc">{{Desc}}</p>                         
+        <p ng-if="counter=='Masonry'" class="detailed-desc">  <%=MasonaryObj[0].description[Language] %>  </p>  
+        <p ng-if="counter=='Rcc'" class="detailed-desc"> <%=RccObj[0].description[Language] %> </p>   
+        <p ng-if="counter=='Steel'" class="detailed-desc"> <%=SteelObj[0].description[Language] %> </p>   
+        <p ng-if="counter=='Composite'" class="detailed-desc"> <%=CompositeObj[0].description[Language] %></p>                         
     </div>
     <!-- description part -->
                     
