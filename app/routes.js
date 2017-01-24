@@ -2,6 +2,8 @@ var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 var controller = require('./controller');
 var login =  require('./login');
+var questionController = require('./questionController');
+var sessionController = require('./sessionController');
 
 module.exports = function(app) {
 
@@ -13,26 +15,27 @@ module.exports = function(app) {
         res.render('2)select_Language.html');
     });
 
-    app.get('/3', function(req, res) {
+    app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
+
+    app.get('/SetBuildingSession/:BuildingName' , sessionController.CreateBuildingSessions);
+
+    app.get('/3', function(req, res) { 
         res.render('3)choose_Assessment.html');
     });
 
-    app.get('/4', function(req, res) {
+    app.get('/4', function(req, res) {  
         res.render('4)new_Survey_Or_survey_History.html');
     });
 
     app.get('/history', function(req, res) {
         res.render('5)survey_History.html');
-    });
+    }); 
   
-    app.get('/addpicture', function(req, res) {
+    app.get('/addpicture', function(req, res) {  
         res.render('add_Picture.html');
     });
 
-    app.get('/showform', function(req, res) {
-        res.render('general_Info-Form.html');
-    });
- 
+    app.get('/showform',questionController.index);
 
     app.get('/newsurvey',controller.index);
 
@@ -43,8 +46,7 @@ module.exports = function(app) {
     app.get('/seismic_Assessment',function(req,res){
         res.render('seismic_Assessment.html');
     });
-    //---some post 
-      
+    //---some post         
 
     app.post('/login', function(req, res) {
         sess = req.session;

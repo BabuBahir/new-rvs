@@ -144,6 +144,20 @@ $scope.nextVideo = function () {
 	}
 };
 
+	$scope.moveAndSave = function(){
+		console.log($scope.counter);
+		$http({
+			method : "GET",
+			url : "/SetBuildingSession/"+$scope.counter,
+			async : false,
+		}).then(function mySucces(response){ console.log(response.data);
+			 location.href = '/addpicture';
+		},function	myError(response){
+
+		}); 		 
+    };
+
+
     })
     .animation('.slide-animation', function () {
         return {
