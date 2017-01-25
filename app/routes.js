@@ -48,6 +48,9 @@ module.exports = function(app) {
     });
     //---some post         
 
+    app.post('/UserLogin' , login.index);
+
+
     app.post('/login', function(req, res) {
         sess = req.session;
         sess.email = req.body.email;
