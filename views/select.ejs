@@ -38,28 +38,28 @@
                     <a class="thumbnail">
                         <img src="./img/image-1.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
                         <div class="desc"> <%=MasonaryObj[0].name[Language] %> 
-                            <button ng-click="call_slider('Masonry')"  type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
+                            <button ng-click="call_slider('Masonry')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-2.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
                         <div class="desc"> <%=RccObj[0].name[Language] %> 
-                            <button ng-click="call_slider('Rcc')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
+                            <button ng-click="call_slider('Rcc')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-3.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
                         <div class="desc"> <%=SteelObj[0].name[Language] %> 
-                            <button ng-click="call_slider('Steel')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
+                            <button ng-click="call_slider('Steel')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
                     <a class="thumbnail">
                         <img src="./img/image-4.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..."/>
                         <div class="desc"> <%=CompositeObj[0].name[Language] %> 
-                            <button ng-click="call_slider('Composite')" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
+                            <button ng-click="call_slider('Composite')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more">Read More &nbsp; <i class="fa fa-caret-right"></i></button>
                         </div>  <!-- desc -->
                     </a>
                     
@@ -83,8 +83,8 @@
 ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
                     
-<a class="arrow prev" ng-click="nextSlide()"></a>
-<a class="arrow next" ng-click="prevSlide()"></a> 
+<a class="arrow prev" onclick="StopVIdeo()" ng-click="nextSlide()"></a>
+<a class="arrow next" onclick="StopVIdeo()" ng-click="prevSlide()"></a> 
 </div>
 
 <div ng-show="vidDiv"  class="container slider">
@@ -93,27 +93,27 @@ ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
          <source src="{{video.url}}" type="video/mp4">     
     </video>    
  
-<a class="arrow prev" ng-click="nextVideo()"></a>
-<a class="arrow next" ng-click="prevVideo()"></a> 
+<a class="arrow prev" onclick="StopVIdeo()" ng-click="nextVideo()"></a>
+<a class="arrow next" onclick="StopVIdeo()" ng-click="prevVideo()"></a> 
 </div>
 </div>  
 
 <div ng-show="postImgClick">
 <div  class="container slider">
-<img  height="250" width="590" class="slide slide-animation nonDraggableImage"
+<img  onclick="StopVIdeo()" height="250" width="590" class="slide slide-animation nonDraggableImage"
 ng-src="{{Img_click_src}}">
                     
-<a class="arrow prev" ng-click="nextSlide()"></a>
-<a class="arrow next" ng-click="prevSlide()"></a> 
+<a class="arrow prev" onclick="StopVIdeo()" ng-click="nextSlide()"></a>
+<a class="arrow next" onclick="StopVIdeo()" ng-click="prevSlide()"></a> 
 </div>
 </div>
 
 <div ng-show="postVideoClick" class="container slider">
-<iframe  height="250" width="590" class="slide slide-animation nonDraggableImage" 
-     ng-src="{{Video_click_src}}">
-    </iframe>                   
-<a class="arrow prev" ng-click="nextSlide()"></a>
-<a class="arrow next" ng-click="prevSlide()"></a> 
+<video  height="200" width="590" class="slide slide-animation nonDraggableImage" controls
+     ng-src="{{Video_click_src}}" poster="{{VideoPosterSrc}}">     
+</video>                   
+<a class="arrow prev" onclick="StopVIdeo()" ng-click="nextSlide()"></a>
+<a class="arrow next" onclick="StopVIdeo()" ng-click="prevSlide()"></a> 
 </div>
  
      
@@ -136,7 +136,7 @@ ng-src="{{Img_click_src}}">
                 <div ng-repeat="x in data|filter:customFilter " class="col-sm-6" style="padding:0 5px;"> 
                     <div class="side-bar-imgs-div">
                         <a>
-                            <img ng-click="img_click('{{x['img']}}')" src="{{x['img']}}" class="img-responsive side-bar-img">
+                            <img onclick="StopVIdeo()" ng-click="img_click('{{x['img']}}')" src="{{x['img']}}" class="img-responsive side-bar-img">
                         </a>
                     </div>  <!-- side-bar-imgs-div -->      
                 </div>  <!-- col-sm-6 -->                            
@@ -145,7 +145,7 @@ ng-src="{{Img_click_src}}">
                 <div ng-repeat="x in data | filter:VideoFilter" class="col-sm-6" style="padding:0 5px;">
                 <div class="side-bar-imgs-div">
                  <a href="">
-                    <img ng-click="video_click('{{x['url']}}')" src="{{x['img']}}" frameborder="0" allowfullscreen width="100%" height="100px"> 
+                    <img onclick="StopVIdeo()" ng-click="video_click('{{x['url']}}')" src="{{x['img']}}" frameborder="0" allowfullscreen width="100%" height="100px"> 
                 </a>
                 </div>
                 </div>                                              
@@ -200,6 +200,12 @@ ng-src="{{Img_click_src}}">
                 });
             
             });
+        </script>
+        <script type="text/javascript">
+            function StopVIdeo(){
+                console.log(206);
+                $("video").each(function () { this.pause() });
+            };
         </script>
         <script src="js/app.js"></script>
     

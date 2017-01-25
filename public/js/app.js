@@ -3,6 +3,9 @@ angular.module('website', ['ngAnimate', 'ngTouch'])
  
 //function to controller with params
 $scope.call_slider= function(msg){  
+	
+		document.getElementsByTagName("video")[0].pause();
+
 	    $scope.currentIndex =0; //.. initiazlizing to zero 
 		$scope.currentVideoIndex =0;//
         var fruits = [];
@@ -15,7 +18,7 @@ $scope.call_slider= function(msg){
 		$scope.img_still_click = false;
         $scope.postImgClick =false;
         $scope.preClick =false;
-		$scope.vidDiv = false;  
+		$scope.vidDiv = false;   
         $scope.postVideoClick =false; // hide video div on every click on read more
 		
 	//on click get data from json	
@@ -51,8 +54,9 @@ $scope.img_click= function(msg){
   $scope.postVideoClick =false;
 };
 
-$scope.video_click = function(videomsg){
+$scope.video_click = function(videomsg){ console.log(videomsg);
 	$scope.Video_click_src=$sce.trustAsResourceUrl(videomsg);
+	$scope.VideoPosterSrc= videomsg.replace("mp4","jpg");
 	$scope.Video_still_click = true;	 
     $scope.postImgClick =false;
     $scope.preClick =true;   //hide slider and image clicked divs
