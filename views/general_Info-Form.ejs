@@ -1,5 +1,5 @@
 <!DOCTYPE html>  
-<html lang=en  xmlns="http://www.w3.org/1999/xhtml">
+<html lang=en ng-app="SurveyApp" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>General Info Form</title>
          <% include ./partials/head %>
@@ -13,7 +13,7 @@
         </style>
         <!--CSS GoogleAPi -->
     </head>
-    <body>
+    <body ng-controller="MainCtrl">    
     <!-- GoogleAPi -->  
     <script type="text/javascript" 
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC-99fTUEtRtyyfTO4-W1UL7ftpIgMrT9I">
@@ -71,7 +71,7 @@
                             <img src="./img/ad2.png" class="img-responsive ad-left">
                         </div>
                     </div>  <!-- col-sm-3 col-md-3 col-lg-2 -->
-                    
+ 
                     <div class="col-sm-6 col-md-6 col-lg-8">    
                      <!--progress bar wrapper-->        
                       <div class="text-center">               
@@ -160,7 +160,7 @@
                                             </b>
                                         </label>
                                         <% if((rawData[i].questionType)=='1') {%>
-                                        <select class="form-control" name="ownershipType">
+                                        <select class="form-control" ng-model="SelectM<%=i%>" name="SelectVal">
                                                 <option>Select</option>
                                             <% for(var j=0 ; j < rawData[i].question.options.length;j++ ){ %> 
                                                 <option><%=rawData[i].question.options[j][Language] %></option>
@@ -170,14 +170,16 @@
                                             <div class="clearfix"> </div>
                                             <% for(var j=0 ; j < rawData[i].question.options.length;j++ ){ %>  
                                                 <div class="checkbox-inline">
-                                                <label style="margin-top: 12px"><input style="margin-top: -10px" type="checkbox" name="vehicle" value="Bike">
+                                                <label style="margin-top: 12px"><input style="margin-top: -10px" type="checkbox" 
+                                                name="checkboxList" ng-model="checkBoxM<%=i%>"
+                                                value="<%=rawData[i].question.options[j].English %>">
                                                     <%=rawData[i].question.options[j][Language] %>
                                                 </label>
                                                 </div> &nbsp;                
                                             <%}%>                             
                                         <%} else {%>
                                             <div >
-                                                <input class="form-control" type="text" name="">                                   
+                                                <input class="form-control" ng-model="TextTypeM<%=i%>" type="text" name="TextType">                                   
                                             </div>
                                         <%}%>
                                     </div>
@@ -186,11 +188,11 @@
                             </div>  <!-- row -->
                         </form>
                         
-                        <a  href="/general_techincal" class="orange-btn" style="width:190px;">Save & Continue &nbsp; &nbsp;<i class="fa fa-arrow-right"></i></a>
+                        <button ng-click="updatePath('<%=rawData.length%>')"  class="orange-btn" style="width:190px;">Save & Continue &nbsp; &nbsp;<i class="fa fa-arrow-right"></i></button>
                         <h6 class="text-center"><b><i>Continue to General Technical Information...</i></b></h6>
                     
                     </div> <!-- col-sm-6 -->
-                    
+ 
                   <!-- right-side ad div -->
                     <div class="col-sm-3 col-md-3 col-lg-2">
                         <div class="ad-space-right">
@@ -224,5 +226,10 @@
            $(".progress-bar").loading();
         </script>
         
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>         
+        <script src="js/SurveyScript.js"></script>
+
+
     </body>
 </html>

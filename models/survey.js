@@ -2,33 +2,34 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var SurveySchema = new Schema({
+  _id : String,
   userId:  String,
   datetime: String,
   status: String,
   QuestionsAnswered : [
   		{
   			QuestionText : String,
-  			OptionSelected : String
-  			QuestionID : String
+  			OptionSelected : String ,
+  			_id : String
   		}
   ],
   building_type : [
 				  	 {
-				  	 	[{ type: Schema.Types.ObjectId, ref: 'BuildingType' }]
+				  	 	_id :String
 				  	 }
 				  ],
-  survey_img : { [ url :String ] },
+  survey_img : [ { imgUrl :String  , _id : String } ],
   generalTechnicalInfo : [ 
   	{
       
   	}
-  ]
+  ] ,
   addressInfo : {
   	 city : String,
   	 LocalAuthority : String,
   	 Latitude : String,
   	 EarthquakeZone : String,
-  	 SoilGrade
+  	 SoilGrade  : String 
   }
 });
 

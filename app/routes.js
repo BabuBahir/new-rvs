@@ -14,7 +14,7 @@ module.exports = function(app) {
     app.get('/2', function(req, res) {
         res.render('2)select_Language.html');
     });
-
+ 
     app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
 
     app.get('/SetBuildingSession/:BuildingName' , sessionController.CreateBuildingSessions);
@@ -22,11 +22,11 @@ module.exports = function(app) {
     app.get('/3', function(req, res) { 
         res.render('3)choose_Assessment.html');
     });
-
+ 
     app.get('/4', function(req, res) {  
         res.render('4)new_Survey_Or_survey_History.html');
     });
-
+ 
     app.get('/history', function(req, res) {
         res.render('5)survey_History.html');
     }); 
@@ -46,10 +46,15 @@ module.exports = function(app) {
     app.get('/seismic_Assessment',function(req,res){
         res.render('seismic_Assessment.html');
     });
-    //---some post         
+    //---some post   ------------------------------------ POST POST POST pOST 
+    
+    app.post('/AjaxInsertGeneralInfo', questionController.AjaxInsertGeneralInfo);
+
+    app.post('/SaveGeneralInfo' , questionController.SaveGeneralInfo);
+
+    app.post('/UploadImage' ,multipartMiddleware , controller.UploadImage);
 
     app.post('/UserLogin' , login.index);
-
 
     app.post('/login', function(req, res) {
         sess = req.session;

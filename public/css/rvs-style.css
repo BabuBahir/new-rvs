@@ -416,7 +416,7 @@ footer i { vertical-align:-8px; }
 .general-form-bg  input, .general-form-bg  select, .building-type-config-form input, .building-type-config-form textarea, 
 .survey-question-wrap input, .need-assist-desc textarea {
   border-radius:0; border-color:#c9c9c9; box-shadow:none;
-  height:39px; color:#000; font-size:15px;
+  height:39px; color:#b0b0b0; font-size:15px;
 }
 
 .general-form-bg  select { color:#333; font-weight:400; }

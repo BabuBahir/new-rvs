@@ -1,7 +1,9 @@
 var cloudinary = require('cloudinary'); 
 var buildingType = require("../models/buildingType.js");
+var survey = require("../models/survey.js");
 var fs = require('fs');
 var dataArr = [];
+var pseudoID = Date.now();
 
 cloudinary.config({
     cloud_name: 'dcu5hz0re',
@@ -31,7 +33,32 @@ module.exports = {
 
         res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl , Language : Language , MasonaryObj : MasonaryObj , RccObj : RccObj , SteelObj : SteelObj , CompositeObj : CompositeObj });                     
       });        
-  } 
+  },
+
+
+  UploadImage : function(req,res) {
+    if(req.files.first_image.type=="image/jpeg") {   // check if image is uploaded... if yes upload to cloudinary..else redirect        
+           cloudinary.v2.uploader.upload(req.files.first_image.path,
+                { width: 300, height: 300, crop: "limit", tags: req.body.tags, moderation:'manual' },
+                function(err, result) {        // call back after uploading image to cloudinary                     
+                    
+                 var newSurvey = new survey({_id : pseudoID });
+                 newSurvey.survey_img.push({_id : result.public_id , imgUrl : result.url});
+                 
+                 newSurvey.save(function(err){
+                      if(err ){
+                          return err;
+                      }
+                      else {
+                         sess = req.session;
+                         sess.LastSurveyID = newSurvey._id;                          
+                         res.redirect('/showform');
+                      };
+                 });
+            });
+        };
+    }
+
 };
 
 

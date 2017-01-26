@@ -31,6 +31,7 @@
                         <img src="./img/ad2.png" class="img-responsive ad-left">
                     </div>
                 </div>
+        <form action="/UploadImage" method="post" enctype="multipart/form-data" >
                 <!-- col-sm-3 col-md-3 col-lg-2 -->
                 <div class="col-sm-6 col-md-6 col-lg-8">
                     <div class="upload-bic-bg">
@@ -40,7 +41,7 @@
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
                             <label class="btn btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                                <input id="my-file-selector" name="first_image" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic  -->
@@ -123,12 +124,14 @@
                 </div>
                 <!-- col-sm-4  -->
                 <div class="col-sm-12 text-center">
-                    <a href="/showform" class="orange-btn" style="width: 190px;">Save & Continue &nbsp; &nbsp;&nbsp;&nbsp;
-                    <i class="fa fa-arrow-right"></i>
-                    </a>
+                    <button onclick="return UploadThenMove()" type="submit" class="orange-btn" 
+                        style="width: 190px;"> Save & Continue &nbsp; &nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
                     <h6><b><i>Continue to Add Building Information...</i></b></h6>
                 </div>
             </div>
+        </form>
             <!-- row --->
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
@@ -149,6 +152,13 @@
     <!--- footer  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function UploadThenMove() {
+            // alert('Upload Image First');
+            return true;
+        }
+    </script>>
 </body>
 
 </html>
