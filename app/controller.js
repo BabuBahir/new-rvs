@@ -36,13 +36,18 @@ module.exports = {
   },
 
 
-  UploadImage : function(req,res) {
+  UploadImage : function(req,res) {  
     if(req.files.first_image.type=="image/jpeg") {   // check if image is uploaded... if yes upload to cloudinary..else redirect        
            cloudinary.v2.uploader.upload(req.files.first_image.path,
                 { width: 300, height: 300, crop: "limit", tags: req.body.tags, moderation:'manual' },
                 function(err, result) {        // call back after uploading image to cloudinary                     
                     
                  var newSurvey = new survey({_id : pseudoID });
+                 var sess = req.session; 
+                 var buildingTypeStr = sess.BuildingName;   // get Building Type
+
+                 newSurvey.building_type.push({_id : buildingTypeStr});
+
                  newSurvey.survey_img.push({_id : result.public_id , imgUrl : result.url});
                  
                  newSurvey.save(function(err){
@@ -56,6 +61,8 @@ module.exports = {
                       };
                  });
             });
+        }else {
+           console.log('No files');
         };
     }
 

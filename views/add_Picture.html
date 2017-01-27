@@ -40,8 +40,8 @@
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" name="first_image" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn btn-is-green" for="first_image">
+                                <input id="first_image" name="first_image" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic  -->
@@ -155,8 +155,11 @@
 
     <script type="text/javascript">
         function UploadThenMove() {
-            // alert('Upload Image First');
-            return true;
+            var x = document.getElementById("first_image"); 
+            if(x.files.length == 0){
+                alert('Upload At least One Main Image');
+                return false;
+            };           
         }
     </script>>
 </body>
