@@ -3,9 +3,9 @@ var  survey = require("../models/survey.js");
 
 module.exports = { 
   index: function (req, res) {   
-  	var selectedBuilding =  'Rcc'; //req.session.BuildingName;  
+  	var selectedBuilding =  req.session.BuildingName;  
       question.find({'buildingsAssociated._id': selectedBuilding}, function(err, data){  
-        var Language = 'English'; //req.session.languageSelected ;                          
+        var Language =  req.session.languageSelected ;                          
         res.render('general_Info-Form',{ rawData: data , Language : Language});
       });        
   },
