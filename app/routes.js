@@ -7,6 +7,10 @@ var sessionController = require('./sessionController');
 
 module.exports = function(app) {
 
+    app.get('/index' , function (req,res) {
+        res.render('index.html');
+    });
+
     app.get('/', function(req, res) {
         res.render('1)sign_In.html');
     });
@@ -46,6 +50,11 @@ module.exports = function(app) {
     app.get('/seismic_Assessment',function(req,res){
         res.render('seismic_Assessment.html');
     });
+
+
+    app.get('/getPopModal' , questionController.getPopModal);
+
+    
     //---some post   ------------------------------------ POST POST POST pOST 
     
     app.post('/AjaxInsertGeneralInfo', questionController.AjaxInsertGeneralInfo);

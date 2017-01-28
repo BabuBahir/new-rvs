@@ -1,29 +1,160 @@
-<html>
-<head>
-<title>Session Management in NodeJS using Express4.2</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-<script>
-$(document).ready(function(){
-	var email,pass;
-	$("#submit").click(function(){
-		email=$("#email").val();
-		pass=$("#password").val();
-		/*
-		* Perform some validation here.
-		*/
-		$.post("http://localhost:3000/login",{email:email,pass:pass},function(data){		
-			if(data==='done')			
-			{
-				window.location.href="/admin";
-			}
-		});
-	});
-});
-</script>
-</head>
-<body>
-<input type="text" size="40" placeholder="Type your email" id="email"><br />
-<input type="password" size="40" placeholder="Type your password" id="password"><br />
-<input type="button" value="Submit" id="submit">
-</body>
-</html>
+ <div class="container-fluid sign-up-bg_img">
+		  
+	        <div class="col-sm-10 col-sm-offset-1">
+			    
+				<div class="row">
+				    <div class="col-sm-6 col-sm-offset-3">
+					  <!-- top-side ad div -->
+				        <div class="ad-space-top">
+			                <img src="./img/ad1.png" class="img-responsive ad-top" style="margin-bottom:10px">
+						</div>
+				    </div> <!-- col-sm-6 -->
+				</div> <!-- row -->
+				
+				<h3 class="select-building-type">Seismic Assessment</h3>
+				
+				<div class="row" style="margin:0; padding-bottom:20px; background:#fff;">
+				    
+				  <!-- left-side ad div -->
+		            <div class="col-sm-3 col-md-3 col-lg-2">
+			            <div class="ad-space-left">
+			                <img src="./img/ad2.png" class="img-responsive ad-left">
+				        </div>
+						<br/>
+						<div class="ad-space-left">
+			                <img src="./img/ad2.png" class="img-responsive ad-left">
+				        </div>
+			        </div>  <!-- col-sm-3 col-md-3 col-lg-2 -->
+					
+					<div class="col-sm-6 col-md-6 col-lg-8">	
+					    
+					<!--progress bar wrapper-->		
+					  <div class="text-center">				  
+						 <div class="progress-bar progress-bar-custom"  data-percent="72" data-color="#ccc,#DC143C">
+						 	<span class="progress-bar-text">No Animation</span>
+						 </div>	 &nbsp;&nbsp;&nbsp;&nbsp;					  
+						 <div class="progress-bar progress-bar-custom"  data-percent="80" data-color="#ccc,#7FFF00">
+						 	<span class="progress-bar-text">Animation Progress</span>
+						 </div>	 &nbsp;&nbsp;&nbsp;&nbsp;					  	     
+					 	 <div class="progress-bar progress-bar-custom"  data-percent="90" data-color="#ccc,#6495ED">
+					 	 	<span class="progress-bar-text">Value Progress</span>
+					 	 </div>
+				 	 </div>  <!--text-center-->
+				 	 	<br/><br/>
+				 	  <!--progress bar wrapper-->
+						 <div class="clearfix"></div>
+						 &nbsp;
+					  <!--clearfix for progressbar-->
+					    
+						<form class="general-form-bg">
+						    <div class="row" style="margin:0">
+							    <div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>Type of Ownership <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="ownershipType">
+                                            <option>Select</option>
+                                            <option>Public</option>
+			                                <option>Private</option>
+                                        </select>
+                                    </div>
+								</div>
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>Usage of Building <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="buildingUsage">
+                                            <option>Select</option>
+                                            <option>School</option>
+			                                <option>College</option>
+                                        </select>
+                                    </div>
+								</div>
+								
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>How old is your building ? <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="buildingAge">
+										    <option>Select</option>
+                                            <option>2</option>
+                                            <option>5</option>
+			                                <option>6-10</option>
+                                        </select>
+                                    </div>
+								</div>
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>Number of Storey ? <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="buildingStorey">
+                                            <option>Select</option>
+                                            <option>G+1</option>
+			                                <option>G+2</option>
+											<option>G+3</option>
+                                        </select>
+                                    </div>
+								</div>
+								
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>No. of occupants <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="occupantsCount">
+                                            <option>Select</option>
+                                            <option>10</option>
+			                                <option>11-20</option>
+											<option>21-30</option>
+                                        </select>
+                                    </div>
+								</div>
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>Is there any basement present ? <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="basement">
+                                            <option>Select</option>
+                                            <option>Available</option>
+			                                <option>Not Available</option>
+										</select>
+                                    </div>
+								</div>
+								
+								<div class="col-sm-12 col-md-6">
+								    <div class="form-group">
+									    <label><b>Type of Construction ? <span style="color:#fb6969">*</span></b></label>
+                                        <select class="form-control" name="basement">
+                                            <option>Select</option>
+                                            <option>Engineered</option>
+			                                <option>Non Engineered</option>
+										</select>
+                                    </div>
+								</div>
+					        
+							</div>  <!-- row -->
+			            </form>
+						
+                        <br/>
+                        <button class="orange-btn">Finish</button>
+					
+                    </div> <!-- col-sm-6 -->
+					
+				  <!-- right-side ad div -->
+			        <div class="col-sm-3 col-md-3 col-lg-2">
+			            <div class="ad-space-right">
+			                <img src="./img/ad4.png" class="img-responsive ad-right">
+						</div>
+						<br/>
+						<div class="ad-space-right">
+			                <img src="./img/ad4.png" class="img-responsive ad-right">
+						</div>
+			        </div> <!-- col-sm-3 col-md-3 col-lg-2 -->
+					
+				</div>  <!-- row --->
+				
+				<div class="row">
+				    <div class="col-sm-6 col-sm-offset-3">
+					  <!-- bottom-side ad div -->
+				        <div class="ad-space-top">
+			                <img src="./img/ad3.png" class="img-responsive ad-bottom" style="margin:20px auto;">
+						</div>
+				    </div> <!-- col-sm-6 -->
+				</div> <!-- row -->
+			
+			</div>  <!-- col-sm-10 -->
+		
+		</div> 

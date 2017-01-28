@@ -1,0 +1,17 @@
+ <b> <%= rawData.name[Language] %> <b/>
+
+ <br/> Description : <br/>
+  <%= rawData.description[Language] %>
+  <br/>
+<hr/>
+ <% for (var i=0 ; i < rawData.buildingImgUrl.length ; i++) {%>
+   <img src='<%=rawData.buildingImgUrl[i].imgUrl%>' alt="Smiley face" height="42" width="42">
+<%}%>
+
+<br/> Video <br/>
+    <div id="composite" class="tab-pane fade in">
+        <% for (var i=0 ; i < rawData.buildingVideoUrl.length ; i++) {%>
+                 <img src='<%=rawData.buildingVideoUrl[i].videoUrl%>' alt="Smiley face" height="42" width="42">
+        <%}%>
+    </div>  <!-- tab-content -->
+ 

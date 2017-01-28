@@ -1,5 +1,6 @@
 var question = require("../models/question.js");
 var  survey = require("../models/survey.js"); 
+var buildingType = require("../models/buildingType.js");
 
 module.exports = { 
   index: function (req, res) {   
@@ -31,5 +32,15 @@ module.exports = {
                 });
             });
     });
+  } ,
+  
+  getPopModal : function(req,res) {
+    var selectedBuilding =  req.session.BuildingName;
+    var Language =  req.session.languageSelected ;
+
+
+     buildingType.find({_id : selectedBuilding} ,function(err,data){
+         res.render('popModal' ,{ selectedBuilding : selectedBuilding , rawData : data[0] , Language : Language});
+     });
   }
 };
