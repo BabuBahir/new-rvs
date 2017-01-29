@@ -35,4 +35,8 @@ var Answers = [];
 	}); 	 
 };
 
+
+	$scope.NA_UpdateQId = function(msg){
+		$scope.last_Qid = msg;
+	};
 });

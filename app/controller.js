@@ -10,13 +10,17 @@ cloudinary.config({
     api_key: '812825971867232',
     api_secret: '_pk-gzAhdI63mSU1FDXIkrXkABo'
 });
-
+ 
 var dummyData = "";var imgurlArray=[];
 
 module.exports = {
   index: function (req, res) {    
       buildingType.find({}, function(err, data){   write_to_file(data);               
          var Language =  req.session["languageSelected"];
+         
+         if(Language == null){  // if no language selected choose English
+            Language = req.session["languageSelected"] = 'English';
+         };
 
          var MasonaryObj = [];
          data.forEach(function(o){if (o._id == 'Masonry') MasonaryObj.push(o);} );

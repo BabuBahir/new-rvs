@@ -154,9 +154,13 @@
                                         <label>
                                             <b>Q) <%=rawData[i].question.text[Language]%>   
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                    <a type="button"  data-toggle="modal" data-target="#myModal">NEED ASSISTANCE &nbsp; ?</a>
+                                                    <a type="button" 
+                                                    ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
+                                                    data-toggle="modal" data-target="#myModal">NEED ASSISTANCE &nbsp; ?</a>
                                                 </span>
+                                             <%}%>
                                             </b>
                                         </label>
                                         <% if((rawData[i].questionType)=='1') {%>
@@ -228,8 +232,9 @@
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                       <h4 class="modal-title">Modal Header</h4>
                     </div>
-                    <div class="modal-body">
-                        <div ng-include ="'getPopModal'"> </div> 
+                    <div class="modal-body">  
+                        <div ng-if="last_Qid" ng-include ="'getPopModal/'+last_Qid"> </div> 
+                    
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

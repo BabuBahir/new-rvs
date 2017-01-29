@@ -4,7 +4,7 @@ var buildingType = require("../models/buildingType.js");
 
 module.exports = { 
   index: function (req, res) {   
-  	var selectedBuilding =  req.session.BuildingName;  
+  	var selectedBuilding =  req.session.BuildingName;       
       question.find({'buildingsAssociated._id': selectedBuilding}, function(err, data){  
         var Language =  req.session.languageSelected ;                          
         res.render('general_Info-Form',{ rawData: data , Language : Language});
@@ -34,13 +34,19 @@ module.exports = {
     });
   } ,
   
-  getPopModal : function(req,res) {
+  getPopModal : function(req,res) {  
+
     var selectedBuilding =  req.session.BuildingName;
     var Language =  req.session.languageSelected ;
 
+    var LastQID = req.params.LastQID ;
+ 
+     question.find({_id : LastQID}, function(err,data){ console.log(data[0]); });
+
+
 
      buildingType.find({_id : selectedBuilding} ,function(err,data){
-         res.render('popModal' ,{ selectedBuilding : selectedBuilding , rawData : data[0] , Language : Language});
+         res.render('popModal' ,{ selectedBuilding : selectedBuilding , rawData : data[0] , Language : Language , LastQID : LastQID });
      });
   }
 };

@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var questionSchema = new Schema({
     _id : String,
+    ifNeedAssistance : String,
     questionType: String,
     question: {
         text: {
