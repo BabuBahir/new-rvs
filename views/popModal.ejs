@@ -6,13 +6,29 @@
   <br/>
 <hr/>
  <% for (var i=0 ; i < rawData.needAssistance.questionImgUrl.length ; i++) {%>
-   <img src='<%=rawData.needAssistance.questionImgUrl[i].imgUrl%>' alt="Smiley face" height="42" width="42">
+   <img src='<%=rawData.needAssistance.questionImgUrl[i].imgUrl%>' alt="Smiley face" height="100" width="100">
 <%}%>
 
 <br/> Video <br/>
     <div id="composite" class="tab-pane fade in">
-        <% for (var i=0 ; i < rawData.needAssistance.questionVideoUrl.length ; i++) {%>
-                 <img src='<%=rawData.needAssistance.questionVideoUrl[i].videoUrl%>' alt="Smiley face" height="42" width="42">
+        <% for (var i=0 ; i < rawData.needAssistance.questionVideoUrl.length ; i++) {
+                var srcStr =  rawData.needAssistance.questionVideoUrl[i].videoUrl;
+                srcStr= srcStr.replace('jpg','mp4');   %>    
+
+                 <video width="200" height="200" controls 
+                 poster="<%=rawData.needAssistance.questionVideoUrl[i].videoUrl%>" >
+                 
+                   <source src= '<%=srcStr%>' type="video/mp4">
+
+                 </video>
         <%}%>
     </div>  <!-- tab-content -->
  
+  
+<script> 
+$(document).click(function() {
+        $("video").each(function () { this.pause() });  //pause video
+      
+});
+</script>
+
