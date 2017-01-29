@@ -1,19 +1,18 @@
- 
 <br/>
- <b> <%= rawData.name[Language] %> <b/>
+ <b> <%= rawData.needAssistance.title[Language] %> <b/>
 
  <br/> Description : <br/>
-  <%= rawData.description[Language] %>
+  <%= rawData.needAssistance.description[Language] %>
   <br/>
 <hr/>
- <% for (var i=0 ; i < rawData.buildingImgUrl.length ; i++) {%>
-   <img src='<%=rawData.buildingImgUrl[i].imgUrl%>' alt="Smiley face" height="42" width="42">
+ <% for (var i=0 ; i < rawData.needAssistance.questionImgUrl.length ; i++) {%>
+   <img src='<%=rawData.needAssistance.questionImgUrl[i].imgUrl%>' alt="Smiley face" height="42" width="42">
 <%}%>
 
 <br/> Video <br/>
     <div id="composite" class="tab-pane fade in">
-        <% for (var i=0 ; i < rawData.buildingVideoUrl.length ; i++) {%>
-                 <img src='<%=rawData.buildingVideoUrl[i].videoUrl%>' alt="Smiley face" height="42" width="42">
+        <% for (var i=0 ; i < rawData.needAssistance.questionVideoUrl.length ; i++) {%>
+                 <img src='<%=rawData.needAssistance.questionVideoUrl[i].videoUrl%>' alt="Smiley face" height="42" width="42">
         <%}%>
     </div>  <!-- tab-content -->
  

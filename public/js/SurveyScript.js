@@ -1,7 +1,9 @@
 angular.module('SurveyApp',[])
     .controller('MainCtrl', function ($scope,$http) {
 //SurveyScript
- 
+$scope.RandomTime = Math.random();  //generate Random numbers for Unique ID
+
+
 $scope.updatePath = function(msg){	 
 var Answers = [];
 
@@ -37,6 +39,8 @@ var Answers = [];
 
 
 	$scope.NA_UpdateQId = function(msg){
+		$scope.RandomTime = Math.random();  //generate Random numbers for Unique ID
+		console.log(msg);
 		$scope.last_Qid = msg;
 	};
 });

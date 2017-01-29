@@ -48,7 +48,7 @@ module.exports = function(app) {
     });
 
 
-    app.get('/getPopModal/:LastQID?' , questionController.getPopModal);
+    app.get('/getPopModal/:LastQID?/:RandomTime?' , questionController.getPopModal);
 
     
     //---some post   ------------------------------------ POST POST POST pOST 

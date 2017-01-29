@@ -37,16 +37,17 @@ module.exports = {
   getPopModal : function(req,res) {  
 
     var selectedBuilding =  req.session.BuildingName;
-    var Language =  req.session.languageSelected ;
+    var Language =  req.session["languageSelected"];
 
+    if(Language == null){  // if no language selected choose English
+      Language = req.session["languageSelected"] = 'English';
+    };
+         
     var LastQID = req.params.LastQID ;
  
-     question.find({_id : LastQID}, function(err,data){ console.log(data[0]); });
-
-
-
-     buildingType.find({_id : selectedBuilding} ,function(err,data){
-         res.render('popModal' ,{ selectedBuilding : selectedBuilding , rawData : data[0] , Language : Language , LastQID : LastQID });
+     question.find({_id : LastQID}, function(err,data){ 
+        res.render('popModal' ,{ selectedBuilding : selectedBuilding , rawData : data[0] , Language : Language , LastQID : LastQID });
      });
+ 
   }
 };
