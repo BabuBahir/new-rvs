@@ -1,5 +1,5 @@
 angular.module('SurveyApp',[])
-    .controller('MainCtrl', function ($scope,$http) {
+    .controller('MainCtrl', function ($scope,$http , $rootScope) {
 //SurveyScript
 $scope.RandomTime = Math.random();  //generate Random numbers for Unique ID
 
@@ -40,7 +40,44 @@ var Answers = [];
 
 	$scope.NA_UpdateQId = function(msg){
 		$scope.RandomTime = Math.random();  //generate Random numbers for Unique ID
-		console.log(msg);
 		$scope.last_Qid = msg;
 	};
+
+	$rootScope.ShowNextMedia = function(CrntIndex){  console.log(CrntIndex);
+		 
+		var CrntDivStr = "ImageMedia" +CrntIndex;
+		document.getElementById(CrntDivStr).style.display = "none";
+
+		var NextDivStr = "ImageMedia" + (eval(CrntIndex) - 1);
+
+		if(CrntIndex == 0){
+			var cusid_ele = document.getElementsByClassName('ImgDivPopUp');
+			cusid_ele[0].style = null;
+
+				$rootScope.MediaTab = !$rootScope.MediaTab;
+		}else {
+			document.getElementById(NextDivStr).style = null;
+		};
+			 
+	};
+
+
+	$rootScope.ShowNextVIDEO = function(CrntIndex){  
+		 
+		var CrntDivStr = "VideoMedia" +CrntIndex;
+		document.getElementById(CrntDivStr).style.display = "none";
+
+		var NextDivStr = "VideoMedia" + (eval(CrntIndex) - 1);
+
+		if(CrntIndex == 0){  
+				var cusid_ele =document.getElementsByClassName("VideoDivPopUp");
+				cusid_ele[0].style = null;
+				
+				$rootScope.MediaTab = !$rootScope.MediaTab;
+		}else {
+			document.getElementById(NextDivStr).style = null;
+		};
+			 
+	};
+
 });
