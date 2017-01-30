@@ -620,7 +620,7 @@ footer i { vertical-align:-8px; }
   top: 12.5px;
   text-align: center;
   border-radius: 50%;
-  background-color: white;
+  background-color: black;
 }
 
 .progress-bar .background { background-color: #b3cef6; }
