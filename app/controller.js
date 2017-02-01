@@ -15,7 +15,8 @@ var dummyData = "";var imgurlArray=[];
 
 module.exports = {
   index: function (req, res) {    
-      buildingType.find({}, function(err, data){   write_to_file(data);               
+
+    buildingType.find({}).sort({'orderIndex':-1}).exec(function(err,data){   write_to_file(data);               
          var Language =  req.session["languageSelected"];
          
          if(Language == null){  // if no language selected choose English
@@ -32,9 +33,8 @@ module.exports = {
          data.forEach(function(o){if (o._id == 'Steel') SteelObj.push(o);} );
 
          var CompositeObj = [] ;
-         data.forEach(function(o){if (o._id == 'Rcc') CompositeObj.push(o);} );
-
-
+         data.forEach(function(o){if (o._id == 'Composite') CompositeObj.push(o);} );
+ 
         res.render('select',{drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl , Language : Language , MasonaryObj : MasonaryObj , RccObj : RccObj , SteelObj : SteelObj , CompositeObj : CompositeObj });                     
       });        
   },
