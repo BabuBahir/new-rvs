@@ -51,7 +51,11 @@ module.exports = function(app) {
     app.get('/getPopModal/:LastQID?/:RandomTime?' , questionController.getPopModal);
 
     
-    //---some post   ------------------------------------ POST POST POST pOST 
+    //---some post   ------------------------------------ post post post post 
+
+    app.post('/Delete_Surveyimg' , controller.Delete_Surveyimg);
+
+    app.post('/UpdateSurveyRecord', controller.UpdateSurveyRecord);
     
     app.post('/AjaxInsertGeneralInfo', questionController.AjaxInsertGeneralInfo);
 

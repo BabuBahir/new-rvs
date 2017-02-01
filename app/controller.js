@@ -40,6 +40,36 @@ module.exports = {
   },
 
 
+  UpdateSurveyRecord : function(req,res) {
+     var LastSurveyID = req.session.LastSurveyID =1485424288506; 
+
+     var imgObj = req.body.data;
+
+     var newImgArray = [];
+
+     survey.find({_id : LastSurveyID} , function (err , result){
+            newImgArray= result[0].survey_img;
+            newImgArray.push({_id : imgObj.public_id , imgUrl : imgObj.url});
+            
+
+            survey.update({_id:LastSurveyID} , {$set: {'survey_img' : newImgArray }},function(err , result){
+                   res.send(result);  //sending result 
+                });
+        });
+  },
+
+ Delete_Surveyimg : function(req,res){
+
+    var imageId = req.body.image_id;  
+      cloudinary.v2.uploader.destroy(imageId, function (error, result) {  console.log(result);
+             survey.update({_id: '1485424288506'}, { $pull: { survey_img : { _id : imageId } } },{ safe: true }, function(err, test){                                        
+                        if(err){res.send(err)};    
+                        console.log(test);                                       
+                        res.send("done");
+                  });  
+          });
+ },
+
   UploadImage : function(req,res) {  
     if(req.files.first_image.type=="image/jpeg") {   // check if image is uploaded... if yes upload to cloudinary..else redirect        
            cloudinary.v2.uploader.upload(req.files.first_image.path,

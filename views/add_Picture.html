@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang=en>
+
+<html lang=en ng-app="AddPictureapp">
 
 <head>
     <title>Add Picture</title>
     <% include ./partials/head %>
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
     <!-- nav bar starts here -->
      	<% include ./partials/header %>
     <!-- nav bar ends here -->
@@ -60,19 +61,28 @@
                 <h3 class="select-building-type">Add more Picture & Scanned Drawings</h3>
                 <br/>
                 <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div class="upload-bic-bg_small">
+                    <div ng-hide="ImgDone" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
                             <i class="fa fa-image add-pic-small"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn small-btn-is-green" for="SecondImage">
+                                <input ng-model="files" ng-file-select="" id="SecondImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
                     </div>
                     <!--upload-bic-bg_small -->
+                     <div ng-show="ImgDone" class="CloudiImage" ng-init="myImgVar.src='' ; myImgVar.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar.url}}">
+                        
+                      <!-- the below div will be visible on hover -->
+                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                            <span><i ng-click="Delete_img(myImgVar.id)" class="fa fa-times"></i></span>
+                        </div> <!-- upload-hover-wrapper -->
+                        
+                    </div>
                 </div>
                 <!--  col-sm-4 -->
                 <div class="col-sm-4 col-md-4 col-lg-3">
@@ -82,8 +92,8 @@
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn small-btn-is-green" for="my-file-selector"> 
+                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
@@ -99,7 +109,7 @@
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
                             <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
@@ -115,7 +125,7 @@
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
                             <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
@@ -152,16 +162,35 @@
     <!--- footer  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+    <script src="js/src/jquery.cloudinary.js"></script>
+
+    <script src="js/src/angular-file-upload.min.js"></script>
+
+    <script src="js/AddPictureScript.js"></script>
 
     <script type="text/javascript">
         function UploadThenMove() {
             var x = document.getElementById("first_image"); 
             if(x.files.length == 0){
-                alert('Upload At least One Main Image');
+                alert('Upload the Main Image');
                 return false;
             };           
         }
-    </script>>
+    </script>
+
+    <script>
+            $(document).ready(function(){
+                $(".CloudiImage").hover(function(){  
+                    $(this).find(".upload-hover-wrapper").toggleClass("toggle-onhover");
+                });
+            });
+            
+    </script>   
+
 </body>
 
 </html>
