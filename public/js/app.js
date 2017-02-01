@@ -113,7 +113,8 @@ $scope.nextSlide = function () {
     $scope.img_still_click = false;    
 	$scope.direction = 'right';
 	$scope.preClick = false;
-        $scope.postVideoClick =false;
+	$scope.postImgClick =false;
+    $scope.postVideoClick =false;
 	console.log($scope.preClick);
 	if($scope.currentIndex>0){
 		$scope.currentIndex=$scope.currentIndex-1;
