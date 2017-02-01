@@ -61,7 +61,7 @@ module.exports = {
  Delete_Surveyimg : function(req,res){
 
     var imageId = req.body.image_id;  
-      cloudinary.v2.uploader.destroy(imageId, function (error, result) {  console.log(result);
+      cloudinary.v2.uploader.destroy(imageId, function (error, result) {  ;
              survey.update({_id: '1485424288506'}, { $pull: { survey_img : { _id : imageId } } },{ safe: true }, function(err, test){                                        
                         if(err){res.send(err)};    
                         console.log(test);                                       

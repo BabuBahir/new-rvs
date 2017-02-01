@@ -27,6 +27,12 @@ module.exports = function(app) {
         res.render('4)new_Survey_Or_survey_History.html');
     });
  
+
+    app.get('/report',function(req,res) {
+        res.render('report_Format.html');
+    });
+
+
     app.get('/history', function(req, res) {
         res.render('5)survey_History.html');
     }); 
@@ -37,16 +43,11 @@ module.exports = function(app) {
 
     app.get('/showform',questionController.index);
 
+    app.get('/general_techincal',questionController.genTechindex);
+
+    app.get('/seismic_Assessment', questionController.seismicIndex);
+
     app.get('/newsurvey',controller.index);
-
-    app.get('/general_techincal',function(req,res){
-        res.render('general_Technical_Information.html');
-    });
-    
-    app.get('/seismic_Assessment',function(req,res){
-        res.render('seismic_Assessment.html');
-    });
-
 
     app.get('/getPopModal/:LastQID?/:RandomTime?' , questionController.getPopModal);
 

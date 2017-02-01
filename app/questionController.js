@@ -3,12 +3,35 @@ var  survey = require("../models/survey.js");
 var buildingType = require("../models/buildingType.js");
 
 module.exports = { 
+
+
   index: function (req, res) {   
   	var selectedBuilding =  req.session.BuildingName;       
-      question.find({'buildingsAssociated._id': selectedBuilding}, function(err, data){  
-        var Language =  req.session.languageSelected ;                          
+      question.find({'forPAge': 'GI'}, function(err, data){  
+        var Language =  req.session.languageSelected ;     
+        if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
+
         res.render('general_Info-Form',{ rawData: data , Language : Language});
       });        
+  },
+
+  genTechindex :  function (req,res){
+
+      question.find({'forPAge': 'GT'}, function(err, data){   
+        var Language =  req.session.languageSelected ;  
+        if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
+
+        res.render('general_Technical',{ rawData: data , Language : Language});
+      });
+  },
+
+  seismicIndex : function (req,res){
+    question.find({'forPAge': 'SA'}, function(err, data){   
+        var Language =  req.session.languageSelected ;  
+        if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
+
+        res.render('seismic_assesment',{ rawData: data , Language : Language});
+      });
   },
 
   SaveGeneralInfo : function(req,res) {

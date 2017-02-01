@@ -911,6 +911,30 @@ toggle {  0% {
 
 .survey-questn-accordion>.panel-heading { background:#fff; }
 
+/* 1st Feb */
+  
+.answer-block { font-size:16px; font-family:Lato; }
+.caption_header  { 
+    font:700 17px Lato; color:#333; margin:15px 0 0;text-align: center; background: #fff; padding:12px 0px; 
+}
+.profile-img-wrap, .elevation-img-wrap, .side-view-img-wrap, .plan-img-wrap, .isometric-img-wrap  { 
+    display:block; margin:10px auto 0; border:1px solid #666; height:350px; text-align:center;  background: rgba(235, 235, 235,1); padding-bottom:20px;
+}
+.elevation-img-wrap, .side-view-img-wrap, .plan-img-wrap, .isometric-img-wrap { height:184px; margin:0 auto; border-top:none; }
+.profile-img-wrap *, .elevation-img-wrap *, .side-view-img-wrap *, .plan-img-wrap *, .isometric-img-wrap *  { 
+    display:inline-block; object-fit:contain; height: 100%; vertical-align: middle; margin:10px auto 0; 
+}
+.general-info-wrap, .technical-info-wrap, .seismic-assessment-wrap { border-bottom:1px solid #666; height:360px; overflow: auto; margin-bottom:8px }
+.comments-para-wrap { border-bottom:1px solid #666; height:170px; overflow: auto; margin:25px auto 5px; padding-left:10px; padding-right:10px; }
+.seismic-assessment-wrap { border-bottom:1px solid #666; height:340px; overflow: auto; margin-bottom:5px; padding-left:5px; padding-right:5px; }
+.comments-para-wrap *  { font-size:15px; line-height:1.4; }
+.comments-para-wrap, .final-assess-wrap { border-bottom:1px solid #666; height:170px; overflow: auto; margin:25px auto 5px; padding-left:10px; padding-right:10px; }
+.final-assess-wrap { border-bottom:1px solid #666; height:290px; overflow: auto; margin:25px auto 15px; padding-left:10px; padding-right:10px; }
+.final-assess-wrap p { margin-top:15px; font-size:15px; line-height:1.4; }
+.final-assess-wrap span { 
+    font-weight:bold; margin-right:10px; font-size:16px;
+}
+/* 1st Feb */
 /**** media styles starts here ****/
 
 @media (min-width: 768px) and (max-width: 991px) { 
