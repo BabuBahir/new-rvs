@@ -1,6 +1,6 @@
 angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', function ($scope,$http ,$upload ) {
 
-
+    $scope.progressPercentage =null; //initlaize message
 
 	$.cloudinary.config({cloud_name: "dcu5hz0re", upload_preset: 'fbesyowr'});
 	$scope.$watch('files', function () { 
@@ -19,10 +19,13 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
                     fields: {'cloud_name': $.cloudinary.config().cloud_name , upload_preset: 'fbesyowr' },
                     file: file
                 }).progress(function (evt) {
+
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);  
-                    $scope.progressPercentage = progressPercentage ;
+                    $scope.progressPercentage = progressPercentage ;                     
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+
                 }).success(function (data, status, headers, config) { 
+                   $scope.progressPercentage = null; // make it null again
                    $scope.ImgDone =  !$scope.ImgDone;
                     $scope.UpdateSurveyRecord(data);
                     console.log('file ' + config.file + 'uploaded. Response: ' + data);

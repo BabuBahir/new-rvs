@@ -32,6 +32,7 @@
                         <img src="./img/ad2.png" class="img-responsive ad-left">
                     </div>
                 </div>
+
         <form action="/UploadImage" method="post" enctype="multipart/form-data" >
                 <!-- col-sm-3 col-md-3 col-lg-2 -->
                 <div class="col-sm-6 col-md-6 col-lg-8">
@@ -59,7 +60,8 @@
                 <!-- col-sm-3 col-md-3 col-lg-2 -->
                 <div class="clearfix"></div>
                 <h3 class="select-building-type">Add more Picture & Scanned Drawings</h3>
-                <br/>
+                <br/>          
+                 
                 <div class="col-sm-4 col-md-4 col-lg-3">
                     <div ng-hide="ImgDone" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
@@ -73,6 +75,16 @@
                         </div>
                         <!-- upload-pic_small -->
                     </div>
+
+                    <!--progress bar -->
+                        <div class="progress" ng-if="progressPercentage" >
+                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                             role="progressbar"                       
+                             aria-valuemin="0" aria-valuemax="100" 
+                             style="width:{{progressPercentage}}% ; background-color: blue; height: 10px">  
+                          </div>
+                        </div>
+                     <!--progress bar -->
                     <!--upload-bic-bg_small -->
                      <div ng-show="ImgDone" class="CloudiImage" ng-init="myImgVar.src='' ; myImgVar.url='';">
                         <img class="img-responsive" ng-src="{{myImgVar.url}}">
@@ -82,7 +94,7 @@
                             <span><i ng-click="Delete_img(myImgVar.id)" class="fa fa-times"></i></span>
                         </div> <!-- upload-hover-wrapper -->
                         
-                    </div>
+                    </div>                 
                 </div>
                 <!--  col-sm-4 -->
                 <div class="col-sm-4 col-md-4 col-lg-3">
