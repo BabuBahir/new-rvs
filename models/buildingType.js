@@ -13,6 +13,7 @@ var BuildingSchema = new Schema({
         Gujarati: String
     },
     _id : String,
+    orderIndex : String ,
     buildingImgUrl:[{imgUrl: String, _id : String}],
     buildingVideoUrl: [{videoUrl : String , _id : String}] 
 });

@@ -3,9 +3,12 @@ angular.module('website', ['ngAnimate', 'ngTouch'])
  
 //function to controller with params
 $scope.call_slider= function(msg){  
+	
+		document.getElementsByTagName("video")[0].pause();
+
 	    $scope.currentIndex =0; //.. initiazlizing to zero 
 		$scope.currentVideoIndex =0;//
-	        var fruits = [];
+        var fruits = [];
 		var reserveFruit =[];
 		var videoList=[];
 		$scope.showDiv = true;
@@ -13,30 +16,32 @@ $scope.call_slider= function(msg){
 		$scope.reserveData = null; 
 		$scope.data = null;
 		$scope.img_still_click = false;
-                $scope.postImgClick =false;
-                $scope.preClick =false;
-		$scope.vidDiv = false;  
-                $scope.postVideoClick =false; // hide video div on every click on read more
+        $scope.postImgClick =false;
+        $scope.preClick =false;
+		$scope.vidDiv = false;   
+        $scope.postVideoClick =false; // hide video div on every click on read more
 		
 	//on click get data from json	
 	$http.get('json/data.json').success(function(data) {
-	 $scope.data = data;
+	 $scope.data = data;  
 	 angular.forEach($scope.data,function(value){
 		 if((value.Member == $scope.counter)&&(value.type =='photo')){ 		      
-			 var image = value['Prefix']+'/'+value['img'] ;				 
+			 var image = value['img'] ;				 
 			 fruits.push({image});				 
 			 var type = value['type'];
 			 var url = value['url'];
 			 var solidItem = [image ,type,url];
+			 $scope.Desc = value['Desc'];
 			 reserveFruit.push(solidItem);			 
 		 };
 		if((value.Member == $scope.counter)&&(value.type =='video')){ 	 			
 			var url = $sce.trustAsResourceUrl(value['url']);
-			videoList.push({url});
+			var img = value['img'];
+			videoList.push({url:url,img:img});			 
 		};
 	});	
 	$scope.slides=fruits;  
-        $scope.reserveData = reserveFruit;  
+    $scope.reserveData = reserveFruit;  
 	$scope.videoList =videoList;  	
   });	   
 };
@@ -49,13 +54,13 @@ $scope.img_click= function(msg){
   $scope.postVideoClick =false;
 };
 
-$scope.video_click = function(videomsg){
+$scope.video_click = function(videomsg){ console.log(videomsg);
 	$scope.Video_click_src=$sce.trustAsResourceUrl(videomsg);
-	$scope.Video_still_click = true;
-	console.log(videomsg);
-        $scope.postImgClick =false;
-        $scope.preClick =true;   //hide slider and image clicked divs
-        $scope.postVideoClick =true;
+	$scope.VideoPosterSrc= videomsg.replace("mp4","jpg");
+	$scope.Video_still_click = true;	 
+    $scope.postImgClick =false;
+    $scope.preClick =true;   //hide slider and image clicked divs
+    $scope.postVideoClick =true;
 };
 
 $scope.customFilter=function(item){	     
@@ -108,7 +113,8 @@ $scope.nextSlide = function () {
     $scope.img_still_click = false;    
 	$scope.direction = 'right';
 	$scope.preClick = false;
-        $scope.postVideoClick =false;
+	$scope.postImgClick =false;
+    $scope.postVideoClick =false;
 	console.log($scope.preClick);
 	if($scope.currentIndex>0){
 		$scope.currentIndex=$scope.currentIndex-1;
@@ -142,6 +148,20 @@ $scope.nextVideo = function () {
 		$scope.currentVideoIndex =$scope.videoList.length - 1;
 	}
 };
+
+	$scope.moveAndSave = function(){
+		console.log($scope.counter);
+		$http({
+			method : "GET",
+			url : "/SetBuildingSession/"+$scope.counter,
+			async : false,
+		}).then(function mySucces(response){ console.log(response.data);
+			 location.href = '/addpicture';
+		},function	myError(response){
+
+		}); 		 
+    };
+
 
     })
     .animation('.slide-animation', function () {

@@ -1,6 +1,9 @@
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 var controller = require('./controller');
+var login =  require('./login');
+var questionController = require('./questionController');
+var sessionController = require('./sessionController');
 
 module.exports = function(app) {
 
@@ -11,79 +14,57 @@ module.exports = function(app) {
     app.get('/2', function(req, res) {
         res.render('2)select_Language.html');
     });
+ 
+    app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
 
-    app.get('/3', function(req, res) {
+    app.get('/SetBuildingSession/:BuildingName' , sessionController.CreateBuildingSessions);
+
+    app.get('/3', function(req, res) { 
         res.render('3)choose_Assessment.html');
     });
-
-    app.get('/4', function(req, res) {
+ 
+    app.get('/4', function(req, res) {  
         res.render('4)new_Survey_Or_survey_History.html');
     });
+ 
+
+    app.get('/report',function(req,res) {
+        res.render('report_Format.html');
+    });
+
 
     app.get('/history', function(req, res) {
         res.render('5)survey_History.html');
-    });
-
-    app.get('/newsurvey', function(req, res) {
-        res.render('select.html');
-    });
-
-    app.get('/addpicture', function(req, res) {
+    }); 
+  
+    app.get('/addpicture', function(req, res) {  
         res.render('add_Picture.html');
     });
 
-    app.get('/showform', function(req, res) {
-        res.render('general_Info-Form.html');
-    });
+    app.get('/showform',questionController.index);
 
-    app.get('/buildingType',function(req,res){
-        var buildingType = require("../models/buildingType.js");
+    app.get('/general_techincal',questionController.genTechindex);
 
-        buildingType.find({_id: "Masonry"}, function(err, data){ 
-          console.log(data);
-          res.render('building_Type _Configuration',{drinks:data[0].name});                     
-        });        
-    });
+    app.get('/seismic_Assessment', questionController.seismicIndex);
 
-    app.get('/cloudinaryTest',controller.index);
+    app.get('/newsurvey',controller.index);
 
-    app.get('/general_techincal',function(req,res){
-        res.render('general_Technical_Information.html');
-    });
+    app.get('/getPopModal/:LastQID?/:RandomTime?' , questionController.getPopModal);
+
     
-    app.get('/seismic_Assessment',function(req,res){
-        res.render('seismic_Assessment.html');
-    });
-    //---some post 
-    app.post('/Delete_img' , controller.destory);
+    //---some post   ------------------------------------ post post post post 
 
-    app.post('/create', multipartMiddleware, controller.create);
+    app.post('/Delete_Surveyimg' , controller.Delete_Surveyimg);
+
+    app.post('/UpdateSurveyRecord', controller.UpdateSurveyRecord);
     
-    app.post('/test',function(req,res){         
-        var buildingType = require("../models/buildingType.js");
+    app.post('/AjaxInsertGeneralInfo', questionController.AjaxInsertGeneralInfo);
 
-        var testBuilding = new buildingType({
-            name: {"Hindi":req.body["NameHI"],"English":req.body["NameEN"],"Gujarati":req.body["NameGJ"]},
-            description : {"Hindi":req.body["DescHI"], "English":req.body["DescEN"] , "Gujarati" : req.body["DescGJ"]},
-            _id: "Masonry" 
-        });
+    app.post('/SaveGeneralInfo' , questionController.SaveGeneralInfo);
 
-        buildingType.find({_id: "Masonry"}, function(err, test){                                        
-                        if(err){res.send(err)}; 
-                        console.log(test);
-                });
+    app.post('/UploadImage' ,multipartMiddleware , controller.UploadImage);
 
-        // save user to database
-        /* testBuilding.save(function (err) {
-            if (err) {
-                 return err;
-            }
-            else {
-                //console.log("Post saved");
-            }
-        }); */
-        res.send(req.body);
-    });
+    app.post('/UserLogin' , login.index);
 
     app.post('/login', function(req, res) {
         sess = req.session;

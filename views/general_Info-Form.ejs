@@ -1,0 +1,267 @@
+<!DOCTYPE html>  
+<html lang=en ng-app="SurveyApp" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>General Info Form</title>
+         <% include ./partials/head %>
+        <!--CSS GoogleAPi -->
+        <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        </style>
+        <!--CSS GoogleAPi -->
+    </head>
+    <body ng-controller="MainCtrl">    
+    <!-- GoogleAPi -->  
+    <script type="text/javascript" 
+    src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC-99fTUEtRtyyfTO4-W1UL7ftpIgMrT9I">
+    </script>
+    <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function () {
+        var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            var place = places.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+            var mesg = "Address: " + address;
+            mesg += "\nLatitude: " + latitude;
+            mesg += "\nLongitude: " + longitude;
+
+            var citynameArr = place.vicinity.split(',');
+            var cityname =citynameArr[citynameArr.length - 1];
+
+            $('input[name="city"]').val(cityname);
+            $('input[name="altitude"]').val(latitude);
+        });
+    });
+    </script>
+    <!-- GoogleAPi -->
+
+       <!-- nav bar starts here -->
+        <% include ./partials/header %>
+       <!-- nav bar ends here -->
+      
+        <div class="container-fluid sign-up-bg_img">
+          
+            <div class="col-sm-10 col-sm-offset-1">
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <!-- top-side ad div -->
+                        <div class="ad-space-top">
+                            <img src="./img/ad1.png" class="img-responsive ad-top" style="margin-bottom:10px">
+                        </div>
+                    </div> <!-- col-sm-6 -->
+                </div> <!-- row -->
+                
+                <h3 class="select-building-type">General Information</h3>
+                
+                <div class="row" style="margin:0; padding-bottom:20px; background:#fff;">
+                    
+                  <!-- left-side ad div -->
+                    <div class="col-sm-3 col-md-3 col-lg-2">
+                        <div class="ad-space-left">
+                            <img src="./img/ad2.png" class="img-responsive ad-left">
+                        </div>
+                        <br/>
+                        <div class="ad-space-left">
+                            <img src="./img/ad2.png" class="img-responsive ad-left">
+                        </div>
+                    </div>  <!-- col-sm-3 col-md-3 col-lg-2 -->
+ 
+                    <div class="col-sm-6 col-md-6 col-lg-8">    
+                     <!--progress bar wrapper-->        
+                      <div class="text-center">               
+                         <div class="progress-bar progress-bar-custom"  data-percent="20" data-color="#ccc,#DC143C">
+                            <span class="progress-bar-text">No Animation</span>
+                         </div>  &nbsp;&nbsp;&nbsp;&nbsp;                     
+                         <div class="progress-bar progress-bar-custom"  data-percent="30" data-color="#ccc,#7FFF00">
+                            <span class="progress-bar-text">Animation Progress</span>
+                         </div>  &nbsp;&nbsp;&nbsp;&nbsp;                            
+                         <div class="progress-bar progress-bar-custom"  data-percent="40" data-color="#ccc,#6495ED">
+                            <span class="progress-bar-text">Value Progress</span>
+                         </div>
+                     </div>  <!--text-center-->
+                        <br/><br/>
+                      <!--progress bar wrapper-->
+                         <div class="clearfix"></div>
+                         &nbsp;
+                      <!--clearfix for progressbar-->
+                        <form class="general-form-bg">
+                            <div class="row" style="margin:0">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Name of your Building <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="buildingName" placeholder="Building Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Owner's Name <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="ownerName" placeholder="Owner's Name">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label><b>Your Address <span style="color:#fb6969">*</span></b></label>
+                                         
+                                        
+                                        <input class="form-control" id="txtPlaces" name="yourAddress" type="text" style="width: 250px" placeholder="Address" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>City <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="city" placeholder="Building Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Local Authority <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="localAuthority" placeholder="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Altitude/Latitude <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="altitude" placeholder="Altitude">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Earthquake Zone <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="earthquakeZone" placeholder="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Soil Grade <span style="color:#fb6969">*</span></b></label>
+                                        <input type="text" class="form-control" name="soilGrade" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                                            
+                                <div class="col-sm-12 col-md-12">
+                                <% for(var i = 0; i < rawData.length ; i ++) { %>
+                                    <div class="form-group">
+                                        <label>
+                                            <b>Q) <%=rawData[i].question.text[Language]%>   
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             <%  if(rawData[i].ifNeedAssistance == '1') { %>
+                                                <span style="color:#fb6969">                                 
+                                                    <a type="button" 
+                                                    ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
+                                                    data-toggle="modal" data-target="#myModal">NEED ASSISTANCE &nbsp; ?</a>
+                                                </span>
+                                             <%}%>
+                                            </b>
+                                        </label>
+                                        <% if((rawData[i].questionType)=='1') {%>
+                                        <select class="form-control" ng-model="SelectM<%=i%>" name="SelectVal">
+                                            <% for(var j=0 ; j < rawData[i].question.options.length;j++ ){ %> 
+                                                <option><%=rawData[i].question.options[j][Language] %></option>
+                                            <%}%>
+                                        </select>
+                                        <%} else if ((rawData[i].questionType)=='0') { %>
+                                            <div class="clearfix"> </div>
+                                            <% for(var j=0 ; j < rawData[i].question.options.length;j++ ){ %>  
+                                                <div class="checkbox-inline">
+                                                <label style="margin-top: 12px"><input style="margin-top: -10px" type="radio" 
+                                                  ng-model="checkBoxM<%=i%>"
+                                                value="<%=rawData[i].question.options[j].English %>">
+                                                    <%=rawData[i].question.options[j][Language] %>
+                                                </label>
+                                                </div> &nbsp;                
+                                            <%}%>                             
+                                        <%} else {%>
+                                            <div >
+                                                <input class="form-control" ng-model="TextTypeM<%=i%>" type="text" name="TextType">                                   
+                                            </div>
+                                        <%}%>
+                                    </div>
+                                  <%}%>
+                                </div>                            
+                            </div>  <!-- row -->
+                        </form>
+                        
+                        <button ng-click="updatePath('<%=rawData.length%>')"  class="orange-btn" style="width:190px;">Save & Continue &nbsp; &nbsp;<i class="fa fa-arrow-right"></i></button>
+                        <h6 class="text-center"><b><i>Continue to General Technical Information...</i></b></h6>
+                    
+                    </div> <!-- col-sm-6 -->
+ 
+                  <!-- right-side ad div -->
+                    <div class="col-sm-3 col-md-3 col-lg-2">
+                        <div class="ad-space-right">
+                            <img src="./img/ad4.png" class="img-responsive ad-right">
+                        </div>
+                        <br/>
+                        <div class="ad-space-right">
+                            <img src="./img/ad4.png" class="img-responsive ad-right">
+                        </div>
+                    </div> <!-- col-sm-3 col-md-3 col-lg-2 -->
+                    
+                </div>  <!-- row --->
+                
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <!-- bottom-side ad div -->
+                        <div class="ad-space-top">
+                            <img src="./img/ad3.png" class="img-responsive ad-bottom" style="margin:20px auto;">
+                        </div>
+                    </div> <!-- col-sm-6 -->
+                </div> <!-- row -->
+            
+            </div>  <!-- col-sm-10 -->
+
+            <!--Modal-->
+
+            <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">  
+                        <div ng-if="last_Qid" ng-include ="'getPopModal/'+last_Qid+'?RandomTime='+RandomTime"> </div> 
+                    
+                    </div>
+                    <div class="modal-footer">
+                      <button id="ModalCloseButton" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  
+                </div>
+                </div>
+            <!--Modal-->
+        
+        </div> <!-- container-fluid --> 
+        <% include ./partials/footer %>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jQuery-plugin-progressbar.js"></script>
+        <script>
+           $(".progress-bar").loading();
+        </script>
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>         
+        <script src="js/SurveyScript.js"></script>
+
+
+        <script> 
+        $(document).click(function() {
+                $("video").each(function () { this.pause() });  //pause video  
+        });
+        </script>
+        
+    </body>
+</html>
