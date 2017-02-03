@@ -68,7 +68,7 @@ body {
 .footer-partners {
    position: absolute; left: 0; bottom: 0; 
    height:160px; color:#fff; width:100%;
-   padding:20px 15px 13px;
+   padding:13px 15px ;
 }
 
 .footer-partners .col-sm-2 { width:20%; text-align:center; }
