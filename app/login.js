@@ -20,6 +20,13 @@ module.exports = {
 		} else { res.redirect('/'); };
   	});           
   	  
+  },
+
+
+  Saltify : function(req,res){
+  	    var salt = bcrypt.genSaltSync(10);// Hash the password with the salt
+  		var hash = bcrypt.hashSync("user", salt);
+  		res.send(hash);
   }
 
 }  
