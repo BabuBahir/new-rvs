@@ -620,7 +620,6 @@ footer i { vertical-align:-8px; }
   top: 12.5px;
   text-align: center;
   border-radius: 50%;
-  background-color: black;
 }
 
 .progress-bar .background { background-color: #b3cef6; }
@@ -1104,4 +1103,150 @@ toggle {  0% {
 .input-text-first{ 
  color:#b0b0b0;border-radius: 0;
 }
+
+    /* 1st Feb */
+/* new surveyor html css added on 07-02-2017 */   
+.new-surveyor-form_bg-img  {    
+   background-size: cover;  min-height: 100%; min-height: 100vh;    
+  background-image: url(../img/qs-bk.png); background-position: initial;    
+}   
+.label-surveyor-register {    
+    color:#4c4845; text-align:center;margin:20px 0 23px; font-weight:800;   
+}   
+.new-surveyor-form-bg {   
+    -webkit-box-shadow: 0px 0px 14px 3px rgba(188,188,188,1);   
+    -moz-box-shadow: 0px 0px 14px 3px rgba(188,188,188,1);    
+    box-shadow: 0px 0px 14px 3px rgba(188,188,188,1);   
+    background: #fff;   
+    text-align: initial;    
+    background:#fff; border-radius:0; padding:15px 25px 20px;     
+    width:100%; display:block; margin-bottom:70px; position:relative;   
+}   
+.prefix-radio-btn { margin-bottom:20px; }   
+.label-prefix { color:#333; margin-right:25px; font-weight:600; margin-left:5px; }    
+.prefix-radio-btn input { margin-top:3px; }   
+.prefix-radio-btn label { margin-right:10px; margin-top:-1px; color:#b4b4b4; }    
+.new-surveyor-form-bg .form-group { margin-bottom:6px;}   
+.new-surveyor-form-bg .form-group input {     
+    border-radius: 0; box-shadow: none; border-color:#979797;     
+    color:#bababa;  color:#666;   
+}   
+.new-surveyor-form-bg .form-group input::-webkit-input-placeholder  {   
+  color:#bababa;    
+}   
+.new-surveyor-form-bg .form-group input:-moz-placeholder  {   
+  color:#bababa;    
+}   
+.new-surveyor-form-bg .form-group input::-moz-placeholder {   
+  color:#bababa;    
+}   
+.new-surveyor-form-bg .form-group input:-ms-input-placeholder {   
+ color:#bababa;   
+}   
+.non-profesional  { border-radius:0; border-color:#b4b4b4; padding:0; position: relative; }   
+.non-profesional .caption { padding:5px 0; background:#f0f0f0; margin-bottom:15px; }    
+.non-profesional .caption h5 { color:#333; font-weight:700; text-align: center; font-size:15px; }   
+.non-profesional p { text-align:center; color:#b5b5b5; margin-bottom:4px; font-size:15px;}    
+.non-profesional h4 {     
+    text-align:center; color:#b5b5b5; font-weight:700;    
+    margin-bottom:18px; margin-top:4px; font-size:17px;     
+}   
+.select-non-professional {    
+    background: #b5b3b4;    
+    border-radius: 8px;   
+    color: #fff;    
+    text-align: center;   
+    padding: 2px 6px 3px;   
+    position: absolute;   
+    width: 50%;   
+    bottom: -15px;    
+    left: 25%; font-size:15px; font-weight:600;   
+}   
+.select-non-professional:hover, .select-non-professional:focus, .select-non-professional:active {     
+    background: #b5b3b4;    
+    color: #fff; outline:none; box-shadow:none;   
+}   
+.select-non-professional i { margin-left:10px; margin-right:-9px; }   
+.profesional { border-radius:0; border-color:#407dd8; padding:0; position: relative; }    
+.profesional .caption { padding:5px 0; background:#407dd8; margin-bottom:15px; }    
+.profesional .caption h5 { color:#fff; font-weight:700; text-align: center; font-size:15px; }   
+.profesional p { text-align:center; color:#b5b5b5; margin-bottom:4px; font-size:15px;}    
+.profesional h4 {     
+    text-align:center; color:#b5b5b5; font-weight:700;    
+    margin-bottom:18px; margin-top:4px; font-size:17px;     
+}   
+.select-professional {    
+    background: #407dd8;    
+    border-radius: 8px;   
+    color: #fff;    
+    text-align: center;   
+    padding: 2px 6px 3px;   
+    position: absolute;   
+    width: 50%;   
+    bottom: -15px;    
+    left: 25%; font-size:15px; font-weight:600;   
+}   
+.select-professional:hover, .select-professional:focus, .select-professional:active {     
+    background: #407dd8;    
+    color: #fff; outline:none; box-shadow:none;   
+}   
+.select-professional i { margin-left:10px; margin-right:-9px; }   
+.certified { border-radius:0; border-color:#f3810f; padding:0; position: relative; }    
+.certified .caption { padding:5px 0; background:#f3810f; margin-bottom:15px; }    
+.certified .caption h5 { color:#fff; font-weight:700; text-align: center; font-size:15px; }   
+.certified p { text-align:center; color:#b5b5b5; margin-bottom:4px; font-size:15px;}    
+.certified h4 {     
+    text-align:center; color:#f3810f; font-weight:700;    
+    margin-bottom:18px; margin-top:4px; font-size:17px;     
+}   
+.select-certified {     
+    background: #f3810f;    
+    border-radius: 8px;   
+    color: #fff;    
+    text-align: center;   
+    padding: 2px 6px 3px;   
+    position: absolute;   
+    width: 50%;   
+    bottom: -15px;    
+    left: 25%; font-size:15px; font-weight:600;   
+}   
+.select-certified:hover, .select-certified:focus, .select-certified:active {    
+    background: #f3810f;    
+    color: #fff; outline:none; box-shadow:none;   
+}   
+.select-certified i { margin-left:10px; margin-right:-9px; }    
+.alert-info { background:#dae9ff; border-color:#b9ceeb; color:#929fb8; border-radius: 2px; padding:10px 15px; }   
+.help-block-float {   
+    position: absolute;   
+    right: -33px;   
+    top: 26px;    
+    background: #77b143;    
+    padding: 6px 10px;    
+    font-size: 12px;    
+    color: #fff;    
+    -webkit-box-shadow: 3px 6px 11px 1px rgba(150,150,150,1);   
+    -moz-box-shadow: 3px 6px 11px 1px rgba(150,150,150,1);    
+    box-shadow: 3px 6px 11px 1px rgba(150,150,150,1);   
+    text-align: center;   
+}   
+.help-block-float i { font-size:15px; margin-bottom:8px; margin-top:6px;}   
+/* surveyor registerd msg html */   
+.label-congratulations { text-align:center; color:#4c4845; font-weight:900; text-align: center; margin-bottom:25px; }   
+.label-congratulations i { font-size:34px;vertical-align:-2px; margin-right:5px;}   
+.congratulatory-msg h5 { text-align: center; color:#b5b5b5; font-size:15px; margin-bottom:4px;}   
+.congratulatory-msg p { text-align: center; color:#1f334e; font-weight:600; font-size:16px; margin-bottom:22px; }   
+
+
+
+
+/*8th Feb*/
+
+.progress-bar div span {
+ 
+  background-color: black;
+}
+
+
+
+
 /*added by -rohitas */

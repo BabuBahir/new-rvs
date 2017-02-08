@@ -5,8 +5,16 @@
  var mongoose = require('mongoose');
 
  mongoose.Promise = global.Promise;
- mongoose.connect('mongodb://test:test@ds157248.mlab.com:57248/rvs');
-    
+ 
+mongoose.connect("mongodb://test:test@ds157248.mlab.com:57248/rvs", {
+  server: {
+    socketOptions: {
+      socketTimeoutMS: 0,
+      connectionTimeout: 0
+    }	
+  }
+});
+
  mongoose.connection.once('connected', function() {
      console.log("Connected to MongoLab");   
  });
