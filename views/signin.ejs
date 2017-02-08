@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     </div>
-					<p>Forgot Password ?</p>
+					<p id="forgot">Forgot Password ?</p>
 					
 					<!-- <button type="button" class="btn login-button">Login</button>  -->
 					<button  type="submit" class="orange-btn" id="btn"><i class="fa fa-sign-in"></i>&nbsp; Login </button>
@@ -120,6 +120,27 @@ $(document).ready(function() {
         }
         });
     });
+    ///forgot password
+
+    $('#forgot').click(function () {
+        var data = {
+            email : $("#emailid").val(),
+            
+          };          
+      console.log(data);
+        $.ajax({
+        type:"POST",
+        url:"/mymail",
+        data :  data, 
+        //dataType: 'json',  // multiple data sent using ajax
+        success: function (result) {
+         alert(result);
+        }
+
+          
+     
+    });
+});
 });
 </script>
 	</body>
