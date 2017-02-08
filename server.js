@@ -6,6 +6,7 @@
 
  mongoose.Promise = global.Promise;
  
+<<<<<<< HEAD
 mongoose.connect("mongodb://test:test@ds157248.mlab.com:57248/rvs", {
   server: {
     socketOptions: {
@@ -14,6 +15,11 @@ mongoose.connect("mongodb://test:test@ds157248.mlab.com:57248/rvs", {
     }	
   }
 });
+=======
+ mongoose.connect('mongodb://test:test@ds157248.mlab.com:57248/rvs');
+ 
+ //mongoose.connect("mongodb://users:patna@ds145659.mlab.com:45659/firsttask", { server: { socketOptions: { socketTimeoutMS: 0, connectionTimeout: 0 } } });
+>>>>>>> d87f46ac07cd6da58a765010b37bf8b4bd30ef94
 
  mongoose.connection.once('connected', function() {
      console.log("Connected to MongoLab");   
