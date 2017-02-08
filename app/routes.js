@@ -51,6 +51,7 @@ module.exports = function(app) {
 
     app.get('/getPopModal/:LastQID?/:RandomTime?' , questionController.getPopModal);
 
+    app.get('/getHashPassword' , login.Saltify);
     
     //---some post   ------------------------------------ post post post post 
 

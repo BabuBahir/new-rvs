@@ -32,24 +32,45 @@
                         <img src="./img/ad2.png" class="img-responsive ad-left">
                     </div>
                 </div>
-
-        <form action="/UploadImage" method="post" enctype="multipart/form-data" >
+ 
                 <!-- col-sm-3 col-md-3 col-lg-2 -->
                 <div class="col-sm-6 col-md-6 col-lg-8">
-                    <div class="upload-bic-bg">
+                    <div ng-hide="ImgDone_1" class="upload-bic-bg">
                         <div class="upload-pic">
                             <i class="fa fa-image add-pic"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
                             <label class="btn btn-is-green" for="first_image">
-                                <input id="first_image" name="first_image" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                                <input ng-model="files_1" ng-file-select="" id="first_image" name="first_image" type="file" style="display:none"> Upload Picture &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic  -->
                     </div>
                     <!-- upload-bic-bg -->
+
+                    <!--progress bar -->
+                        <div class="progress" ng-if="progressPercentage_1" >
+                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                             role="progressbar"                       
+                             aria-valuemin="0" aria-valuemax="100" 
+                             style="width:{{progressPercentage_1}}% ; background-color: blue; height: 10px">  
+                          </div>
+                        </div>
+                     <!--progress bar -->
+                    <!--upload-bic-bg_small -->
+                     <div ng-show="ImgDone_1" class="CloudiImage" ng-init="myImgVar_1.src='' ; myImgVar_1.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar_1.url}}">
+                        
+                      <!-- the below div will be visible on hover -->
+                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                            <span><i ng-click="Delete_img(myImgVar_1.id,1)" class="fa fa-times"></i></span>
+                        </div> <!-- upload-hover-wrapper -->
+                        
+                    </div>         
+
                 </div>
+
                 <!-- col-sm-6 -->
                 <!-- right-side ad div -->
                 <div class="col-sm-3 col-md-3 col-lg-2">
@@ -63,88 +84,152 @@
                 <br/>          
                  
                 <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div ng-hide="ImgDone" class="upload-bic-bg_small">
+                    <div ng-hide="ImgDone_2" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
                             <i class="fa fa-image add-pic-small"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
                             <label class="btn small-btn-is-green" for="SecondImage">
-                                <input ng-model="files" ng-file-select="" id="SecondImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                                <input ng-model="files_2" ng-file-select="" id="SecondImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
                     </div>
 
                     <!--progress bar -->
-                        <div class="progress" ng-if="progressPercentage" >
+                        <div class="progress" ng-if="progressPercentage_2" >
                           <div class="progress-bar progress-bar-info progress-bar-striped"
                              role="progressbar"                       
                              aria-valuemin="0" aria-valuemax="100" 
-                             style="width:{{progressPercentage}}% ; background-color: blue; height: 10px">  
+                             style="width:{{progressPercentage_2}}% ; background-color: blue; height: 10px">  
                           </div>
                         </div>
                      <!--progress bar -->
                     <!--upload-bic-bg_small -->
-                     <div ng-show="ImgDone" class="CloudiImage" ng-init="myImgVar.src='' ; myImgVar.url='';">
-                        <img class="img-responsive" ng-src="{{myImgVar.url}}">
+                     <div ng-show="ImgDone_2" class="CloudiImage" ng-init="myImgVar_2.src='' ; myImgVar_2.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar_2.url}}">
                         
                       <!-- the below div will be visible on hover -->
                         <div class="upload-hover-wrapper" style="height: 100%;" >
-                            <span><i ng-click="Delete_img(myImgVar.id)" class="fa fa-times"></i></span>
+                            <span><i ng-click="Delete_img(myImgVar_2.id,2)" class="fa fa-times"></i></span>
                         </div> <!-- upload-hover-wrapper -->
                         
                     </div>                 
                 </div>
                 <!--  col-sm-4 -->
+
                 <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div class="upload-bic-bg_small">
+                    <div ng-hide="ImgDone_3" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
                             <i class="fa fa-image add-pic-small"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn small-btn-is-green" for="my-file-selector"> 
-                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn small-btn-is-green" for="ThirdImage">
+                                <input ng-model="files_3" ng-file-select="" id="ThirdImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
                     </div>
+
+                    <!--progress bar -->
+                        <div class="progress" ng-if="progressPercentage_3" >
+                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                             role="progressbar"                       
+                             aria-valuemin="0" aria-valuemax="100" 
+                             style="width:{{progressPercentage_3}}% ; background-color: blue; height: 10px">  
+                          </div>
+                        </div>
+                     <!--progress bar -->
                     <!--upload-bic-bg_small -->
+                     <div ng-show="ImgDone_3" class="CloudiImage" ng-init="myImgVar_3.src='' ; myImgVar_2.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar_3.url}}">
+                        
+                      <!-- the below div will be visible on hover -->
+                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                            <span><i ng-click="Delete_img(myImgVar_3.id,3)" class="fa fa-times"></i></span>
+                        </div> <!-- upload-hover-wrapper -->
+                        
+                    </div>                 
                 </div>
                 <!-- col-sm-4  -->
+
+
                 <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div class="upload-bic-bg_small">
+                    <div ng-hide="ImgDone_4" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
                             <i class="fa fa-image add-pic-small"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn small-btn-is-green" for="FourthImage">
+                                <input ng-model="files_4" ng-file-select="" id="FourthImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
                     </div>
+
+                    <!--progress bar -->
+                        <div class="progress" ng-if="progressPercentage_4" >
+                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                             role="progressbar"                       
+                             aria-valuemin="0" aria-valuemax="100" 
+                             style="width:{{progressPercentage_4}}% ; background-color: blue; height: 10px">  
+                          </div>
+                        </div>
+                     <!--progress bar -->
                     <!--upload-bic-bg_small -->
+                     <div ng-show="ImgDone_4" class="CloudiImage" ng-init="myImgVar_4.src='' ; myImgVar_2.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar_4.url}}">
+                        
+                      <!-- the below div will be visible on hover -->
+                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                            <span><i ng-click="Delete_img(myImgVar_4.id,4)" class="fa fa-times"></i></span>
+                        </div> <!-- upload-hover-wrapper -->
+                        
+                    </div>                 
                 </div>
                 <!--  col-sm-4 -->
+
+
                 <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div class="upload-bic-bg_small">
+                    <div ng-hide="ImgDone_5" class="upload-bic-bg_small">
                         <div class="upload-pic_small">
                             <i class="fa fa-image add-pic-small"></i>
                             <h6 class="label-add-pic"><b>Add Building Picture</b></h6>
                             <h6 class="label-add-pic">750px x 600px minimum</h6>
                             <!-- upload pic -->
-                            <label class="btn small-btn-is-green" for="my-file-selector">
-                                <input ng-model="files" ng-file-select="" id="my-file-selector" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
+                            <label class="btn small-btn-is-green" for="FifthImage">
+                                <input ng-model="files_5" ng-file-select="" id="FifthImage" type="file" style="display:none"> Upload &nbsp; &nbsp;<i class="fa fa-upload"></i>
                             </label>
                         </div>
                         <!-- upload-pic_small -->
                     </div>
+
+                    <!--progress bar -->
+                        <div class="progress" ng-if="progressPercentage_5" >
+                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                             role="progressbar"                       
+                             aria-valuemin="0" aria-valuemax="100" 
+                             style="width:{{progressPercentage_5}}% ; background-color: blue; height: 10px">  
+                          </div>
+                        </div>
+                     <!--progress bar -->
                     <!--upload-bic-bg_small -->
+                     <div ng-show="ImgDone_5" class="CloudiImage" ng-init="myImgVar_5.src='' ; myImgVar_2.url='';">
+                        <img class="img-responsive" ng-src="{{myImgVar_5.url}}">
+                        
+                      <!-- the below div will be visible on hover -->
+                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                            <span><i ng-click="Delete_img(myImgVar_5.id,5)" class="fa fa-times"></i></span>
+                        </div> <!-- upload-hover-wrapper -->
+                        
+                    </div>                 
                 </div>
                 <!-- col-sm-4  -->
+
+
                 <div class="col-sm-12 text-center">
                     <button onclick="return UploadThenMove()" type="submit" class="orange-btn" 
                         style="width: 190px;"> Save & Continue &nbsp; &nbsp;&nbsp;&nbsp;
@@ -153,7 +238,8 @@
                     <h6><b><i>Continue to Add Building Information...</i></b></h6>
                 </div>
             </div>
-        </form>
+
+            <a class="btn btn-info"   href="/newsurvey">BACK </a>
             <!-- row --->
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
@@ -186,11 +272,14 @@
 
     <script type="text/javascript">
         function UploadThenMove() {
+            window.location = '/showform';
+            /*
             var x = document.getElementById("first_image"); 
             if(x.files.length == 0){
                 alert('Upload the Main Image');
                 return false;
-            };           
+            };     
+            */      
         }
     </script>
 
