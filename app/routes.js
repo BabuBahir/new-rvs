@@ -60,6 +60,10 @@ module.exports = function(app) {
     app.get('/2', function(req, res) {
         res.render('2)select_Language.html');
     });
+
+    app.get('/map', function(req,res){
+        res.render('map1');
+    });
  
     app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
 
@@ -107,12 +111,14 @@ module.exports = function(app) {
     
     //---some post   ------------------------------------ post post post post 
 
+    app.post('/CaptureAddress' , sessionController.CaptureAddress);
+
     app.post('/Delete_Surveyimg' , controller.Delete_Surveyimg);
 
     app.post('/UpdateSurveyRecord', controller.UpdateSurveyRecord);
     
     app.post('/AjaxInsertGeneralInfo', questionController.AjaxInsertGeneralInfo);
-
+ 
     app.post('/SaveGeneralInfo' , questionController.SaveGeneralInfo);
 
     app.post('/UploadImage' ,multipartMiddleware , controller.UploadImage);

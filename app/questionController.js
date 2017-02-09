@@ -9,9 +9,10 @@ module.exports = {
   	var selectedBuilding =  req.session.BuildingName;       
       question.find({'forPAge': 'GI'}, function(err, data){  
         var Language =  req.session.languageSelected ;     
+        
         if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
 
-        res.render('general_Info-Form',{ rawData: data , Language : Language});
+        res.render('general_Info-Form',{ rawData: data , Language : Language , Address : req.session.address });
       });        
   },
 

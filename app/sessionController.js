@@ -13,5 +13,19 @@ module.exports = {
       sess = req.session;   //setting sessions 
       sess.BuildingName = BuildingName;       
       res.send(sess);
+  } ,
+
+
+  CaptureAddress : function(req,res){
+    req.session.txtdata = req.body.txtdata ;
+    req.session.address = req.body.address ;
+   
+      if(req.body.txtdata == req.body.address){
+        res.send('Fail');
+      }
+      else{
+        res.send('Pass');
+      }
   }
+
 };

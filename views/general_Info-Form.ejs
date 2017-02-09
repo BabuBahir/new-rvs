@@ -105,20 +105,11 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label><b>Your Address <span style="color:#fb6969">*</span></b></label>
-                                         
-                                        
-                                        <input class="form-control" id="txtPlaces" name="yourAddress" 
-                                        type="text" style="border-left:  3px solid #fb6969" placeholder="Address" />
-                                    </div>
-                                </div>
-                                
+                   
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label><b>City <span style="color:#fb6969">*</span></b></label>
-                                        <input style="border-left:  3px solid #fb6969"  type="text" class="form-control" name="city" placeholder="Building Name">
+                                        <input style="border-left:  3px solid #fb6969"  type="text" class="form-control" name="city" value="<%=Address%>" placeholder="Building Name">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
@@ -157,9 +148,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                    <a type="button" 
+                                                    <a type="button" href="#"
                                                     ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
-                                                    data-toggle="modal" data-target="#myModal">NEED ASSISTANCE &nbsp; ?</a>
+                                                    data-toggle="modal" data-target="#myModal">
+
+                                                        <img src="./img/needHelp.png" >
+                                                    </a>
                                                 </span>
                                              <%}%>
                                             </b>
