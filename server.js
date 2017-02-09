@@ -1,10 +1,10 @@
- var express = require('express');
- var session = require('express-session');
- var bodyParser = require('body-parser');
- var app = express();
- var mongoose = require('mongoose');
+var express = require('express');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var app = express();
+var mongoose = require('mongoose');
 
- mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
   
 mongoose.connect("mongodb://test:test@ds157248.mlab.com:57248/rvs", {
   server: {

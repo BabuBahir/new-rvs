@@ -1060,3 +1060,61 @@ toggle {  0% {
  color:#b0b0b0;border-radius: 0;
 }
 /*added by -rohitas */
+
+ table#t01 , tr, td {
+    border: 1px solid black;
+   padding: 10px;
+}
+
+.slider {
+    width: 590px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    background: #4e4949;
+    border: 20px solid #FFF;
+    margin-top: 20px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.arrow {
+    position: absolute;
+    z-index: 1002;
+    display: block;
+    top: 50%;
+    margin-top: -50px;
+    width: 36px;
+    height: 71px;
+    outline: none;
+    cursor: pointer;
+    background: url(../assets/img/blank.gif) no-repeat;
+}
+
+.arrow.prev {
+     
+    left: 20px;
+    background-image: url(../assets/img/paddle_prev_999.png);
+    transition: 0.2s linear all;
+}
+
+.arrow.next {
+     
+    right: 20px;
+    background-image: url(../assets/img/paddle_next_999.png);
+    transition: 0.2s linear all;
+}
+
+.arrow.prev:hover {
+    opacity: 1;
+    background-image: url(../assets/img/paddle_prev_fff.png);
+}
+
+.arrow.next:hover {
+    opacity: 1;
+    background-image: url(../assets/img/paddle_next_fff.png);
+}
