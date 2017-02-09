@@ -1,5 +1,13 @@
 angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', function ($scope,$http ,$upload ) {
     
+    
+
+    // init 
+    $scope.Full_6 = true;
+    $scope.Full_7 = false;
+    $scope.Full_8 = false;
+    $scope.Full_9 = false;
+    // init
 
 	$.cloudinary.config({cloud_name: "dcu5hz0re", upload_preset: 'fbesyowr'});  //cloudinary config.
 
@@ -23,9 +31,25 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
         $scope.upload($scope.files_5 , 5);
     });
 
+    $scope.$watch('files_6', function () {    //6th Image Watch
+        $scope.upload($scope.files_6 , 6);
+    });
+
+    $scope.$watch('files_7', function () {    //7th Image Watch
+        $scope.upload($scope.files_7 , 7);
+    });
+
+    $scope.$watch('files_8', function () {    //8th Image Watch
+        $scope.upload($scope.files_8 , 8);
+    });
+
+    $scope.$watch('files_9', function () {    //9th Image Watch
+        $scope.upload($scope.files_9 , 9);
+    });
+
 
     $scope.upload = function (files , imgIndex) {  
-        if (files && files.length) {  console.log(22);
+        if (files && files.length) {  
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
 
@@ -48,11 +72,21 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
 
                    $scope.UpdateSurveyRecord(data, imgIndex);
                     console.log('file ' + config.file + 'uploaded. Response: ' + data);
+
+                    $scope.showNextBuildingImage(imgIndex); // Show more BUilding Damange Images
                 });
 
                 
             }
         }
+    };
+
+    $scope.showNextBuildingImage = function(imgIndex) {
+        if (imgIndex >= 6){
+            imgIndex = imgIndex +1;
+            var nextImgstr = 'Full_'+imgIndex;
+            $scope[nextImgstr] = true;
+        };
     };
 
 
@@ -108,7 +142,8 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
     };
 
     $scope.Delete_img = function(msg,imgIndex){
-        var r = confirm("Do you want to Delete this Image!");   
+        var r = confirm("Do you want to Delete this Image!");  
+        var  msg = msg;
         if (r == true) {              
             $http({
             method : "POST",
@@ -117,13 +152,21 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
             data:({"image_id":msg })
             }).then(function mySucces(response) {   
                 $scope.HideImageByIndex(imgIndex);   // Hide Image   
+                $scope.hideLastBuildingImage(imgIndex);
                //$scope.myWelcome = response.data; 
                 document.getElementsByClassName(msg).style.display = 'none';
                 console.log(msg);  
             }, function myError(response) {
-              $scope.myWelcome = response.statusText;
+                $scope.myWelcome = response.statusText;
             });  
             };
+    };
+
+    $scope.hideLastBuildingImage = function(imgIndex){
+        if (imgIndex >= 6){             
+            var nextImgstr = 'Full_'+imgIndex;
+            $scope[nextImgstr] = false;
+        };         
     };
 
 });
