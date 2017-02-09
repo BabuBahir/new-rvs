@@ -156,7 +156,7 @@ $scope.nextVideo = function () {
 			url : "/SetBuildingSession/"+$scope.counter,
 			async : false,
 		}).then(function mySucces(response){ console.log(response.data);
-			 location.href = '/addpicture';
+			 location.href = '/map';
 		},function	myError(response){
 
 		}); 		 

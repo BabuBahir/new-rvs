@@ -3,7 +3,8 @@ var multipartMiddleware = multipart();
 var controller = require('./controller');
 var login =  require('./login');
 var change = require('./changepass');
-var changepwd = require('./views/changepwd');
+var registeruser = require('./register');
+var changepwd = require('./passViews/changepwd');
 var questionController = require('./questionController');
 var sessionController = require('./sessionController');
 var nodemailer = require('nodemailer');
@@ -55,14 +56,22 @@ module.exports = function(app) {
     app.get('/', function(req, res) {
         res.render('signin');
     });
-    app.post('/mymail', changepwd.postSendChangePassword); 
+   //welcome page
+    app.get('/welcome/:mem', function(req, res) {  
+        res.render('welcome', {member : req.params.mem, data : req.session.mail});
+    });
 
     app.get('/2', function(req, res) {
         res.render('2)select_Language.html');
     });
-
+ 
     app.get('/map', function(req,res){
         res.render('map1');
+    });
+    
+     app.get('/reg',function(req, res){
+        res.render('registerSurveyor');
+ 
     });
  
     app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
@@ -131,13 +140,13 @@ module.exports = function(app) {
         sess.email = req.body.email;
         res.end('done');
     });
-
+    app.post('/mymail', changepwd.postSendChangePassword); 
     app.post('/', function(req, res) {
         console.log(req.body.user.name);
         console.log(req.body.user.email);  
         res.send('done');       
     });
-
+    app.post('/regsurvey', registeruser.reguser);
     app.get('/admin', function(req, res) {
         sess = req.session;
         if (sess.email) {
