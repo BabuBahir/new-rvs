@@ -103,9 +103,13 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                    <a type="button" 
+                                                <a type="button" href="#"
                                                     ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
-                                                    data-toggle="modal" data-target="#myModal">NEED ASSISTANCE &nbsp; ?</a>
+                                                    data-toggle="modal" data-target="#myModal">
+                                                     
+                                                     <img src="./img/needHelp.png" >
+
+                                                </a>
                                                 </span>
                                              <%}%>
                                             </b>
