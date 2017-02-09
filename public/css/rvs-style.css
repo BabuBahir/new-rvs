@@ -128,7 +128,14 @@ footer i { vertical-align:-8px; }
  font-weight:700; color:#8d8d8d; font-size:13px; 
  font-style:italic; margin-top:10px;
 }
+.selected-this  { border-radius:0; border-color:#4cae4c !important; padding:0; position: relative; }
 
+.selected-this .caption { background:#5cb85c !important; }
+
+.selected-this .caption h5 { color:#fff !important; }
+
+.selected-this button, .selected-this button:hover, .selected-this button:focus, .selected-this button:active {   background:#5cb85c; 
+}
 .sign-up-form-bg button {
  color:#fff; background:#5db016; font-weight:900;
   font-size:16px; text-align:center; border-color:#5db016;

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Register New Surveyor</title>
+        <% include ./partials/head %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"><!--
+		<link href="./public/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./public/css/font-awesome.min.css" rel="stylesheet">
+		<link href="./public/css/rsv-style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+	 -->
+    </head>
+	<body style="margin-bottom:0;">
+	   <!-- nav bar starts here -->
+	    <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"></a>
+                </div>  <!--- navbar-header -->
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="pull-left"><a href="#"><img src="./img/logo.png"></a></li>
+						<li><a href="#" class="project-name"><span id="rsv">RVS</span> RAPID SEISMIC VARIABILITY ASSESSMENT SURVEY</a></li>
+						
+                    </ul>
+                </div><!-- navbar-collapse -->
+            </div><!-- container-fluid -->
+        </nav>
+	  <!-- nav bar ends here -->
+	  
+	    <div class="container-fluid new-surveyor-form_bg-img">
+		  
+	        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-xs-10 col-xs-offset-1">
+			    
+                <h4 class="label-surveyor-register">Register as a New Surveyor</h4>
+			    
+                <form class="new-surveyor-form-bg">
+                    
+                    <div class="help-block-float">
+                        <i class="fa fa-question-circle"></i><br/>
+                        <span>H</span><br/>
+                        <span>E</span><br/>
+                        <span>L</span><br/>
+                        <span>P</span><br/>
+                    </div>
+                    <div class="radio prefix-radio-btn">
+                        <span class="label-prefix">Prefix</span>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Mr." checked> Mr. 
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Mrs."> Mrs.
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Ms."> Ms.
+                        </label>
+                    </div>  <!-- radio prefix-radio-btn -->
+                    
+                 <!-- First name, middle name, last name start-->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control"  id="firstName" placeholder="First Name">
+                        </div>
+                    </div>  <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="middleName" id="middleName" placeholder="Middle Name">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="lastName"  
+                            id="lastName"placeholder="Last Name">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                  <!-- First name, middle name, last name end -->
+                
+                  <!-- postal address start -->
+                    
+                    <div class="col-sm-12 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="postalAddress" id="postalAddress" placeholder="Postal Address">
+                        </div>
+                    </div> <!-- col-sm-12 -->
+                  <!-- postal address end -->
+                    
+                  <!-- street, city, state start -->
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="streetName" 
+                            id="streetName" placeholder="Street">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                  
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="cityName"
+                            id="cityName"  placeholder="City">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="stateName" 
+                            id="stateName" placeholder="State">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+				  <!-- street, city, state end  -->
+                    
+                  <!-- country, pincode, qualification start -->
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="countryName" id="countryName" placeholder="Country">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                  
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="pincode" 
+                            id="pincode" placeholder="Pincode">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="qualification" id="qualification" placeholder="Qualification">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+				  <!-- country, pincode, qualification end  -->
+                    
+                    <div class="col-sm-12 col-xs-12" style="padding:5px">
+                        <label>Type of Membership</label>
+                        <i class="fa fa-question-circle pull-right" style="margin-top:1px;font-size:20px;cursor:pointer;"></i>
+                    </div>
+                    
+                  <!-- membership type select start  -->
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="thumbnail non-profesional selected-this">
+                            <div class="caption">
+                                <h5>Non-Professional Surveyor</h5>
+                            </div>
+                            <p>Admission Fee</p>
+                            <h4>FREE</h4>
+                            
+                            <p>Annual Membership</p>
+                            <h4>FREE</h4>
+                            
+                            <p>Life Time Membership</p>
+                            <h4>FREE</h4>
+                            
+                            <br/>
+                            <button type="button" name="membership" id="m1"class="btn select-non-professional" value="Non-Professional Surveyor">
+                                Select <i class="fa fa-check-circle"></i>
+                            </button>
+                        </div>  <!-- non-profesional -->
+                    </div>  <!-- col-sm-4  -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="thumbnail profesional">
+                            <div class="caption">
+                                <h5>Professional Surveyor</h5>
+                            </div>
+                            <p>Admission Fee</p>
+                            <h4>FREE</h4>
+                            
+                            <p>Annual Membership</p>
+                            <h4>FREE</h4>
+                            
+                            <p>Life Time Membership</p>
+                            <h4 style="color:#3e7ed6;">&#8377 2,000/-</h4>
+                            
+                            <br/>
+                            <button type="button" name="membership" value="Professional Surveyor" id="m2" class="btn select-professional">
+                                Select <i class="fa fa-check-circle"></i>
+                            </button>
+                        </div>  <!-- profesional -->
+                    </div>  <!-- col-sm-4  -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="thumbnail certified">
+                            <div class="caption">
+                                <h5>Certified Surveyor</h5>
+                            </div>
+                            <p>Admission Fee</p>
+                            <h4>&#8377 2000/-</h4>
+                            
+                            <p>Annual Membership</p>
+                            <h4>&#8377 3000/-</h4>
+                            
+                            <p>Life Time Membership</p>
+                            <h4>&#8377 10,000/-</h4>
+                            
+                            <br/>
+                            <button type="button" name="membership" id="m3" value="Certified Surveyor" class="btn select-certified">
+                                Select <i class="fa fa-check-circle"></i>
+                            </button>
+                        </div>  <!-- certified -->
+                    </div>  <!-- col-sm-4  -->
+                  <!-- membership type select end  -->  
+                    
+                    <div class="clearfix"></div>
+                    <br/>
+                    
+                    <div class="alert alert-info" role="alert">
+                        <p>NOTE: Annual Membership Renewal fees for each year,in full, shall be paid in advance on or before 31st March of the preceding year.</p>
+                    </div> <!-- alert-info -->
+					
+                  <!-- email, confirm email, phone, password, confirm password start-->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="emailID" 
+                            id="emailID" placeholder="Email ID">
+                        </div>
+                    </div>  <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="confirmEmailId" placeholder="Confirm your Email ID">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="phoneNumber" 
+                            id="phoneNumber" placeholder="Phone">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="password" 
+                            id="password" placeholder="Password">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                    
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+                        </div>
+                    </div> <!-- col-sm-4 -->
+                  
+                  <!-- empty div below -->  
+                    <div class="col-sm-4 col-xs-12" style="padding:5px">
+                        <div style="width:100%; background:#f2f2f2;height:33px;"></div>
+                    </div> <!-- col-sm-4 -->
+                  
+                 <!-- email, confirm email, phone, password, confirm password  end -->
+                    
+                    <div class="clearfix"></div>
+                    
+                    <button class="orange-btn" type="button" id="btn" style="margin:30px auto 20px; width:43%; "><i class="fa fa-sign-in"></i>&nbsp; CONTINUE MEMBERSHIP</button>
+					
+                </form>
+			</div>  <!-- sign-up-bg -->
+		
+		</div> <!-- container-fluid -->
+	    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	
+	</body>
+</html>
+<script>
+$(document).ready(function() {
+    var m = "Non-Professional Surveyor";
+     $('#m1').click(function () {
+        m=$("#m1").val();
+        //alert(m);
+     });
+     $('#m2').click(function () {
+        m=$("#m2").val();
+        //alert(m);
+     });
+     $('#m3').click(function () {
+        m=$("#m3").val();
+        //alert(m);
+     });
+    $('#btn').click(function () {
+          var data = {
+            prefix            : $("input:radio[name=inlineRadioOptions]:checked").val(),
+            firstname         : $("#firstName").val(),
+            middlename        : $("#middleName").val(),
+            lastname          : $("#lastName").val(),
+            postaladdress     : $("#postalAddress").val(),
+            street            : $("#streetName").val(),
+            city              : $("#cityName").val(),
+            state             : $("#stateName").val(),
+            country           : $("#countryName").val(),
+            pincode           : $("#pincode").val(),
+            qualification     : $("#qualification").val(),
+            membershiptype    : m,
+            email             : $("#emailID").val(),
+            phone             : $("#phoneNumber").val(),
+            password          : $("#password").val()
+           }
+      console.log(data);
+        $.ajax({
+        type:"POST",
+        url:"/regsurvey",
+        data :  data, 
+        //dataType: 'json',  // multiple data sent using ajax
+        success: function (result) {
+           alert(result.result);
+           window.location.href="/welcome/"+result.member;
+          
+        }
+        });
+    });
+});
+</script>
