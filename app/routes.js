@@ -57,8 +57,8 @@ module.exports = function(app) {
         res.render('signin');
     });
    //welcome page
-    app.get('/welcome/:mem', function(req, res) {  
-        res.render('welcome', {member : req.params.mem, data : req.session.mail});
+    app.get('/welcome', function(req, res) {  
+        res.render('welcome', {member : req.session.mem, data : req.session.mail});
     });
 
     app.get('/2', function(req, res) {

@@ -5,7 +5,7 @@
 module.exports = {
   reguser: function (req, res) {
   	var info = req.body;
-  	console.log(info);
+  	 
   	var query = Register(info);
 		query.save(function (err, val){
 			if(err){
@@ -15,9 +15,10 @@ module.exports = {
 			}
 			else{
 				req.session.mail = val.email;
-				console.log("you submitted-----" + val);
-				res.send({result : "user successfully registered", data : req.session.mail, member : val.membershiptype});
-				//res.render('welcome',{data : val.email, member : val.membership})
+				req.session.mem = val.email;
+				 
+				res.send({result : "user successfully registered", data : req.session.mail });
+				 
 
 			}
 		});
