@@ -1,41 +1,37 @@
 var User = require("../models/user.js");
-///var SignupUser = require("../models/signup_user.js");
+var registersurveyer = require("../models/registersurveyer.js");
 var bcrypt = require('bcrypt');
 
 module.exports = {
- /*
+ 
   index :  function (req, res){
-		var data = req.body;
-		console.log(data.password);
-		User.findOne({email : data.email}).exec(function (err, val){
+		var data = req.body;		
+		registersurveyer.findOne({email : data.email}).exec(function (err, val){ console.log(val);
 			if(val=="" || val==null){
-				return res.send("No such user exists");
-			}
-			if(err){
-				console.log("error");
-			}
-            
+				res.send('0');
+			} else{
 				val.comparePassword(data.password, function (err, isMatch){
                  if(isMatch && !err){
                  	//handle sessions here
-                 req.session.email = val.email;
-                 req.session.name = val.name;
-                 req.session.password = val.password;
+                 	req.session.email = val.email;
+                 	req.session.name = val.firstname;
+                 	req.session.password = val.password;
                  	
                  	console.log("Session here:-"+req.session.name);
-                 	      return res.json({error : false, name : req.session.name});
-                 }
-                 
-                 	res.send("password mismatch");
+             	       res.send('1');	
+                 }else	{
+                 		res.send('0');	
+                 };                 
+			   });
                  	
-		        });
+        	};
 
         });
     
-    }, */
+    }, 
 
 
- index: function (req, res) { 
+ pindex: function (req, res) { 
    	    
 		if((req.body.email == "user@gmail.com")&&(req.body.password == "user")){ 	
 		 	  			        

@@ -35,7 +35,7 @@
 					<p id="forgot">Forgot Password ?</p>
 					
 					<!-- <button type="button" class="btn login-button">Login</button>  -->
-					<button  type="submit" class="orange-btn" id="btn"><i class="fa fa-sign-in"></i>&nbsp; Login </button>
+					<button  type="button" class="orange-btn" id="btn"><i class="fa fa-sign-in"></i>&nbsp; Login </button>
 					<p>New user sign up now!</p>
 			    </form>
 			</div>  <!-- sign-up-bg -->
@@ -71,13 +71,12 @@ $(document).ready(function() {
         $.ajax({
         type:"POST",
         url:"/UserLogin",
+        async : false,
         data :  data, 
         //dataType: 'json',  // multiple data sent using ajax
         success: function (result) {
-					 
-			        if(result == '1') {
-
-			        	location.href = '/2';
+			        if(result == '1') {  console.log(78);
+			        	window.location = '/2';
 			        } else if (result == '0'){
 			        	alert('Wrong Password or User Name');
 			        };
