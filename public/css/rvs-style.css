@@ -1286,7 +1286,15 @@ toggle {  0% {
   background-color: black;
 }
 
+.read-more-img {
+  float: right;
+  margin-top: -4px;
+}
 
-
-
+.radioBalancer {
+  height: initial !important; 
+  vertical-align: -2px !important;
+  margin-right: 4px !important;
+  margin-top: 10px !important;
+}
 /*added by -rohitas */

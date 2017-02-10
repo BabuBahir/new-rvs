@@ -221,7 +221,7 @@
                         <img class="img-responsive" ng-src="{{myImgVar_5.url}}">
                         
                       <!-- the below div will be visible on hover -->
-                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                        <div class="upload-hover-wrapper"> 
                             <span><i ng-click="Delete_img(myImgVar_5.id,5)" class="fa fa-times"></i></span>
                         </div> <!-- upload-hover-wrapper -->
                         
@@ -266,11 +266,16 @@
                         
                     </div> 
 
-                      <div ng-show="ImgDone_6" >
-                       <input style="margin-top: 10px" type="text" placeholder="Report Damage" 
-                        class="form-control">   
-                      </div>            
+                    <br/>
+
+                      <div  ng-show="ImgDone_6" >
+                           <input style="margin-top: 10px" type="text" placeholder="Report Damage" 
+                            class="form-control">   
+                      </div>    <!--image text-->
+
                 </div>
+
+                
                <!--5th Damage Image-->
 
                <!--6th Damage Image-->
@@ -461,6 +466,7 @@
             $(document).ready(function(){
                 $(".CloudiImage").hover(function(){  
                     $(this).find(".upload-hover-wrapper").toggleClass("toggle-onhover");
+                    $(this).find(".upload-hover-wrapper").removeAttr('style');
                 });
             });
             

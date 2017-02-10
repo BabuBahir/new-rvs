@@ -25,10 +25,23 @@
                     </div> <!-- col-sm-6 -->
                 </div> <!-- row -->
                 
-                <h3 class="select-building-type">Select your Building Type </h3>
+                <h3 class="select-building-type">Select A Suitable Assessment Method 
+
+
+                    <div style="width: 30% ; margin : 20px auto 0px">
+                        <select class="form-control">                          
+                          <option selected value="GI">General Indian Standard</option>
+                          <option value="GA">General American Standard</option>
+                          <option value="GE">General European Standard</option>
+                        </select>
+                    </div> 
+                </h3>
+
                 
     <div class="row" style="margin:0; background:#f5f5f5; padding-bottom:20px;">
-        
+
+        <br/> 
+
         <div class="col-sm-12"> 
             
             <div id="gallerly">   <!-- note: gallerly plugin has not been used  -->
@@ -36,31 +49,35 @@
                 <div class="image-viewer">
                     
                     <a class="thumbnail">
-                        <img src="./img/image-1.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
+                        <img src="./img/image-1.png" data-title="Image Name" 
+                         ng-click="DirectMoveAndSave('Masonry')" onclick="StopVIdeo()"  />
                         <div class="desc"> <%=MasonaryObj[0].name[Language] %> 
-                            <img src="./img/needHelp.png" ng-click="call_slider('Masonry')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more"> 
+                            <img src="./img/needHelp.png" ng-click="call_slider('Masonry')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more-img"> 
                             </img>
                         </div>  <!-- desc -->
                     </a>
                     
-                    <a class="thumbnail">
-                        <img src="./img/image-2.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
+                    <a class="thumbnail"  ng-click="DirectMoveAndSave('Rcc')" onclick="StopVIdeo()" >
+                        <img src="./img/image-2.png" data-title="Image Name" 
+                         ng-click="DirectMoveAndSave('Rcc')" onclick="StopVIdeo()"  />
                         <div class="desc"> <%=RccObj[0].name[Language] %> 
                             <img src="./img/needHelp.png" ng-click="call_slider('Rcc')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more">  
                             </img>
                         </div>  <!-- desc -->
                     </a>
                     
-                    <a class="thumbnail">
-                        <img src="./img/image-3.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..." />
+                    <a class="thumbnail"  ng-click="DirectMoveAndSave('Steel')" onclick="StopVIdeo()" >
+                        <img src="./img/image-3.png" data-title="Image Name" 
+                             ng-click="DirectMoveAndSave('Steel')" onclick="StopVIdeo()" />
                         <div class="desc"> <%=SteelObj[0].name[Language] %> 
                             <img src="./img/needHelp.png" ng-click="call_slider('Steel')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more"> 
                             </img>
                         </div>  <!-- desc -->
                     </a>
                      
-                    <a class="thumbnail">
-                        <img src="./img/image-4.png" data-title="Image Name" data-description="<span>Desription:</span> Lorem Ipsum ..."/>
+                    <a class="thumbnail"  ng-click="DirectMoveAndSave('Composite')" onclick="StopVIdeo()" >
+                        <img src="./img/image-4.png" data-title="Image Name" 
+                             ng-click="DirectMoveAndSave('Composite')" onclick="StopVIdeo()"  />
                         <div class="desc"> <%=CompositeObj[0].name[Language] %> 
                             <img src="./img/needHelp.png" ng-click="call_slider('Composite')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more"> 
                             </img>
