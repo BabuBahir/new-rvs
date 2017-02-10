@@ -62,11 +62,11 @@ module.exports = function(app) {
     });
 
     app.get('/2', function(req, res) {
-        res.render('2)select_Language.html');
+        res.render('2)select_Language.html', {FUllName :req.session.name});
     });
  
     app.get('/map', function(req,res){
-        res.render('map1');
+        res.render('map1' , {FUllName :req.session.name});
     });
     
      app.get('/reg',function(req, res){
@@ -79,11 +79,11 @@ module.exports = function(app) {
     app.get('/SetBuildingSession/:BuildingName' , sessionController.CreateBuildingSessions);
 
     app.get('/3', function(req, res) { 
-        res.render('3)choose_Assessment.html');
+        res.render('3)choose_Assessment.html' , {FUllName :req.session.name} );
     });
  
     app.get('/4', function(req, res) {  
-        res.render('4)new_Survey_Or_survey_History.html');
+        res.render('4)new_Survey_Or_survey_History.html' , {FUllName :req.session.name} );
     });
  
 
@@ -104,7 +104,7 @@ module.exports = function(app) {
     }); 
   
     app.get('/addpicture', function(req, res) {  
-        res.render('add_Picture.html');
+        res.render('add_Picture.html' , {FUllName :req.session.name});
     });
 
     app.get('/showform',questionController.index);

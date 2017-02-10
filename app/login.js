@@ -6,7 +6,7 @@ module.exports = {
  
   index :  function (req, res){
 		var data = req.body;		
-		registersurveyer.findOne({email : data.email}).exec(function (err, val){ console.log(val);
+		registersurveyer.findOne({email : data.email}).exec(function (err, val){  
 			if(val=="" || val==null){
 				res.send('0');
 			} else{
@@ -14,10 +14,9 @@ module.exports = {
                  if(isMatch && !err){
                  	//handle sessions here
                  	req.session.email = val.email;
-                 	req.session.name = val.firstname;
+                 	req.session.name = val.firstname + ' ' + val.lastname;
                  	req.session.password = val.password;
-                 	
-                 	console.log("Session here:-"+req.session.name);
+                 	 
              	       res.send('1');	
                  }else	{
                  		res.send('0');	
@@ -44,7 +43,7 @@ module.exports = {
 
   adduser: function (req, res) {
   	var info = req.body;
-  	console.log(info);
+  	 
   	var query = User(info);
 		query.save(function (err, val){
 			if(err){

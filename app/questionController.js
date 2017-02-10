@@ -11,8 +11,8 @@ module.exports = {
         var Language =  req.session.languageSelected ;     
         
         if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
-
-        res.render('general_Info-Form',{ rawData: data , Language : Language , Address : req.session.address });
+ 
+        res.render('general_Info-Form',{FUllName :req.session.name , rawData: data , Language : Language , Address : req.session.address });
       });        
   },
 
@@ -22,7 +22,7 @@ module.exports = {
         var Language =  req.session.languageSelected ;  
         if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
 
-        res.render('general_Technical',{ rawData: data , Language : Language});
+        res.render('general_Technical',{ FUllName :req.session.name , rawData: data , Language : Language});
       });
   },
 
@@ -31,7 +31,7 @@ module.exports = {
         var Language =  req.session.languageSelected ;  
         if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
 
-        res.render('seismic_assesment',{ rawData: data , Language : Language});
+        res.render('seismic_assesment',{ FUllName :req.session.name , rawData: data , Language : Language});
       });
   },
 
