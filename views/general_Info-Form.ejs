@@ -115,7 +115,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label><b>Local Authority  </b></label>
-                                        <input type="text" style="border-left:  3px solid #fb6969" class="form-control" name="localAuthority" placeholder="">
+                                        <input type="text" style="border-left:  3px solid #fb6969" class="form-control" name="localAuthority" placeholder="Local Authority">
                                     </div>
                                 </div>
                                 
@@ -128,16 +128,25 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label><b>Earthquake Zone </b></label>
-                                        <input type="text" style="border-left:  3px solid #fb6969"style="border-left-color:  #fb6969" class="form-control" name="earthquakeZone" placeholder="">
+                                        <input type="text" style="border-left:  3px solid #fb6969"  class="form-control" name="earthquakeZone" placeholder="Earthquake Zone ">
                                     </div>
                                 </div>
                                 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label><b>Soil Grade </b></label>
-                                        <input type="text" class="form-control" name="soilGrade" placeholder="">
+                                        <input type="text" style="border-left:  3px solid #fb6969"  class="form-control" name="soilGrade" placeholder="Soil Grade">
                                     </div>
                                 </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label><b>Aadhar Card </b></label>
+                                        <input type="text" style="border-left:  3px solid #fb6969"  class="form-control" name="soilGrade" placeholder="Aadhar Card Number">
+                                    </div>
+                                </div>
+
+
                                 <div class="clearfix"></div>
                                                             
                                 <div class="col-sm-12 col-md-12">
@@ -148,11 +157,11 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                    <a type="button" href="#"
+                                                    <a type="button" href="#" style="text-decoration : none"
                                                     ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
                                                     data-toggle="modal" data-target="#myModal">
 
-                                                        <img src="./img/needHelp.png" >
+                                                        <img src="./img/needHelp.png" > ?
                                                     </a>
                                                 </span>
                                              <%}%>

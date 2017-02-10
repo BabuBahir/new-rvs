@@ -62,7 +62,7 @@ module.exports = function(app) {
     });
 
     app.get('/2', function(req, res) {
-        res.render('2)select_Language.html', {FUllName :req.session.name});
+        res.render('select_language.html', {FUllName :req.session.name});
     });
  
     app.get('/map', function(req,res){
@@ -71,7 +71,6 @@ module.exports = function(app) {
     
      app.get('/reg',function(req, res){
         res.render('registerSurveyor');
- 
     });
  
     app.get('/LangaugeSelected/:langId', sessionController.CreateLanguageSession);
@@ -146,7 +145,9 @@ module.exports = function(app) {
         console.log(req.body.user.email);  
         res.send('done');       
     });
+    
     app.post('/regsurvey', registeruser.reguser);
+
     app.get('/admin', function(req, res) {
         sess = req.session;
         if (sess.email) {

@@ -941,6 +941,39 @@ toggle {  0% {
     font-weight:bold; margin-right:10px; font-size:16px;
 }
 /* 1st Feb */
+
+/* select language html dated: 10th feb 2017 */
+
+.buildings-surveyed-wrapper {
+    position:absolute; bottom:40px; width:90%; left:-43%;
+}
+
+.no-of-visitors-wrapper {
+    position:absolute; bottom:40px; width:90%; right:-43%;
+}
+
+.buildings-surveyed-wrapper .media, .no-of-visitors-wrapper .media { background:#fff;padding:15px; }
+
+.buildings-surveyed-wrapper .media-left .media-object, .no-of-visitors-wrapper .media-left .media-object { height:96px; width:96px; border:1px solid #eaeaea; }
+
+.media-body { border:1px solid #eaeaea; padding:4px 8px; }
+
+.media-body span { color:#9aacba; font-size:13px; }
+
+.media-body .media-heading { font-size:16px;color:#666; font-weight:800; }
+
+.surveyed-per-day { color:#9aacba; font-weight:600; }
+
+.surveyed-per-day i {
+   color:#d27228;font-size: 34px;vertical-align: 1px; padding-right: 3px;
+}
+
+.surveyed-per-day h1 { display:inline-block; margin:0; color:#666; }
+
+.project-form-bg {
+     height:100%; height:100vh;
+}
+
 /**** media styles starts here ****/
 
 @media (min-width: 768px) and (max-width: 991px) { 

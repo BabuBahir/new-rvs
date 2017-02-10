@@ -32,11 +32,12 @@
                     <div class="form-group">
                         <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     </div>
-					<p id="forgot">Forgot Password ?</p>
+					<a id="forgot" style="text-decoration : none"> Forgot Password ? </a>
 					
 					<!-- <button type="button" class="btn login-button">Login</button>  -->
 					<button  type="button" class="orange-btn" id="btn"><i class="fa fa-sign-in"></i>&nbsp; Login </button>
-					<p>New user sign up now!</p>
+					<br>
+					<a href="/reg" style="text-decoration : none">New user sign up now!</a>
 			    </form>
 			</div>  <!-- sign-up-bg -->
 	      
@@ -61,50 +62,52 @@
 	    <script src="js/bootstrap.min.js"></script>
 	   <script>
 $(document).ready(function() {
-    $('#btn').click(function () {
 
-          var data = {
-            email : $("#emailid").val(),
-            password : $("#password").val()
-          };          
-      console.log(data);
-        $.ajax({
-        type:"POST",
-        url:"/UserLogin",
-        async : false,
-        data :  data, 
-        //dataType: 'json',  // multiple data sent using ajax
-        success: function (result) {
-			        if(result == '1') {  console.log(78);
-			        	window.location = '/2';
-			        } else if (result == '0'){
-			        	alert('Wrong Password or User Name');
-			        };
-        
-        	}
-        });
-    });
-    ///forgot password
 
-    $('#forgot').click(function () {
-        var data = {
-            email : $("#emailid").val(),
-            
-          };          
-      console.log(data);
-        $.ajax({
-        type:"POST",
-        url:"/mymail",
-        data :  data, 
-        //dataType: 'json',  // multiple data sent using ajax
-        success: function (result) {
-         alert(result);
-        }
+			$('#btn').click(function () {
 
-          
-     
-    });
-});
+			      var data = {
+			        email : $("#emailid").val(),
+			        password : $("#password").val()
+			      };          
+			  console.log(data);
+			    $.ajax({
+			    type:"POST",
+			    url:"/UserLogin",
+			    async : false,
+			    data :  data, 
+			    //dataType: 'json',  // multiple data sent using ajax
+			    success: function (result) {
+					        if(result == '1') {  console.log(78);
+					        	window.location = '/2';
+					        } else if (result == '0'){
+					        	alert('Wrong Password or User Name');
+					        };
+			    
+			    	}
+			    });
+			});
+    ///forgot password///////////////////////////////////////////////////////////////////////////////
+
+	    $('#forgot').click(function () {
+	        var data = {
+	            email : $("#emailid").val(),
+	            
+	          };          
+	      console.log(data);
+	        $.ajax({
+	        type:"POST",
+	        url:"/mymail",
+	        data :  data, 
+	        //dataType: 'json',  // multiple data sent using ajax
+	        success: function (result) {
+	         alert("A mail has been sent to your Email ID");
+	        }
+
+	          
+	     
+	    });
+	});
 });
 </script>
 	</body>

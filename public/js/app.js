@@ -149,18 +149,38 @@ $scope.nextVideo = function () {
 	}
 };
 
-	$scope.moveAndSave = function(){
-		console.log($scope.counter);
-		$http({
-			method : "GET",
-			url : "/SetBuildingSession/"+$scope.counter,
-			async : false,
-		}).then(function mySucces(response){ console.log(response.data);
-			 location.href = '/map';
-		},function	myError(response){
+$scope.moveAndSave = function(){
+	console.log($scope.counter);
+	$http({
+		method : "GET",
+		url : "/SetBuildingSession/"+$scope.counter,
+		async : false,
+	}).then(function mySucces(response){  
+		 location.href = '/map';
+	},function	myError(response){
 
-		}); 		 
-    };
+	}); 		 
+};
+
+
+$scope.DirectMoveAndSave = function(building){	 
+	$http({
+		method : "GET",
+		url : "/SetBuildingSession/"+building,
+		async : false,
+	}).then(function mySucces(response){  
+		 location.href = '/map';
+	},function	myError(response){
+
+	}); 		 
+};
+
+
+
+
+
+
+
 
 
     })

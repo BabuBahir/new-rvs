@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="langapp" lang="en">
+	<head>
+        <title>Select Language</title>
+        <% include ./partials/head %>
+    </head>
+    <body ng-controller="MainCtrl">
+       <!-- nav bar starts here -->
+       <% include ./partials/header %>
+      <!-- nav bar ends here -->
+	  
+	    <div class="container-fluid sign-up-bg_img">
+		  
+	        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xs-12 project-form-bg" style="position:relative">
+			  
+                <br/> <br/>
+		      <!-- form starts here -->	
+			    <form class="sign-up-form-bg">
+                    <h3>Select your Language</h3>
+                    <div class="form-group">                        
+                        <select ng-model="prop.value" ng-change="updatePath('/3')" class="form-control"                 ng-options="v for v in prop.values">
+                        </select>
+                    </div>
+                    
+              <!--  <button type="button" class="btn">Next</button>  -->
+                    <a href="/3" class="orange-btn" style="margin-top:40px;display: none;"><i class="fa fa-arrow-right"></i>&nbsp; Next</a>
+                </form>
+                
+                <div class="buildings-surveyed-wrapper">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#"> 
+                                <img class="media-object" src="img/building-image.png"> 
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <span>Number of</span>
+                            <h4 class="media-heading">Buildings Surveyed</h4>
+                            <span class="surveyed-per-day">
+                                <i class="fa fa-caret-right"></i>
+                                <h1>635</h1> /Day
+                            </span>
+                        </div>  <!-- media-body -->
+                    </div>  <!-- media -->
+                </div>  <!-- buildings-surveyed-wrapper -->
+                
+                <div class="no-of-visitors-wrapper">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#"> 
+                                <img class="media-object" src="img/visitor.png"> 
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <span>Number of</span>
+                            <h4 class="media-heading">Visitors</h4>
+                            <span class="surveyed-per-day">
+                                <i class="fa fa-caret-right"></i>
+                                <h1>850</h1> /Day
+                            </span>
+                        </div>  <!-- media-body -->
+                    </div>  <!-- media -->
+                </div>  <!-- buildings-surveyed-wrapper -->
+			
+            </div>  <!-- sign-up-bg -->
+            
+            
+		  
+		</div> <!-- container-fluid -->
+	  
+	  <!-- footer  -->
+		 
+       <% include ./partials/footer %>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+        <script src="js/SelectApp.js"></script>
+    </body>
+</html>

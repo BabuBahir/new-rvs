@@ -57,7 +57,7 @@
                     </div> <!-- col-sm-6 -->
                 </div> <!-- row -->
                 
-                <h3 class="select-building-type">General Information</h3>
+                <h3 class="select-building-type">General Technical Info</h3>
                 
                 <div class="row" style="margin:0; padding-bottom:20px; background:#fff;">
                     
@@ -103,13 +103,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                <a type="button" href="#"
+                                                <a type="button" href="#" style="text-decoration : none"
                                                     ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
                                                     data-toggle="modal" data-target="#myModal">
-                                                     
-                                                     <img src="./img/needHelp.png" >
 
-                                                </a>
+                                                        <img src="./img/needHelp.png" > ?
+                                                    </a>
                                                 </span>
                                              <%}%>
                                             </b>
