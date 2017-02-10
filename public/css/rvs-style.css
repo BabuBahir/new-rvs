@@ -479,6 +479,33 @@ footer i { vertical-align:-8px; }
   transition: all .1s ease;
 }
 
+.orange-btn-big{
+  position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #f3810f !important;
+    border: 1px solid #f3810f !important;
+    font-weight: 700;
+    font-size:17px;
+    display: block;
+    padding: 9px 4px;
+    -webkit-border-radius: 6px !important;
+    -moz-border-radius: 6px !important;
+    border-radius: 6px !important;
+    -webkit-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    margin:15px auto 25px;
+  width: 250px;
+  text-align: center;
+  
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -ms-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  transition: all .1s ease;
+}
+
 .sky-blue-btn  {
    background-color: #6ba9ff !important;
     border: 1px solid #6ba9ff !important;
@@ -1297,4 +1324,33 @@ toggle {  0% {
   margin-right: 4px !important;
   margin-top: 10px !important;
 }
+
+
+.orange-btn-big{
+  position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #f3810f !important;
+    border: 1px solid #f3810f !important;
+    font-weight: 700;
+    font-size:17px;
+    display: block;
+    padding: 9px 4px;
+    -webkit-border-radius: 6px !important;
+    -moz-border-radius: 6px !important;
+    border-radius: 6px !important;
+    -webkit-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    box-shadow: 0px 8px 0px rgba(203,103,5,.9), 0px 9px 20px rgba(0,0,0,.8);
+    margin:15px auto 25px;
+  width: 250px;
+  text-align: center;
+  
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -ms-transition: all .1s ease;
+  -o-transition: all .1s ease;
+  transition: all .1s ease;
+}
+
 /*added by -rohitas */
