@@ -74,25 +74,15 @@ $(document).ready(function() {
         data :  data, 
         //dataType: 'json',  // multiple data sent using ajax
         success: function (result) {
+					 
+			        if(result == '1') {
 
-          if(result.error==false){
-         alert("inside");
-        /*
-
-          new PNotify({
-        title: 'Login Notice',
-        text: 'user logged in',
-        type : 'success',
-        delay : 50000
-        });
-        */
-          window.location='/list/';
-          }
-          else{  alert(result);
-          
-          }
+			        	location.href = '/2';
+			        } else if (result == '0'){
+			        	alert('Wrong Password or User Name');
+			        };
         
-        }
+        	}
         });
     });
     ///forgot password

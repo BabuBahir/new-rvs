@@ -3,27 +3,7 @@ var User = require("../models/user.js");
 var bcrypt = require('bcrypt');
 
 module.exports = {
-	/*
-  index: function (req, res) { 
-   var info = req.body;
-    
-	user.find({email: req.body.email}, function(err, data){  
-		//console.log(data[0].email)
-		if(req.body.email == data[0].email){     //console.log(data);
-			data[0].comparePassword(req.body.password, function (err, isMatch) {//console.log(data[0].password);
-			if (isMatch && !err) { 
-				//store whatever you need to store in the locals or session
-				//sess = req.session;
-				//sess.user = req.body.email;	
-				
-				             req.session.email = data[0].email;	        
-				res.redirect('/2');
-			  }
-			else{ console.log('false');res.send('Wrong password'); }
-			});		
-		} else { res.redirect('/'); };
-  	}); 
-  },*/
+ /*
   index :  function (req, res){
 		var data = req.body;
 		console.log(data.password);
@@ -52,7 +32,19 @@ module.exports = {
 
         });
     
-    },
+    }, */
+
+
+ index: function (req, res) { 
+   	    
+		if((req.body.email == "user@gmail.com")&&(req.body.password == "user")){ 	
+		 	  			        
+				res.send('1');		  			 	
+		} else { 
+				res.send('0');	
+  	};           
+  	  
+  },
 
   adduser: function (req, res) {
   	var info = req.body;
