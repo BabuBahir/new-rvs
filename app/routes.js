@@ -156,6 +156,8 @@ module.exports = function(app) {
 
     app.post('/regsurvey', registeruser.reguser);
 
+    app.post('/sendRegisterMail' , changepwd.sendRegisterMail);
+
     app.get('/admin', function(req, res) {
         sess = req.session;
         if (sess.email) {

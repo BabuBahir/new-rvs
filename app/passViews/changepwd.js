@@ -43,7 +43,7 @@ module.exports = {
                 var mailOpts = {
                     from: "kaminikamaliem@gmail.com",
                     to: req.body.email,
-                    subject: 'Password Change Request for DonateMyTime',
+                    subject: 'Password Change Request for rvs',
                     html: htmlMsg
                 }
 
@@ -57,9 +57,30 @@ module.exports = {
             })
             return res.json({ complete: true })
         })
-    }
+    },
 
+    sendRegisterMail: function(req, res) {  
 
+             var htmlMsg = `<p>Thank You for registration ${req.body.firstname}  , please visit:</p>`;
+                htmlMsg += `<p> https://rvs-staging.herokuapp.com </p>`;
+                htmlMsg += `<p>using your Credentials </p>`;
+                htmlMsg += `<p> .</p>`;
 
+                var mailOpts = { 
+                    from: "kaminikamaliem@gmail.com",
+                    to: req.body.email,
+                    subject: 'Password Change Request for rvs',
+                    html: htmlMsg
+                }
+
+                mailer.sendMail(mailOpts, function(err, info) {
+                    if (err) {
+                        console.log('Mailing error: ', err);
+                    }
+                    console.log('Mailing....', info);
+                })
+
+            return res.json({ complete: true })
+        }
     
 }

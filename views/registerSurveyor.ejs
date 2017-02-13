@@ -289,6 +289,12 @@ $(document).ready(function() {
         data :  data, 
         //dataType: 'json',  // multiple data sent using ajax
         success: function (result) {
+                    $.ajax({
+                        type:"POST",
+                         url:"/sendRegisterMail",
+                          data :  data, 
+                    })
+                // make ajax Request
                alert(result.result);
                window.location.href="/welcome"
               
