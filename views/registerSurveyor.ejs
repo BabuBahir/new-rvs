@@ -286,12 +286,14 @@ $(document).ready(function() {
         $.ajax({
         type:"POST",
         url:"/regsurvey",
+        async : false ,
         data :  data, 
         //dataType: 'json',  // multiple data sent using ajax
         success: function (result) {
                     $.ajax({
                         type:"POST",
                          url:"/sendRegisterMail",
+                         async : false ,
                           data :  data, 
                           success : function(result) {
                               // make ajax Request
