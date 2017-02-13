@@ -101,6 +101,7 @@ module.exports = function(app) {
     // app.post('/user_passwordchange', changepass.getChangePass);
     //use this
     app.get('/changepass/:token', change.getChangePass);
+    
     app.post('/changepass', change.postChangePass);
 
     app.get('/history', function(req, res) {
@@ -144,6 +145,7 @@ module.exports = function(app) {
         sess.email = req.body.email;
         res.end('done');
     });
+    
     app.post('/mymail', changepwd.postSendChangePassword);
     
     app.post('/', function(req, res) {

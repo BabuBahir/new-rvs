@@ -11,6 +11,6 @@ module.exports = {
     //'database': 'mongodb://localhost:27017/donatemytime',
     'database' : 'mongodb://test:test@ds157248.mlab.com:57248/rvs',
     'apiPath' : '/api/v1',
-    'siteUrl': 'http://139.59.34.61:3000'
+    'siteUrl': 'https://rvs-staging.herokuapp.com/'
   }
 };
