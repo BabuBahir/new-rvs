@@ -104,7 +104,7 @@ module.exports = function(app) {
     app.post('/changepass', change.postChangePass);
 
     app.get('/history', function(req, res) {
-        res.render('5)survey_History.html');
+        res.render('5)survey_History.html' , { FUllName: req.session.name });
     });
 
     app.get('/addpicture', function(req, res) {
@@ -145,6 +145,7 @@ module.exports = function(app) {
         res.end('done');
     });
     app.post('/mymail', changepwd.postSendChangePassword);
+    
     app.post('/', function(req, res) {
         console.log(req.body.user.name);
         console.log(req.body.user.email);

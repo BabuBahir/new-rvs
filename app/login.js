@@ -1,4 +1,4 @@
-var User = require("../models/user.js");
+  
 var registersurveyer = require("../models/registersurveyer.js");
 var bcrypt = require('bcrypt');
 
@@ -44,7 +44,7 @@ module.exports = {
   adduser: function (req, res) {
   	var info = req.body;
   	 
-  	var query = User(info);
+  	var query = registersurveyer(info);
 		query.save(function (err, val){
 			if(err){
 				res.send("error");

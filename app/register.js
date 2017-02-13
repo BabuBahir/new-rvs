@@ -1,6 +1,6 @@
  var Register = require("../models/registersurveyer.js");
 ///var SignupUser = require("../models/signup_user.js");
-//var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt'); 
 
 module.exports = {
   reguser: function (req, res) {
