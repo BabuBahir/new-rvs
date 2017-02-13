@@ -10,49 +10,7 @@ var sessionController = require('./sessionController');
 var nodemailer = require('nodemailer');
 
 module.exports = function(app) {
-
-    /*
-        app.post('/mymail',function(req,res){
-           var oldurl = req.body.email;
-           var abc="fbwejhfvjhewbf";
-           var text = "http://localhost:3000/changepass/"+abc;
-           console.log(oldurl);
-          //res.send();
-          //console.log(messege);
-          var transporter = nodemailer.createTransport({
-
-                  host : 'smtp-pulse.com',
-                  port : 465,
-                  secure :true,
-                  auth : {
-                        //user : 'skmishra.nitdgp@gmail.com',
-                        user : 'kaminikamaliem@gmail.com',
-                        //pass : 'CBgGDtsNYa6oq'
-                        pass : 'makZqnAqmSWi'
-                  }
-          });
-          var mailOption = {
-              from : 'kaminikamaliem@gmail.com',
-                to : oldurl,
-            subject: 'password change',
-            html: text
-               //text: '<a href="http://localhost:3000changepass/'+abc+'">click here to change password</a>',
-          }
-
-        transporter.sendMail(mailOption, function(err,data){
-                   if(err){
-                     //console.log(err);
-                     res.send('Error in sending messege');
-                   }
-                   else {
-                     //console.log('Email Sent');
-                     res.send('succcessfully sent');
-                   }
-
-          });postSendChangePassword
-
-    });
-    */
+ 
     app.get('/', function(req, res) {
         res.render('signin');
     });
@@ -62,11 +20,11 @@ module.exports = function(app) {
     });
 
     app.get('/2', function(req, res) {
-        res.render('select_language.html', { FUllName: req.session.name });
+        res.render('select_language.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
     app.get('/map', function(req, res) {
-        res.render('map1', { FUllName: req.session.name });
+        res.render('map1', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
     app.get('/reg', function(req, res) {
@@ -83,16 +41,16 @@ module.exports = function(app) {
     app.get('/SetBuildingSession/:BuildingName', sessionController.CreateBuildingSessions);
 
     app.get('/3', function(req, res) {
-        res.render('3)choose_Assessment.html', { FUllName: req.session.name });
+        res.render('3)choose_Assessment.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
     app.get('/4', function(req, res) {
-        res.render('4)new_Survey_Or_survey_History.html', { FUllName: req.session.name });
+        res.render('4)new_Survey_Or_survey_History.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
 
     app.get('/report', function(req, res) {
-        res.render('report_Format.html', { FUllName: req.session.name });
+        res.render('report_Format.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
     app.get('/signup', function(req, res) {
         res.render('signup');
@@ -105,11 +63,11 @@ module.exports = function(app) {
     app.post('/changepass', change.postChangePass);
 
     app.get('/history', function(req, res) {
-        res.render('5)survey_History.html' , { FUllName: req.session.name });
+        res.render('5)survey_History.html' , { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
     app.get('/addpicture', function(req, res) {
-        res.render('add_Picture.html', { FUllName: req.session.name });
+        res.render('add_Picture.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
     app.get('/showform', questionController.index);
@@ -138,6 +96,7 @@ module.exports = function(app) {
     app.post('/UploadImage', multipartMiddleware, controller.UploadImage);
 
     app.post('/UserLogin', login.index);
+
     app.post('/user_signup', login.adduser);
 
     app.post('/login', function(req, res) {

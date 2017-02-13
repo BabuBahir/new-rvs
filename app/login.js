@@ -6,7 +6,7 @@ module.exports = {
  
   index :  function (req, res){
 		var data = req.body;		
-		registersurveyer.findOne({email : data.email}).exec(function (err, val){  
+		registersurveyer.findOne({email : data.email}).exec(function (err, val){   console.log(val);
 			if(val=="" || val==null){
 				res.send('0');
 			} else{
@@ -16,7 +16,7 @@ module.exports = {
                  	req.session.email = val.email;
                  	req.session.name = val.firstname + ' ' + val.lastname;
                  	req.session.password = val.password;
-                 	 
+                 	req.session.membershiptype = val.membershiptype;
              	       res.send('1');	
                  }else	{
                  		res.send('0');	
