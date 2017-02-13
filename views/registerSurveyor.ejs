@@ -293,11 +293,14 @@ $(document).ready(function() {
                         type:"POST",
                          url:"/sendRegisterMail",
                           data :  data, 
-                    })
-                // make ajax Request
-               alert(result.result);
-               window.location.href="/welcome"
+                          success : function(result) {
+                              // make ajax Request
+                            alert('USer Has Been Registered ');
+                            window.location.href="/welcome"
               
+                          }
+                    })
+               
             }
         });
     });
