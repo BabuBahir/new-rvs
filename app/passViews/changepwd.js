@@ -33,7 +33,7 @@ module.exports = {
                     changePassURL: shorturl
                 };
 
-                 console.log(shorturl);
+                 console.log(config.siteUrl);
                  
                 var htmlMsg = `<p>To change login password for <strong>${req.body.handle}</strong> as requested, please visit:</p>`;
                 htmlMsg += `<p> ${shorturl} </p>`;
