@@ -1,6 +1,6 @@
 var User = require('../../models/registersurveyer');
 var jwt = require('jsonwebtoken');
-var config = require('../../config')[process.env.NODE_ENV || 'production'];
+var config = require('../../config')[process.env.NODE_ENV || 'development'];
 var mailer = require('../../mailer');
 
 module.exports = {
@@ -24,6 +24,7 @@ module.exports = {
 
             var TinyURL = require('tinyurl');
 
+
             TinyURL.shorten(config.siteUrl + '/changepass/' + token, function(shorturl) {
                 var locals = {
                     to: req.body.email,
@@ -32,6 +33,8 @@ module.exports = {
                     changePassURL: shorturl
                 };
 
+                 console.log(shorturl);
+                 
                 var htmlMsg = `<p>To change login password for <strong>${req.body.handle}</strong> as requested, please visit:</p>`;
                 htmlMsg += `<p> ${shorturl} </p>`;
                 htmlMsg += `<p>The link expires in about an hour.</p>`;
