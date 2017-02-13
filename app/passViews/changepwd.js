@@ -25,7 +25,7 @@ module.exports = {
             var TinyURL = require('tinyurl');
 
 
-            TinyURL.shorten(config.siteUrl + '/changepass/' + token, function(shorturl) {
+            TinyURL.shorten('https://rvs-staging.herokuapp.com/' + '/changepass/' + token, function(shorturl) {
                 var locals = {
                     to: req.body.email,
                     subject: 'Password Change Request for DonateMyTime',
