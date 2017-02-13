@@ -78,7 +78,7 @@ $(document).ready(function() {
 			    data :  data, 
 			    //dataType: 'json',  // multiple data sent using ajax
 			    success: function (result) {
-					        if(result == '1') {  console.log(78);
+					        if(result == '1') {   
 					        	window.location = '/2';
 					        } else if (result == '0'){
 					        	alert('Wrong Password or User Name');
@@ -93,19 +93,22 @@ $(document).ready(function() {
 	        var data = {
 	            email : $("#emailid").val(),
 	            
-	          };          
-	      console.log(data);
+	          };  
 	        $.ajax({
 	        type:"POST",
 	        url:"/mymail",
 	        data :  data, 
 	        //dataType: 'json',  // multiple data sent using ajax
-	        success: function (result) {
-	         alert("A mail has been sent to your Email ID");
+	        success: function (result) { 
+	         if(result.complete == true){
+	         	alert("A mail has been sent to your Email ID");
+         	 } else if(result.complete == false){
+         	 	alert("Inavlid Email ID or User Doesn't Exist");
+         	 }
+
+
 	        }
 
-	          
-	     
 	    });
 	});
 });
