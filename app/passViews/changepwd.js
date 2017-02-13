@@ -1,6 +1,6 @@
 var User = require('../../models/registersurveyer');
 var jwt = require('jsonwebtoken');
-var config = require('../../config')[process.env.NODE_ENV || 'staging'];
+var config = require('../../config')[process.env.NODE_ENV || 'development'];
 var mailer = require('../../mailer');
 
 module.exports = {
