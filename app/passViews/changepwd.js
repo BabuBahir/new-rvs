@@ -69,7 +69,7 @@ module.exports = {
                 var mailOpts = { 
                     from: "kaminikamaliem@gmail.com",
                     to: req.body.email,
-                    subject: 'Password Change Request for rvs',
+                    subject: 'Registration Successfull',
                     html: htmlMsg
                 }
 
