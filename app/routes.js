@@ -32,7 +32,7 @@ module.exports = function(app) {
     });
 
     app.get('/SurveyDone' , function(req, res) {
-        res.render('SurveyDone.html');
+        res.render('SurveyDone.html' , { FUllName: req.session.name , membership: req.session.membershiptype });
     });
 
 

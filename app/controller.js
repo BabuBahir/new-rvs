@@ -35,7 +35,7 @@ module.exports = {
          var CompositeObj = [] ;
          data.forEach(function(o){if (o._id == 'Composite') CompositeObj.push(o);} );
  
-        res.render('select',{ FUllName :req.session.name , drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl , Language : Language , MasonaryObj : MasonaryObj , RccObj : RccObj , SteelObj : SteelObj , CompositeObj : CompositeObj });                     
+        res.render('select',{ FUllName :req.session.name , membership: req.session.membershiptype , drinks:data[0].name , desc:data[0].description , posts:data[0].buildingImgUrl , Language : Language , MasonaryObj : MasonaryObj , RccObj : RccObj , SteelObj : SteelObj , CompositeObj : CompositeObj });                     
       });        
   },
 
