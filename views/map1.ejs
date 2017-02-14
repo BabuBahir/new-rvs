@@ -73,7 +73,9 @@
         margin-left: 12px;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        width: 400px;
+        width: 330px; /* original value was 440px */
+         /* added by vikash */
+        top: 11px !important;
       }
 
       #address:focus {
@@ -91,6 +93,14 @@
       #target {
         width: 345px;
       }
+
+      .search-address-btn {
+            position: absolute;
+            top: 87px;
+            left: 500px;
+            z-index: 99;
+        }
+
     </style>
   </head>
 
@@ -99,44 +109,56 @@
    <!-- nav bar starts here -->
        <% include ./partials/header %>
     <!-- nav bar ends here -->
-<div class="container-fluid new-surveyor-form_bg-img">
-  <br><br>
-    <div class="row">
-    <div class="col-md-7">
-    <h3 style="text-align: center;">Locate your Building</h3>
-    <input type="textbox" id="txt" placeholder="Your Address Will be Display Here" class="form-control" readonly><br>
-    </div>
-    </div>
-    
-
-    <input id="address" class="controls form-control" type="text" placeholder="Search Box">
-    <center><button id="submit" class="btn btn-success" class="form-control" style="display: none">Search</button></center>
-    
-
-    <div id="map"></div>
-
-     <a class="orange-btn" id="btn"> This is My Building !!</a>
-     <a class="sky-blue-btn"  href="/newsurvey"> <  &nbsp; &nbsp; BACK </a>
-  </div>
- 
-
-
- 
-
-
-
-    <script>
+    <div class="container-fluid new-surveyor-form_bg-img">
       
-      var markers=[];
+        <br><br>
+        
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h3 class="text-center"><b>Locate your Building</b></h3>
+                <br>
 
+                <input id="address" class="controls form-control" type="text" placeholder="Search Box" style="border-color: #398439;">
+
+                <button id="submit" class="btn btn-info search-address-btn" class="form-control" >Search</button>
+
+                <div id="map"></div> <!--map--> <br/>
+
+                <input  type="textbox"  id="txt" placeholder="Your Address Will be Display Here" class="form-control" readonly style="border-color: #398439;"> <br/>
+
+                <a class="orange-btn" style="width: 24%; margin-bottom:40px;" id="btn"> This is My Building !!</a>
+                
+                <a class="sky-blue-btn" href="/newsurvey" style="margin-bottom:40px;"> 
+                    <i class="fa fa-angle-left"></i>&nbsp; BACK 
+                </a>
+            </d iv> <!--col-sm-10 col-sm-offset-1-->
+        
+        </div> <!--row-->
+ 
+    </div>  <!-- new-surveyor-form_bg-img -->
+ 
+
+
+ 
+
+<script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      var markers=[];
+      
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 22.5726, lng: 88.3639},
           zoom: 13,
           // mapTypeId: 'roadmap'
         });
-
         
+
         var input = document.getElementById('address');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -144,73 +166,20 @@
         var geocoder = new google.maps.Geocoder();
         document.getElementById('submit').addEventListener('click', function() {
         
-        
+        $("#txt").val("");
         markers.forEach(function(marker) {
             marker.setMap(null);
           });
+
           geocodeAddress(geocoder, map);
         });
         document.getElementById('address').addEventListener('keyup', function(e) {
+        
           if (e.keyCode == 13) { 
              //geocodeAddress(geocoder, map);
              $("#submit").trigger("click");
            }
         });
-
-        // Bias the SearchBox results towards current map's viewport.
-        /*map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
-          }
-
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              draggable:true,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
-        });*/
 
       }
       function geocodeAddress(geocoder, resultsMap) {
@@ -233,17 +202,17 @@
             //console.log(marker);
             google.maps.event.addListener(marker, 'dragend', function() {
             geocoder.geocode({
-              latLng: markers[0].getPosition()
+              latLng: marker.getPosition()
             }, function(responses) {
               if (responses && responses.length > 0) {
-                marker.formatted_address = responses[0].formatted_address;
+                markers[0].formatted_address = responses[0].formatted_address;
 
               } else {
-                marker.formatted_address = 'Cannot determine address at this location.';
+                markers[0].formatted_address = 'Cannot determine address at this location.';
               }
               //console.log(marker.formatted_address);
               //marker.title=marker.formatted_address;
-              $("#txt").val(marker.formatted_address);
+              $("#txt").val(markers[0].formatted_address);
               
             });
           
@@ -253,14 +222,14 @@
               latLng: marker.getPosition()
             }, function(responses) {
               if (responses && responses.length > 0) {
-                marker.formatted_address = responses[0].formatted_address;
+                markers[0].formatted_address = responses[0].formatted_address;
 
               } else {
-                marker.formatted_address = 'Cannot determine address at this location.';
+                markers[0].formatted_address = 'Cannot determine address at this location.';
               }
               //console.log(marker.formatted_address);
               //marker.title=marker.formatted_address;
-              $("#txt").val(marker.formatted_address);
+              $("#txt").val(markers[0].formatted_address);
               
             });
           
@@ -268,10 +237,11 @@
       })
     }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhcBj8QN9RqeG8cRNa5XscyeUnS9APgwo&libraries=places&callback=initAutocomplete"
-         async defer></script>
-
+  </script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhcBj8QN9RqeG8cRNa5XscyeUnS9APgwo&libraries=places&callback=initAutocomplete"
+   async defer></script>
+  
 <script>
 $(document).ready(function() {
     $('#btn').click(function () {
