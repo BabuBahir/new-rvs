@@ -17,11 +17,12 @@
 		  
 	        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-xs-10 col-xs-offset-1">
 			    
-                <h4 class="label-surveyor-register">Register as a New Surveyor</h4>
+                <h4 class="label-surveyor-register"> <span> Register as a New Surveyor </span> </h4>
 			    
                 <form class="new-surveyor-form-bg">
                     
-                    <div class="help-block-float">
+                    <div class="help-block-float" data-toggle="modal" data-target=".help-modal" >
+
                         <i class="fa fa-question-circle"></i><br/>
                         <span>H</span><br/>
                         <span>E</span><br/>
@@ -128,7 +129,7 @@
                     
                     <div class="col-sm-12 col-xs-12" style="padding:5px">
                         <label>Type of Membership</label>
-                        <i class="fa fa-question-circle pull-right" style="margin-top:1px;font-size:20px;cursor:pointer;"></i>
+                        <i class="fa fa-question-circle pull-right" style="margin-top:1px;font-size:20px;cursor:pointer;" data-toggle="modal" data-target=".help-modal" ></i>
                     </div>
                     
                   <!-- membership type select start  -->
@@ -251,7 +252,34 @@
 					
                 </form>
 			</div>  <!-- sign-up-bg -->
-		
+
+            <!--NEw code-->
+
+                <!-- ****    NOTE: MODAL CODE IS BELOW    **** -->
+            
+            <div class="modal fade help-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title text-center text-primary" id="myModalLabel"><b>Membership Eligibility</b></h4>
+                        </div>
+                        <div class="modal-body"> 
+                            <h5 class="text-info"><b>Nonprofessional Surveyor Membership :</b></h5> 
+                            <p>Open to everyone through simple registration.</p>
+                            
+                            <h5 class="text-info"><b>Professional Surveyor Membership:</b></h5> 
+                            <p>Open to Engineers with B.E. (Civil) Degree with 3 years of Professional Consulting Experience OR Diploma (Civil) with 05 years of Professional Consulting Experience.</p>
+                            
+                            <h5 class="text-info"><b>Certified Surveyor Membership:</b></h5>  
+                            <p>Open to Engineers with B.E. (Civil) Degree with 5 years of Professional Consulting Experience OR Diploma (Civil) with 10 years of Professional Consulting Experience  and  ten hours RVS training programme with us.</p>
+                        </div>  <!-- modal-body -->
+                    </div>  <!-- modal-content -->
+                </div>  <!-- modal-dialog -->
+            </div> <!-- modal fade -->
+
+             <!--NEw code-->
+
 		</div> <!-- container-fluid -->
 	    
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

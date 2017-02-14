@@ -57,7 +57,7 @@
                     </div> <!-- col-sm-6 -->
                 </div> <!-- row -->
                 
-                <h3 class="select-building-type">Seismic Assessment</h3>
+                <h3 class="select-building-type"> <span> Seismic Assessment </span> </h3>
                 
                 <div class="row" style="margin:0; padding-bottom:20px; background:#fff;">
                     
@@ -73,7 +73,7 @@
                     </div>  <!-- col-sm-3 col-md-3 col-lg-2 -->
  
                     <div class="col-sm-6 col-md-6 col-lg-8">    
-                     <!--progress bar wrapper-->        
+                     <!--progress bar wrapper-->       <br/> 
                       <div class="text-center">               
                          <div class="progress-bar progress-bar-custom"  data-percent="80" data-color="#ccc,#DC143C">
                             <span class="progress-bar-text">General Information</span>
@@ -98,8 +98,8 @@
                                 <div class="col-sm-12 col-md-12">
                                 <% for(var i = 0; i < rawData.length ; i ++) { %>
                                     <div class="form-group">
-                                        <label>
-                                            <b>Q) <%=rawData[i].question.text[Language]%>   
+                                        <label class="QuesLeftGreen">
+                                            <b> <%=rawData[i].question.text[Language]%>   
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
