@@ -28,7 +28,7 @@
                 <h3 class="select-building-type"> <span>Select a suitable assessment method </span>
 
 
-                    <div style="width: 30% ; margin : 40px auto 0px">
+                    <div style="width: 30% ; margin : 40px auto 0px ; border: 2px solid blue ; border-radius: 2px">
                         <select class="form-control">                          
                           <option style="background-color: yellow" selected value="GI">General Indian Standard</option>
                           <option style="background-color: #ff80aa" value="GA">General American Standard</option>
@@ -51,7 +51,7 @@
                     <a class="thumbnail">
                         <img src="./img/image-1.png" data-title="Image Name" 
                          ng-click="DirectMoveAndSave('Masonry')" onclick="StopVIdeo()"  />
-                        <div class="desc"> <%=MasonaryObj[0].name[Language] %> 
+                        <div class="desc"> <b style="color: red"> <%=MasonaryObj[0].name[Language] %> </b>
                             <img src="./img/needHelp.png" ng-click="call_slider('Masonry')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more-img"> 
                             </img>
                         </div>  <!-- desc -->
@@ -60,7 +60,7 @@
                     <a class="thumbnail" onclick="StopVIdeo()" >
                         <img src="./img/image-2.png" data-title="Image Name" 
                          ng-click="DirectMoveAndSave('Rcc')" onclick="StopVIdeo()"  />
-                        <div class="desc"> <%=RccObj[0].name[Language] %> 
+                        <div class="desc"> <b style="color: green">   <%=RccObj[0].name[Language] %>  </b>
                             <img src="./img/needHelp.png" ng-click="call_slider('Rcc')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more-img">  
                             </img>
                         </div>  <!-- desc -->
@@ -69,7 +69,7 @@
                     <a class="thumbnail" onclick="StopVIdeo()" >
                         <img src="./img/image-3.png" data-title="Image Name" 
                              ng-click="DirectMoveAndSave('Steel')" onclick="StopVIdeo()" />
-                        <div class="desc"> <%=SteelObj[0].name[Language] %> 
+                        <div class="desc"> <b style="color:  blue ">  <%=SteelObj[0].name[Language] %> </b>
                             <img src="./img/needHelp.png" ng-click="call_slider('Steel')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more-img">  
                             </img>
                         </div>  <!-- desc -->
@@ -78,7 +78,7 @@
                     <a class="thumbnail" onclick="StopVIdeo()" >
                         <img src="./img/image-4.png" data-title="Image Name" 
                              ng-click="DirectMoveAndSave('Composite')" onclick="StopVIdeo()"  />
-                        <div class="desc"> <%=CompositeObj[0].name[Language] %> 
+                        <div class="desc"> <b style="color: purple">  <%=CompositeObj[0].name[Language] %> </b>
                             <img src="./img/needHelp.png" ng-click="call_slider('Composite')" onclick="StopVIdeo()" type="button" class="btn btn-xs read-more-img"> 
                             </img>
                         </div>  <!-- desc -->
