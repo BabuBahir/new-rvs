@@ -15,7 +15,7 @@ module.exports = {
 			}
 			else{
 				req.session.mail = val.email;
-				req.session.mem = val.email;
+				req.session.mem = val.membershiptype;
 				 
 				res.send({result : "user successfully registered", data : req.session.mail });
 				 

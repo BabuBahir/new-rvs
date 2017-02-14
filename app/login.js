@@ -6,7 +6,7 @@ module.exports = {
  
   index :  function (req, res){
 		var data = req.body;		
-		registersurveyer.findOne({email : data.email}).exec(function (err, val){   console.log(val);
+		registersurveyer.findOne({email : data.email}).exec(function (err, val){   
 			if(val=="" || val==null){
 				res.send('0');
 			} else{

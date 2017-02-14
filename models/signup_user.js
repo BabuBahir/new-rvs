@@ -39,3 +39,5 @@ userUrl.methods.comparePassword = function(candidatePassword, cb) {
 
 module.exports = mongoose.model('signup_user', userUrl);
   
+///
+
