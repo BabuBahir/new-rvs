@@ -1204,20 +1204,12 @@ toggle {  0% {
     width: initial;
 }
 
-.sign-up-form-bg h3 {
-    margin-bottom:40px;
-}
-
 .sign-up-form-bg h3 span {
     border: 4px solid #f3810f;
     background: transparent;
     padding: 9px 32px 11px;
     border-radius: 20px;
     width: initial;
-}
-
-.select-building-type  {
-   padding:30px 0;
 }
 
 .select-building-type span {
@@ -1352,6 +1344,49 @@ toggle {  0% {
     color:#fff;
     text-decoration:none;
 }
+
+/* blink css start */
+
+.blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    border:1px dashed #666;
+    text-align:center;
+    padding:10px;
+    display:inline-block;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+/* blink css end */
 
 /**** media styles starts here ****/
 
@@ -1609,6 +1644,15 @@ toggle {  0% {
 .QuesLeftGreen {
  border-left: 3px solid #449d44;
  padding-left: 5px;
+}
+
+
+.sign-up-form-bg h3 {
+    margin-bottom:40px;
+}
+
+.select-building-type  {
+   padding:30px 0;
 }
 
 /* ------  added by Rohitas ----- */

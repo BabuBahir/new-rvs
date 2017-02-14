@@ -8,100 +8,111 @@
     <script src="js/bootstrap.min.js"></script>
    
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 500px;
-        width: 100%;
+         /* Always set the map height explicitly to define the size of the div
+          * element that contains the map. */
+         #map {
+           height: 500px;
+           width: 100%;
+          }
+         /* Optional: Makes the sample page fill the window. */
+         html, body {
+           height: 100%;
+           margin: 0;
+           padding: 0;
+         }
+         #description {
+           font-family: Roboto;
+           font-size: 15px;
+           font-weight: 300;
+         }
+
+         #infowindow-content .title {
+           font-weight: bold;
+         }
+
+         #infowindow-content {
+           display: none;
+         }
+
+         #map #infowindow-content {
+           display: inline;
+         }
+
+         .pac-card {
+           margin: 10px 10px 0 0;
+           border-radius: 2px 0 0 2px;
+           box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           outline: none;
+           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+           background-color: #fff;
+           font-family: Roboto;
+         }
+
+         #pac-container {
+           padding-bottom: 12px;
+           margin-right: 12px;
+         }
+
+         .pac-controls {
+           display: inline-block;
+           padding: 5px 11px;
+         }
+
+         .pac-controls label {
+           font-family: Roboto;
+           font-size: 13px;
+           font-weight: 300;
+         }
+
+         #address {
+           background-color: #fff;
+           font-family: Roboto;
+           font-size: 15px;
+           font-weight: 300;
+           margin-left: 12px;
+           text-overflow: ellipsis;
+           width: 330px; /* original value was 440px */
+           /* added by vikash */
+           top: 11px !important;
+           border-top-right-radius: 0;
+           border-bottom-right-radius: 0;
+         }
+
+         #address:focus {
+           border-color: #4d90fe;
+         }
+
+         #title {
+           color: #fff;
+           background-color: #4d90fe;
+           font-size: 25px;
+           font-weight: 500;
+           padding: 6px 12px;
+         }
+         #target {
+           width: 345px;
+         }
+       
+       .search-address-btn {
+          position: absolute;
+           top: 87px;
+           left: 482px;
+           z-index: 99;
+           border-top-left-radius: 0;
+           border-bottom-left-radius: 0;
+           height: 34px;
        }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
+   
+       .display-address {
+          border: 1px solid #398439;
+          background: #eee;
+          padding: 8px 12px;
+          border-radius: 3px;
+       }
+       
+   </style>
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #address {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 330px; /* original value was 440px */
-         /* added by vikash */
-        top: 11px !important;
-      }
-
-      #address:focus {
-        border-color: #4d90fe;
-      }
-
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-
-      .search-address-btn {
-            position: absolute;
-            top: 87px;
-            left: 500px;
-            z-index: 99;
-        }
-
-    </style>
   </head>
 
 
@@ -125,6 +136,7 @@
                 <div id="map"></div> <!--map--> <br/>
 
                 <input  type="textbox"  id="txt" placeholder="Your Address Will be Display Here" class="form-control" readonly style="border-color: #398439;"> <br/>
+ 
 
                 <a class="orange-btn" style="width: 24%; margin-bottom:40px;" id="btn"> This is My Building !!</a>
                 
@@ -214,7 +226,7 @@
                       markers[0].formatted_address = 'Cannot determine address at this location.';
                     }
               
-              $("#txt").val(markers[0].formatted_address);
+                     $("#txt").val(markers[0].formatted_address);
               
                    });
           
