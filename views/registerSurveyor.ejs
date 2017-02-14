@@ -109,11 +109,21 @@
                         </div>
                     </div> <!-- col-sm-4 -->
                     
-                    <div class="col-sm-4 col-xs-12" style="padding:5px">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="qualification" id="qualification" placeholder="Qualification">
-                        </div>
-                    </div> <!-- col-sm-4 -->
+            <div class="col-sm-4 col-xs-12" style="padding:5px">
+                <div class="form-group">
+                           
+                    <select class="form-control" name="qualification" id="qualification" >
+                    <option selected="selected"> Choose Qualification</option>
+                    <option style="background-color: yellow" value="NonGraduate">Non Graduate</option>
+                    <option style="background-color: orange" value="Graduate">Graduate</option>
+                    <option style="background-color: #ff80aa" value="Diploma">Diploma in Civil Engineering</option>
+                    <option style="background-color: #66ff66" value="Architect">Architect/Civil Engineering Graduate</option>
+                    <option style="background-color: #ffff66" value="Civil">Civil Engineer with  minimum 5 years experience</option>
+                    <option style="background-color: #ff8566" value="5Architect">Architect with  minimum 5 years experience</option>
+                    </select>
+
+                </div>
+            </div> <!-- col-sm-4 -->
 				  <!-- country, pincode, qualification end  -->
                     
                     <div class="col-sm-12 col-xs-12" style="padding:5px">
@@ -217,14 +227,14 @@
                     
                     <div class="col-sm-4 col-xs-12" style="padding:5px">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="password" 
+                            <input type="password" class="form-control" name="password" 
                             id="password" placeholder="Password">
                         </div>
                     </div> <!-- col-sm-4 -->
                     
                     <div class="col-sm-4 col-xs-12" style="padding:5px">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
                         </div>
                     </div> <!-- col-sm-4 -->
                   
@@ -282,7 +292,7 @@ $(document).ready(function() {
         $("#i1").removeClass("fa-check-circle"); $("#i1").addClass("fa-circle-o");
         $("#i2").removeClass("fa-check-circle"); $("#i2").addClass("fa-circle-o");  
      });
-    $('#btn').click(function () { alert(m);
+    $('#btn').click(function () { alert($("#qualification").val());
           var data = {
             prefix            : $("input:radio[name=inlineRadioOptions]:checked").val(),
             firstname         : $("#firstName").val(),

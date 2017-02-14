@@ -52,10 +52,14 @@ module.exports = function(app) {
     app.get('/report', function(req, res) {
         res.render('report_Format.html', { FUllName: req.session.name , membership: req.session.membershiptype });
     });
+
     app.get('/signup', function(req, res) {
         res.render('signup');
     });
 
+    app.get('/support' , function(req,res){
+        res.render('support' , { FUllName: req.session.name , membership: req.session.membershiptype });
+    });
     // app.post('/user_passwordchange', changepass.getChangePass);
     //use this
     app.get('/changepass/:token', change.getChangePass);
