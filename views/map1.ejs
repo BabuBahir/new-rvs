@@ -186,68 +186,73 @@
         var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              draggable:true, 
-              //title:"Drag Me",
-              animation: google.maps.Animation.DROP,
-              position: results[0].geometry.location
-            });
+                      resultsMap.setCenter(results[0].geometry.location);
+                      var marker = new google.maps.Marker({
+                            map: resultsMap,
+                            draggable:true, 
+                            //title:"Drag Me",
+                            animation: google.maps.Animation.DROP,
+                            position: results[0].geometry.location
+                });
             markers.push(marker);
                        
-            } else {
+          } else {
             alert('Wrong input \n Geocode was not successful for the following reason: ' + status);
           }
             //console.log(marker);
-            google.maps.event.addListener(marker, 'dragend', function() {
+            google.maps.event.addListener(marker, 'dragend', function() { 
             geocoder.geocode({
               latLng: marker.getPosition()
-            }, function(responses) {
-              if (responses && responses.length > 0) {
-                markers[0].formatted_address = responses[0].formatted_address;
+            }, function(responses) {  
+                     
+                    if (responses && responses.length > 0) { 
+                      markers[0].formatted_address = responses[0].formatted_address;
+                      $( "body" ).data( "lat", responses[0].geometry.location.lat() );
+                      $( "body" ).data( "lng", responses[0].geometry.location.lng() );
 
-              } else {
-                markers[0].formatted_address = 'Cannot determine address at this location.';
-              }
-              //console.log(marker.formatted_address);
-              //marker.title=marker.formatted_address;
+                    } else {
+                      markers[0].formatted_address = 'Cannot determine address at this location.';
+                    }
+              
               $("#txt").val(markers[0].formatted_address);
               
-            });
+                   });
           
-        });
+            });
+
             google.maps.event.addListener(marker, 'click', function() {
             geocoder.geocode({
               latLng: marker.getPosition()
-            }, function(responses) {
-              if (responses && responses.length > 0) {
-                markers[0].formatted_address = responses[0].formatted_address;
+            }, function(responses) { 
+                    if (responses && responses.length > 0) {
+                      markers[0].formatted_address = responses[0].formatted_address;
 
-              } else {
-                markers[0].formatted_address = 'Cannot determine address at this location.';
-              }
-              //console.log(marker.formatted_address);
-              //marker.title=marker.formatted_address;
-              $("#txt").val(markers[0].formatted_address);
+                    } else {
+                      markers[0].formatted_address = 'Cannot determine address at this location.';
+                    }
+                      
+                      $("#txt").val(markers[0].formatted_address);
               
-            });
+                });
           
-        });
+          });
+
       })
     }
 
   </script>
-  
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhcBj8QN9RqeG8cRNa5XscyeUnS9APgwo&libraries=places&callback=initAutocomplete"
    async defer></script>
   
 <script>
 $(document).ready(function() {
-    $('#btn').click(function () {
+    $('#btn').click(function () {  
           var data = {
             txtdata     :  $("#txt").val() ,
-            address     :  $("#address").val() 
+            address     :  $("#address").val(), 
+            lat         :  $( "body" ).data( "lat"),
+            lng         :  $( "body" ).data( "lng")
            };
       //console.log(data);
         $.ajax({

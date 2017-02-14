@@ -16,9 +16,11 @@ module.exports = {
   } ,
 
 
-  CaptureAddress : function(req,res){
+  CaptureAddress : function(req,res){  
     req.session.txtdata = req.body.txtdata ;
     req.session.address = req.body.address ;
+    req.session.lat =req.body.lat ;
+    req.session.lng =req.body.lng;
    
       if(req.body.txtdata == req.body.address){
         res.send('Fail');
