@@ -21,6 +21,7 @@ module.exports = {
     req.session.address = req.body.address ;
     req.session.lat =req.body.lat ;
     req.session.lng =req.body.lng;
+    req.session.localauth = req.body.localauth;
    
       if(req.body.txtdata == req.body.address){
         res.send('Fail');
@@ -33,6 +34,10 @@ module.exports = {
   MoveToSupport : function(req,res){
      req.session.PageToSupport  = req.body.PageToSupport;
      res.send(req.session.PageToSupport);
+  },
+
+  getPreviousOfSupport : function(req,res){       
+      res.send(req.session.PageToSupport);
   }
 
 };

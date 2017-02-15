@@ -276,7 +276,7 @@
                        
                         <p class="blink_me" style="color: red"> 
                            <b> If you want your survey report to be reviewed by our expert 
-                               <a href="/support" style="color: blue">Contact us</a> here
+                               <a id="btn" href="/support" style="color: blue">Contact us</a> here
                            </b>
                        </p>
                        <br/> <br/>
@@ -301,6 +301,20 @@
 	    
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
-	
+	        <script>
+            $(document).ready(function() {
+                $('#btn').click(function() {
+                    $.ajax({
+                        type: "POST",
+                        url: "/MoveToSupport",                         
+                        data : {'PageToSupport': 'report'},                         
+                        success: function(result) {
+                              location.href= "/support";
+                            }
+
+                        });
+                    });
+                })             
+            </script>
 	</body>
 </html>

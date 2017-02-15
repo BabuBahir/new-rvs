@@ -9,12 +9,12 @@ module.exports = {
   	var selectedBuilding =  req.session.BuildingName;       
       question.find({'forPAge': 'GI'}, function(err, data){  
         var Language =  req.session.languageSelected ;     
-
+        var localauth = req.session.localauth;
         var LatLong = req.session.lat + '/' + req.session.lng ; // setting LatLong
 
         if(Language == null){ Language = req.session["languageSelected"] = 'English'; };
  
-        res.render('general_Info-Form',{FUllName :req.session.name , membership: req.session.membershiptype , rawData: data , Language : Language , Address : req.session.address , LatLong : LatLong});
+        res.render('general_Info-Form',{FUllName :req.session.name , membership: req.session.membershiptype , rawData: data , Language : Language , Address : req.session.address , LatLong : LatLong , localauth : localauth });
       });        
   },
 

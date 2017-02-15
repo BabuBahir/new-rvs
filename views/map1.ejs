@@ -111,6 +111,18 @@
           border-radius: 3px;
        }
        
+       .page-label {
+           text-align:center;
+           margin-top:20px;
+       }
+       
+       .page-label span {
+           border: 4px solid #f3810f;
+           background: transparent;
+           padding: 9px 32px 11px;
+           border-radius: 20px;
+           width: initial;
+       }
    </style>
 
   </head>
@@ -122,11 +134,13 @@
     <!-- nav bar ends here -->
     <div class="container-fluid new-surveyor-form_bg-img">
       
-        <br><br>
+        <br> 
         
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <h3 class="text-center"><b>Locate your Building</b></h3>
+                <h3 class="page-label">
+                   <span><b>Locate your Building</b></span>
+               </h3>
                 <br>
 
                 <input id="address" class="controls form-control" type="text" placeholder="Search Box" style="border-color: #398439; border-width: 2px">
@@ -218,8 +232,11 @@
               latLng: marker.getPosition()
             }, function(responses) {  
                      
-                    if (responses && responses.length > 0) { 
+                    if (responses && responses.length > 0) {  
+                      var localauth = responses[0].address_components[2].long_name;
                       markers[0].formatted_address = responses[0].formatted_address;
+
+                      $( "body" ).data( "localauth", localauth );
                       $( "body" ).data( "lat", responses[0].geometry.location.lat() );
                       $( "body" ).data( "lng", responses[0].geometry.location.lng() );
 
@@ -265,7 +282,8 @@ $(document).ready(function() {
             txtdata     :  $("#txt").val() ,
             address     :  $("#address").val(), 
             lat         :  $( "body" ).data( "lat"),
-            lng         :  $( "body" ).data( "lng")
+            lng         :  $( "body" ).data( "lng"),
+            localauth   :  $( "body" ).data( "localauth")
            };
       //console.log(data);
         $.ajax({

@@ -16,11 +16,13 @@
             <br/>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="new-surveyor-form-bg congratulatory-msg">
-                    <h3 class="label-congratulations"> <span class=""><i class="fa fa-check-circle-o"></i></span> Survey Completed Succesfully !!</h3>
+                    <h3 class="label-congratulations"> <span class="">
+                    <img src="img/tic.png"/>
+                    </span> Survey Completed Succesfully !!</h3>
                     <a href="/report" class="orange-btn-big">Generate Survey Report </a>
                     <p class="blink_me" style="color: red">
                         <b> If you want your survey report to be reviewed by our expert 
-                               <a id="btn" href="#"  style="color: blue">Contact us</a> here
+                               <a id="btn"  style="color: blue">Contact us</a> here
                        </b>
                     </p>
                     <br/>
@@ -41,7 +43,7 @@
                         url: "/MoveToSupport",                         
                         data : {'PageToSupport': 'SurveyDone'},                         
                         success: function(result) {
-                              location.href= "/"+result;
+                              location.href= "/support";
                             }
 
                         });

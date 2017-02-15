@@ -84,7 +84,7 @@ module.exports = function(app) {
 
     app.get('/getPopModal/:LastQID?/:RandomTime?', questionController.getPopModal);
 
-
+    app.get('/getPreviousOfSupport' , sessionController.getPreviousOfSupport);
     //---some post   ------------------------------------ post post post post 
 
     app.post('/MoveToSupport' , sessionController.MoveToSupport); 

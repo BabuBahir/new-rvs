@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <div class="col-sm-3 "></div>
                                 <div class="col-sm-9">
-                                    <button type="button" class="btn btn-danger btn-sm">Close Window
+                                    <button id="btn" type="button" class="btn btn-danger btn-sm">Close Window
                                         &nbsp; <i class="fa fa-times-circle"></i>
                                     </button>
                                     &nbsp; &nbsp; &nbsp;
@@ -108,6 +108,24 @@
            $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
+
+
+    <script>
+            $(document).ready(function() {
+                $('#btn').click(function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/getPreviousOfSupport",                        
+                        success: function(result) {
+                              location.href= "/"+result;
+                            }
+
+                        });
+                    });
+                })             
+            </script>
+
+
 </body>
 
 </html>
