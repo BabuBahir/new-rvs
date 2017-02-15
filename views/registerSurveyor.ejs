@@ -131,13 +131,14 @@
 				  <!-- country, pincode, qualification end  -->
                     
                     <div class="col-sm-12 col-xs-12" style="padding:5px">
-                        <label>Type of Membership</label>
-                        <i class="fa fa-question-circle pull-right" style="margin-top:1px;font-size:20px;cursor:pointer;" data-toggle="modal" data-target=".help-modal" ></i>
+                       <label>Eligibility Criteria</label><br/>
+                       <label>Type of Membership</label>
+                       <i class="fa fa-question-circle pull-right" style="margin-top:-13px;font-size:20px;cursor:pointer; margin-right:2px;" data-toggle="modal" data-target=".help-modal"></i>
                     </div>
                     
                   <!-- membership type select start  -->
                     <div class="col-sm-4 col-xs-12" style="padding:5px">
-                        <div class="thumbnail non-profesional">
+                        <div class="thumbnail non-profesional selected-this">
                             <div class="caption">
                                 <h5>Non-Professional Surveyor</h5>
                             </div>
@@ -245,7 +246,7 @@
                   <!-- empty div below -->  
                     <div class="col-sm-4 col-xs-12" style="padding:5px">
                         <div style="width:100%; background:#f2f2f2;height:33px;">
-                            <select class="form-control">
+                            <select id="MemberDuration" class="form-control">
                                     <option selected="selected"> Type of Membership </option> 
                                     <option> Life Time Membership</option>
                                     <option> Annual Membership</option>                                     
@@ -274,13 +275,13 @@
                             <h4 class="modal-title " id="myModalLabel"><b>Membership Eligibility</b></h4>
                         </div>
                         <div class="modal-body"> 
-                            <h5 ><b>Nonprofessional Surveyor Membership :</b></h5> 
+                            <h5 style="color: #5cb85c" ><b>Nonprofessional Surveyor Membership :</b></h5> 
                             <p>Open to everyone through simple registration.</p>
                             
-                            <h5 ><b>Professional Surveyor Membership:</b></h5> 
+                            <h5 style="color: #407dd8" ><b>Professional Surveyor Membership:</b></h5> 
                             <p>Open to Engineers with B.E. (Civil) Degree with 3 years of Professional Consulting Experience OR Diploma (Civil) with 05 years of Professional Consulting Experience.</p>
                             
-                            <h5 ><b>Certified Surveyor Membership:</b></h5>  
+                            <h5 style="color: #f3810f" ><b>Certified Surveyor Membership:</b></h5>  
                             <p>Open to Engineers with B.E. (Civil) Degree with 5 years of Professional Consulting Experience OR Diploma (Civil) with 10 years of Professional Consulting Experience  and  ten hours RVS training programme with us.</p>
                         </div>  <!-- modal-body -->
                     </div>  <!-- modal-content -->
@@ -345,7 +346,8 @@ $(document).ready(function() {
             membershiptype    : m,
             email             : $("#emailID").val(),
             phone             : $("#phoneNumber").val(),
-            password          : $("#password").val()
+            password          : $("#password").val(),
+            MemberDuration    : $("#MemberDuration").val()
            }
       console.log(data);
         $.ajax({

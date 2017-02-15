@@ -1229,16 +1229,13 @@ toggle {  0% {
     width: initial;
 }
 
-.help-modal .modal-header {
-    padding:12px;
-}
 
 .help-modal .modal-header .modal-title {
     color:#337ab7; font-size:21px; text-align:center;
 }
 
 .help-modal .modal-body {
-    padding:18px 20px 15px;
+    padding: 40px 25px;
 }
 
 .help-modal .modal-body h5  {

@@ -66,6 +66,9 @@ var UserSchema = new mongoose.Schema({
         type: String
     },
 
+    MemberDuration : {
+        type : String
+    },
     
     password: {
         type: String,

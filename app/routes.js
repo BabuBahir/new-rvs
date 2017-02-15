@@ -16,7 +16,7 @@ module.exports = function(app) {
     });
     //welcome page
     app.get('/welcome', function(req, res) {
-        res.render('welcome', { member: req.session.mem, data: req.session.mail });
+        res.render('welcome', { member: req.session.mem, email: req.session.mail });
     });
 
     app.get('/2', function(req, res) {
