@@ -934,7 +934,16 @@ toggle {  0% {
 .answer-block { font-size:16px; font-family:Lato; }
 
 .caption_header  { 
-    font:700 17px Lato; color:#333; margin:15px 0 0;text-align: center; background: #fff; padding:12px 0px; 
+    font:700 17px Lato; color:#333; margin:15px 0 0;text-align: center; background: #fff; 
+     padding:17px 0px 18px;
+}
+
+.caption_header span  { 
+    border: 4px solid #337ab7;
+    background: transparent;
+    padding: 7px 28px 9px;
+    border-radius: 20px;
+    width: initial;
 }
 
 .profile-img-wrap, .elevation-img-wrap, .side-view-img-wrap, .plan-img-wrap, .isometric-img-wrap  { 
@@ -1224,8 +1233,21 @@ toggle {  0% {
     padding:12px;
 }
 
+.help-modal .modal-header .modal-title {
+    color:#337ab7; font-size:21px; text-align:center;
+}
+
 .help-modal .modal-body {
     padding:18px 20px 15px;
+}
+
+.help-modal .modal-body h5  {
+ color:#31708f; font-size:16px;
+}
+
+.help-modal .modal-body p {
+    font-size:17px; padding-left:17px;
+    margin-bottom:15px;
 }
 
 .help-modal .modal-body h5:before {
@@ -1395,6 +1417,20 @@ toggle {  0% {
 }
 
 /* blink css end */
+
+/* added on 15th feb 2017 */
+
+.general-info-wrap .section-heading, .technical-info-wrap .section-heading, .seismic-assessment-wrap .section-heading, .final-assess-wrap .section-heading {
+    margin-top:23px; margin-bottom:29px;
+}
+
+.general-info-wrap .section-heading span, .technical-info-wrap .section-heading span, .seismic-assessment-wrap .section-heading span, .final-assess-wrap .section-heading span {
+    border: 4px solid #337ab7;
+    background: transparent;
+    padding: 8px 28px 10px;
+    border-radius: 20px;
+    width: initial;
+}
 
 /**** media styles starts here ****/
 
@@ -1650,19 +1686,19 @@ toggle {  0% {
 /* 14th FEB */
 
 .QuesLeftGreen {
- border-left: 3px solid #449d44;
- padding-left: 5px;
-  /*15th Feb*/
- font-size: 15px
+border-left: 3px solid #449d44;
+padding-left: 5px;
+ /* 15th Feb  */
+font-size: 15px
 }
 
 
 .sign-up-form-bg h3 {
-    margin-bottom:40px;
+   margin-bottom:40px;
 }
 
 .select-building-type  {
-   padding:30px 0;
+  padding:30px 0;
 }
 
 /* ------  added by Rohitas ----- */
