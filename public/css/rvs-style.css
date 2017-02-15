@@ -992,7 +992,7 @@ toggle {  0% {
     box-shadow: 0px 0px 14px 3px rgba(188,188,188,1);
     background: #fff;
     text-align: initial;
-    background:#fff; border-radius:0; padding:15px 25px 20px; 
+    background:#fff; border-radius:0; padding:15px 20px 20px; 
     width:100%; display:block; margin-bottom:70px; position:relative;
 }
 
@@ -1383,7 +1383,7 @@ toggle {  0% {
     animation-iteration-count: infinite;
     border:1px dashed #666;
     text-align:center;
-    padding:10px;
+    padding:10px 5px;
     display:inline-block;
 }
 

@@ -28,6 +28,11 @@ module.exports = {
       else{
         res.send('Pass');
       }
+  },
+
+  MoveToSupport : function(req,res){
+     req.session.PageToSupport  = req.body.PageToSupport;
+     res.send(req.session.PageToSupport);
   }
 
 };

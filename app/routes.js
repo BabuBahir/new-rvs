@@ -8,7 +8,7 @@ var changepwd = require('./passViews/changepwd');
 var questionController = require('./questionController');
 var sessionController = require('./sessionController');
 var nodemailer = require('nodemailer');
-
+ 
 module.exports = function(app) {
  
     app.get('/', function(req, res) {
@@ -86,6 +86,8 @@ module.exports = function(app) {
 
 
     //---some post   ------------------------------------ post post post post 
+
+    app.post('/MoveToSupport' , sessionController.MoveToSupport); 
 
     app.post('/CaptureAddress', sessionController.CaptureAddress);
 

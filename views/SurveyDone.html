@@ -9,7 +9,7 @@
 <body ng-controller="MainCtrl">
     <!-- nav bar starts here -->
     <% include ./partials/header %>
-    <!-- nav bar ends here -->
+        <!-- nav bar ends here -->
         <div class="container-fluid new-surveyor-form_bg-img">
             <br/>
             <br/>
@@ -17,26 +17,37 @@
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="new-surveyor-form-bg congratulatory-msg">
                     <h3 class="label-congratulations"> <span class=""><i class="fa fa-check-circle-o"></i></span> Survey Completed Succesfully !!</h3>
-                     
-                     <a href="/report" class="orange-btn-big">Generate Survey Report </a>
-
-                     
-                    <p class="blink_me" style="color: red"> 
-                           <b> If you want your survey report to be reviewed by our expert 
-                               <a href="/support" style="color: blue">Contact us</a> here
-                           </b>
-                       </p>
-                       <br/> 
-                       <p class="text-center" style="font-size: 16px" ><b>If you are satisfied with our Survey Sheet, you can donate here <a href="http://www.google.com">www.google.com</a> as per your wish, it is non-profitable survey site. We maintain this site with the help of your donation money.</b></p>
+                    <a href="/report" class="orange-btn-big">Generate Survey Report </a>
+                    <p class="blink_me" style="color: red">
+                        <b> If you want your survey report to be reviewed by our expert 
+                               <a id="btn" href="#"  style="color: blue">Contact us</a> here
+                       </b>
+                    </p>
+                    <br/>
+                    <p class="text-center" style="font-size: 16px"><b>If you are satisfied with our Survey Sheet, you can donate here <a href="http://www.google.com">www.google.com</a> as per your wish, it is non-profitable survey site. We maintain this site with the help of your donation money.</b></p>
                 </div>
             </div>
             <!-- sign-up-bg -->
         </div>
+        <% include ./partials/footer %>
+            <!-- container-fluid -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script>
+            $(document).ready(function() {
+                $('#btn').click(function() {
+                    $.ajax({
+                        type: "POST",
+                        url: "/MoveToSupport",                         
+                        data : {'PageToSupport': 'SurveyDone'},                         
+                        success: function(result) {
+                              location.href= "/"+result;
+                            }
 
-         <% include ./partials/footer %>
-        <!-- container-fluid -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+                        });
+                    });
+                })             
+            </script>
 </body>
 
 </html>
