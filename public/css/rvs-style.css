@@ -351,13 +351,14 @@ footer i { vertical-align:-8px; }
 /*------------------------- */
 
 .for-design, .for-survey {
-  border:2px solid #f27e11; text-align:center; background-color:#fff;
+  /* border:2px solid #f27e11; */
+  text-align:center; background-color:#fff;
   margin-bottom:13px; margin-top:10px;
 }
 
-.for-survey  { border:2px solid #72acfe; }
+.for-survey  { /* border:2px solid #72acfe; */ }
 
-.design-img, .survey-img  { height:210px; object-fit:contain; width:100%; }
+.design-img, .survey-img  { height:210px; object-fit:contain; border: 2px solid #72acfe; /* width:100%; */ }
 
 .for-design-label, .for-survey-label  {
   text-align:center; color:#222;
@@ -979,7 +980,9 @@ toggle {  0% {
 
 .new-surveyor-form_bg-img  {
    background-size: cover;  min-height: 100%; min-height: 100vh; 
-  background-image: url(../img/qs-bk.png); background-position: initial;
+  /*  background-image: url(../img/qs-bk.png);  */
+  background-color: rgb(183, 178, 178);
+  background-position: initial;
 }
 
 .label-surveyor-register {
