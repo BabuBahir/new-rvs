@@ -358,7 +358,7 @@ footer i { vertical-align:-8px; }
 
 .for-survey  { /* border:2px solid #72acfe; */ }
 
-.design-img, .survey-img  { height:210px; object-fit:contain; border: 2px solid #72acfe; /* width:100%; */ }
+.design-img, .survey-img  { height:210px; object-fit:contain; border: 2px solid #fff; /* width:100%; */ }
 
 .for-design-label, .for-survey-label  {
   text-align:center; color:#222;
