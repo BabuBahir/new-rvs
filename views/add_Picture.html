@@ -59,11 +59,11 @@
                         </div>
                      <!--progress bar -->
                     <!--upload-bic-bg_small -->
-                     <div ng-show="ImgDone_1" class="CloudiImage" ng-init="myImgVar_1.src='' ; myImgVar_1.url='';">
+                     <div ng-show="ImgDone_1" class="hoverDiv" ng-init="myImgVar_1.src='' ; myImgVar_1.url='';">
                         <img class="img-responsive" ng-src="{{myImgVar_1.url}}">
                         
                       <!-- the below div will be visible on hover -->
-                        <div class="upload-hover-wrapper" style="height: 100%;" >
+                        <div class="upload-hover-wrapper" style="height: 100% !important;" >
                             <span><i ng-click="Delete_img(myImgVar_1.id,1)" class="fa fa-times"></i></span>
                         </div> <!-- upload-hover-wrapper -->
                         
@@ -492,6 +492,11 @@
                     $(this).find(".upload-hover-wrapper").toggleClass("toggle-onhover");
                     $(this).find(".upload-hover-wrapper").removeAttr('style');
                 });
+
+                 $(".hoverDiv").hover(function(){  
+                    $(this).find(".upload-hover-wrapper").toggleClass("toggle-onhover");                     
+                });
+
             });
             
     </script>   

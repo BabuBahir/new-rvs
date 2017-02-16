@@ -99,7 +99,14 @@
 <div class="second"></div>  
 <div ng-show="showDiv" class="col-sm-10 col-sm-offset-1">
      
-<h3 class="select-building-type">{{counter}}</h3>
+<h3 class="select-building-type">
+    <div ng-if="counter == 'Rcc' ">
+                RCC
+    </div>
+     <div ng-if="counter != 'Rcc' ">
+            {{counter}}
+    </div>
+</h3>
                 
 <div class="row detail-pg-bg">
                 
