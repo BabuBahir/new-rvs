@@ -4,9 +4,9 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
 
     // init 
     $scope.Full_6 = true;
-    $scope.Full_7 = false;
-    $scope.Full_8 = false;
-    $scope.Full_9 = false;
+    $scope.Full_7 = true;
+    $scope.Full_8 = true;
+    $scope.Full_9 = true;
     // init
 
 	$.cloudinary.config({cloud_name: "dcu5hz0re", upload_preset: 'fbesyowr'});  //cloudinary config.
@@ -165,7 +165,7 @@ angular.module('AddPictureapp',['angularFileUpload']).controller('MainCtrl', fun
     $scope.hideLastBuildingImage = function(imgIndex){
         if (imgIndex >= 6){             
             var nextImgstr = 'Full_'+imgIndex;
-            $scope[nextImgstr] = false;
+            $scope[nextImgstr] = true;
         };         
     };
 
