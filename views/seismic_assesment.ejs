@@ -103,14 +103,17 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                              <%  if(rawData[i].ifNeedAssistance == '1') { %>
                                                 <span style="color:#fb6969">                                 
-                                                    <a type="button" href="#" style="text-decoration : none"
+                                                <a type="button" href="#" style="text-decoration : none"
                                                     ng-click="NA_UpdateQId('<%=rawData[i]._id%>')"
                                                     data-toggle="modal" data-target="#myModal">
-
                                                         <img width="55" src="./img/needHelp.png" > ?
-                                                    </a>
+                                                    </a> &nbsp; &nbsp;
+                                                    <i class="fa fa-thumbs-up" style="color: green; font-size: 18px"></i>
+
                                                 </span>
-                                             <%}%>
+                                             <%} else { %>
+                                                    <i class="fa fa-thumbs-down" style="color: red; font-size: 18px"></i>
+                                            <%}%>
                                             </b>
                                         </label>
                                         <% if((rawData[i].questionType)=='1') {%>
